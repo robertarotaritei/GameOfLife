@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationBar renders correctly 1`] = `
+<div
+  className="topnav"
+>
+  Welcome 
+  
+  <button
+    className="linkbutton"
+    onClick={[Function]}
+  >
+    Dashboard
+  </button>
+  <button
+    className="linkbutton"
+    onClick={[Function]}
+  >
+    Game History
+  </button>
+  <button
+    className="linkbutton"
+    onClick={[Function]}
+  >
+    Log out
+  </button>
+</div>
+`;

@@ -1,0 +1,62 @@
+version: 2.1
+
+orbs:
+  windows: circleci/windows@2.2.0
+  sonarcloud: sonarsource/sonarcloud@1.0.2
+
+jobs:
+  build-and-test-react:
+    docker: 
+      - image: cimg/node:14.10.1 
+    steps:
+      - checkout
+      - run: cd game-of-life && npm install
+      - run: cd game-of-life && npm run build
+      - run: cd game-of-life && npm test --reporters=jest-junit
+      - run: cd game-of-life && cp -r build /tmp/build
+      - store_artifacts:
+          path: /tmp/build
+  build-game-runner:
+    docker: 
+      - image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dotnet-packages-v1-{{ checksum "GameRunner/GameRunner/GameRunner.csproj" }}
+      - run: cd GameRunner; dotnet restore
+      - save_cache:
+          paths:
+            - C:\Users\circleci\.nuget\packages
+          key: dotnet-packages-v1-{{ checksum "GameRunner/GameRunner/GameRunner.csprojj" }}
+      - run: cd GameRunner; dotnet build --configuration Release
+      - store_artifacts:
+          path: GameRunner
+      - sonarcloud/scan
+  test-game-runner:
+    docker: 
+      - image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    steps:
+      - checkout
+      - run: cd GameRunner; dotnet test -v n --results-directory:test_results --collect:"Code Coverage"
+      - store_test_results:
+          path: GameRunner\test_results
+          
+workflows:
+  build_and_test:
+    jobs:
+      - build-and-test-react:
+          filters:
+            branches:
+              only: master
+      - build-game-runner:
+          filters:
+            branches:
+              only: master
+      - test-game-runner:
+          filters:
+            branches:
+              only: master
+          requires:
+            - build-game-runner
+              

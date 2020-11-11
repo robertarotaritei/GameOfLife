@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm renders correctly 1`] = `
+<div
+  className="loginForm"
+>
+  Log in
+  <div
+    className="inputField"
+  >
+    <input
+      className="input"
+      onChange={[Function]}
+      placeholder="Username"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="inputField"
+  >
+    <input
+      className="input"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+  </div>
+  <div
+    className="submitButton"
+  >
+    <button
+      className="btn"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Login
+    </button>
+  </div>
+  <p>
+    Don't have an account? 
+    <button
+      className="linkbutton"
+      onClick={[Function]}
+    >
+       Register
+    </button>
+  </p>
+</div>
+`;

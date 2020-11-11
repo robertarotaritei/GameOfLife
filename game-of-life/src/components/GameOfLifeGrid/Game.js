@@ -1,0 +1,240 @@
+import React from 'react';
+import GameMenu from './GameMenu';
+import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
+import UserStore from '../../stores/UserStore';
+
+class Game extends React.Component {
+  	constructor() {
+		super();
+		this.speed = 600;
+		this.cols = 80;
+		this.rows = 40;
+
+		this.state = {
+			gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+			nextGeneration: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+			click: false,
+			initialState: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+			playState: 'play',
+			reactConnectionId: '',
+			runnerConnectionId: '',
+    	}
+	}
+
+	componentDidMount = () => {
+		this.ConnectToHub();
+	}
+	
+	ConnectToHub() {
+		const hubConnection =  new HubConnectionBuilder()
+		  	.withUrl("http://localhost:3002/Progress")
+			.configureLogging(LogLevel.Information)
+			.build();
+
+		this.setState({ hubConnection}, () => {
+			this.state.hubConnection
+				.start()
+				.then(() => console.log('Connection started!'))
+				.then(() => this.getConnectionId(hubConnection))
+				.catch(err => console.log('Error while establishing connection :('));
+		
+			this.state.hubConnection.on('GameProgressed', (gameState) => {
+				if(this.intervalId) {
+					this.setState({ 
+						nextGeneration: gameState.generation,
+						runnerConnectionId: gameState.reactConnectionId					
+					});
+				}
+			});
+
+			this.state.hubConnection.on('RunnerStarted', (runnerConnectionId) => {
+				this.setState({ runnerConnectionId });
+			});
+		});
+	}
+
+	getConnectionId = (hubConnection) => {
+		hubConnection.invoke('getconnectionid').then(
+			(data) => {
+				this.setState({reactConnectionId: data});
+			}
+		);
+	}
+
+	onMouseClicked = (event) => {
+		if(event.type === "mousedown"){
+			this.setState({click: true});
+		}
+		else{
+			this.setState({click: false});
+		}
+	}
+
+	seed = () => {
+		let gridCopy = arrayClone(this.state.gridFull);
+		for (let i = 0; i < this.rows; i++) {
+			for (let j = 0; j < this.cols; j++) {
+				if (Math.floor(Math.random() * 4) === 1) {
+					gridCopy[i][j] = !gridCopy[i][j];
+				}
+			}
+		}
+		this.setState({
+			gridFull: gridCopy,
+			nextGeneration: gridCopy
+		});
+	}
+
+	playButton = () => {
+		clearInterval(this.intervalId);
+		this.intervalId = setInterval(this.play, this.speed);
+		this.setState({initialState: this.state.gridFull});
+		this.setState({playState: "resume"});
+	}
+
+	resumeButton = () => {
+		clearInterval(this.intervalId);
+		this.intervalId = setInterval(this.play, this.speed);
+	}
+
+	pauseButton = () => {
+		clearInterval(this.intervalId);
+	}
+
+	stopButton = () => {
+		clearInterval(this.intervalId);
+		this.setState({
+			gridFull: this.state.initialState,
+			nextGeneration: this.state.initialState
+		});
+		this.setState({playState: "play"});
+	}
+
+	slow = () => {
+		this.speed = 600;
+		this.resumeButton();
+	}
+
+	fast = () => {
+		this.speed = 200;
+		this.resumeButton();
+	}
+
+	clear = () => {
+		var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
+		this.setState({
+			nextGeneration: grid,
+			gridFull: grid,
+			generation: 0
+		});
+		clearInterval(this.intervalId);
+	}
+
+	save = () => {
+		let game = {
+			author: UserStore.username,
+			initialState: JSON.stringify(this.state.gridFull)
+		};
+		fetch('/history/gamehistory', {
+			method: 'POST',
+			mode: 'cors',
+			headers: {
+			  'Accept': 'application/json',
+			  'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(game)
+		}).catch(console.log)
+
+		alert('Your game has been saved.');
+	}
+
+	play = () => {
+		let gameState = {
+			runnerConnectionId: this.state.runnerConnectionId,
+			reactConnectionId: this.state.reactConnectionId,
+			generation: this.state.gridFull
+		};
+		fetch('/games/activegames', {
+			method: 'POST',
+			mode: 'cors',
+			headers: {
+			  'Accept': 'application/json',
+			  'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(gameState)
+			})
+
+		if(this.state.gridFull !== this.state.nextGeneration){
+			this.setState({gridFull: this.state.nextGeneration});
+		}
+	}
+	
+	mapGrid(){
+		return (
+			<div
+				className="grid"
+				style={{
+				display: "grid",
+				gridTemplateColumns: `repeat(${this.cols}, 15px)`,
+			}}>
+				{this.state.gridFull.map((rows, i) =>
+					rows.map((col, k) => (
+						<div
+							key={`${i}-${k}`}
+							onClick={() => {
+								let g = this.state.gridFull;  
+								g[i][k] = !g[i][k];
+								this.setState({
+									gridFull: g,
+									nextGeneration: g
+								})
+							}}
+							onMouseEnter={() => {
+								if(this.state.click === true) {
+									let g = this.state.gridFull;  
+									g[i][k] = !g[i][k];
+									this.setState({
+										gridFull: g,
+										nextGeneration: g
+									})
+								}
+							}}
+							style={{
+								width: 15,
+								height: 15,
+								backgroundColor: this.state.gridFull[i][k] ? "white" : undefined,
+								border: "solid thin black"
+							}}	
+						/>
+					))
+				)}
+			</div>
+		);
+	}
+
+  	render() {
+		return (
+			<div onMouseDown={this.onMouseClicked} onMouseUp={this.onMouseClicked}>
+				<GameMenu
+					playState={this.state.playState}
+					playButton={this.playButton}
+					resumeButton={this.resumeButton}
+					pauseButton={this.pauseButton}
+					stop={this.stopButton}
+					slow={this.slow}
+					fast={this.fast}
+					clear={this.clear}
+					seed={this.seed}
+					save={this.save}
+				/>
+				{this.mapGrid()}
+			</div>
+		);
+    }
+}
+
+function arrayClone(arr) {
+	return JSON.parse(JSON.stringify(arr));
+}
+
+export default Game;

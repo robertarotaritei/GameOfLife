@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameHistory renders correctly 1`] = `
+<div
+  className="gameHistory"
+>
+  <div
+    className="topnav"
+  >
+    Welcome 
+    
+    <button
+      className="linkbutton"
+      onClick={[Function]}
+    >
+      Dashboard
+    </button>
+    <button
+      className="linkbutton"
+      onClick={[Function]}
+    >
+      Game History
+    </button>
+    <button
+      className="linkbutton"
+      onClick={[Function]}
+    >
+      Log out
+    </button>
+  </div>
+  <div
+    className="container"
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "paddingBottom": 20,
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

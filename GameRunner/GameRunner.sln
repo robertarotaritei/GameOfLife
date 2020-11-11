@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameRunner", "GameRunner\GameRunner.csproj", "{BBE75A5D-BB56-4CEA-BF3E-FB86888E3695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameRunnerTests", "GameRunnerTests\GameRunnerTests.csproj", "{DA9BBE46-3D26-475E-8D99-F94F262AD1B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBE75A5D-BB56-4CEA-BF3E-FB86888E3695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE75A5D-BB56-4CEA-BF3E-FB86888E3695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE75A5D-BB56-4CEA-BF3E-FB86888E3695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE75A5D-BB56-4CEA-BF3E-FB86888E3695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA9BBE46-3D26-475E-8D99-F94F262AD1B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA9BBE46-3D26-475E-8D99-F94F262AD1B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA9BBE46-3D26-475E-8D99-F94F262AD1B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA9BBE46-3D26-475E-8D99-F94F262AD1B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D03F6F9F-90C8-4791-973C-7669E9503212}
+	EndGlobalSection
+EndGlobal

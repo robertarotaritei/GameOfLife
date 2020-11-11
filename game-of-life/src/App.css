@@ -1,0 +1,102 @@
+body, html, #root, .app, .container {
+  width: 100%;
+  height: 100%;
+  background-color: #353535;
+}
+
+
+.container {
+  font-size: 28px;
+  color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #353535;
+}
+
+.loginForm {
+ box-sizing: border-box;
+ width: 100%;
+ max-width: 450px;
+ padding-left: 20px;
+ padding-right: 20px;
+}
+
+.inputField {
+ padding-top: 16px;
+}
+
+.input {
+ box-sizing: border-box;
+ outline: none;
+ border: solid 2px #3c6e71;
+ border-radius: 4px;
+ color: #292929;
+ width: 100%;
+ padding: 12px;
+ font-size: 14px;
+ background: rgba(255, 255, 255, 1);
+}
+
+.submitButton {
+ padding-top: 16px;
+}
+
+
+.btn {
+ width: 100%;
+ min-width: 280px;
+ color: #565656;
+ padding: 12px;
+ font-size: 14px;
+ font-weight: bold;
+ border: solid 2px #3c6e71;
+ border-radius: 4px;
+ background: #fff;
+ cursor: pointer;
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #d9d9d9;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #d9d9d9;
+  color: #d9d9d9;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.linkbutton {
+  align-items: normal;
+  background-color: #353535;
+  border-color: #d9d9d9;
+  border-style: none;
+  box-sizing: content-box;
+  color: #d9d9d9;
+  cursor: pointer;
+  display: inline;
+  font-size: 28px;
+  padding: 0;
+  perspective-origin: 0 0;
+  text-align: start;
+  text-decoration: underline;
+  transform-origin: 0 0;
+  -moz-appearance: none;
+  -webkit-logical-height: 1em;
+  -webkit-logical-width: auto;
+}
