@@ -28,11 +28,10 @@ jobs:
       - save_cache:
           paths:
             - C:\Users\circleci\.nuget\packages
-          key: dotnet-packages-v1-{{ checksum "GameRunner/GameRunner/GameRunner.csprojj" }}
+          key: dotnet-packages-v1-{{ checksum "GameRunner/GameRunner/GameRunner.csproj" }}
       - run: cd GameRunner; dotnet build --configuration Release
       - store_artifacts:
           path: GameRunner
-      - sonarcloud/scan
   test-game-runner:
     docker: 
       - image: mcr.microsoft.com/dotnet/core/sdk:3.1
