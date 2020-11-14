@@ -15,28 +15,33 @@ namespace GameRunner
 
         public bool[][] CalculateNextState(GameState currentState)
         {
-            MaxRows = currentState.Generation.Length;
-            MaxColumns = currentState.Generation[0].Length;
-
-            bool[][] nextGeneration = new bool[MaxRows][];
-            for (int currentRow = 0; currentRow < MaxRows; currentRow++)
+            if (currentState != null)
             {
-                nextGeneration[currentRow] = new bool[MaxColumns];
-                currentState.Generation[currentRow].CopyTo(nextGeneration[currentRow], 0);
-            }
+                MaxRows = currentState.Generation.Length;
+                MaxColumns = currentState.Generation[0].Length;
 
-            for (int currentRow = 0; currentRow < MaxRows; currentRow++)
-            {
-                for (int currentColumn = 0; currentColumn < MaxColumns; currentColumn++)
+                bool[][] nextGeneration = new bool[MaxRows][];
+                for (int currentRow = 0; currentRow < MaxRows; currentRow++)
                 {
-                    int lifeCount = CalculateLifeCount(currentState, currentRow, currentColumn);
-
-                    nextGeneration[currentRow][currentColumn] = lifeCount == 3;
-                    nextGeneration[currentRow][currentColumn] = lifeCount >= 2 && lifeCount <= 3 && nextGeneration[currentRow][currentColumn];
+                    nextGeneration[currentRow] = new bool[MaxColumns];
+                    currentState.Generation[currentRow].CopyTo(nextGeneration[currentRow], 0);
                 }
+
+                for (int currentRow = 0; currentRow < MaxRows; currentRow++)
+                {
+                    for (int currentColumn = 0; currentColumn < MaxColumns; currentColumn++)
+                    {
+                        int lifeCount = CalculateLifeCount(currentState, currentRow, currentColumn);
+
+                        nextGeneration[currentRow][currentColumn] = lifeCount == 3;
+                        nextGeneration[currentRow][currentColumn] = lifeCount >= 2 && lifeCount <= 3 && nextGeneration[currentRow][currentColumn];
+                    }
+                }
+
+                return nextGeneration;
             }
 
-            return nextGeneration;
+            return new bool[0][];
         }
 
         private int CalculateLifeCount(GameState gameState, int currentRow, int currentColumn)

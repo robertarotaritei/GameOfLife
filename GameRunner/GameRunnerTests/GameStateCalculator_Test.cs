@@ -43,7 +43,7 @@ namespace GameRunnerTests
             var result = calculator.CalculateNextState(initialState);
 
             //Assert
-            Assert.AreEqual(null, result);
+            Assert.AreEqual(new bool[0][].ToString(), result.ToString());
         }
     }
 }
