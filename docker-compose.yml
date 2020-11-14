@@ -19,31 +19,31 @@ services:
       - 8080:8080
 
   react:
-    image: robertaro/game-of-life-react
+    image: robertaro/game-of-life-react:latest
     restart: always
     ports:
       - 80:80
 
   game-runner:
-    image: robertaro/game-of-life-game-runner
+    image: robertaro/game-of-life-game-runner:latest
     restart: always
     expose:
       - 3004
 
   user-api:
-    image: robertaro/game-of-life-user-api
+    image: robertaro/game-of-life-user-api:latest
     restart: always
     expose:
       - 3001
 
   active-games-api:
-    image: robertaro/game-of-life-active-games-api
+    image: robertaro/game-of-life-active-games-api:latest
     restart: always
     expose:
       - 3002
 
   game-history-api:
-    image: robertaro/game-of-life-game-history-api
+    image: robertaro/game-of-life-game-history-api:latest
     restart: always
     expose:
       - 3003
