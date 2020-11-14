@@ -75,6 +75,8 @@ workflows:
           filters:
             branches:
               only: master
+          requires:
+            - build-and-test-react
       - build-and-test-game-runner:
           filters:
             branches:
@@ -84,3 +86,5 @@ workflows:
           filters:
             branches:
               only: master
+          requires:
+            - build-and-test-game-runner
