@@ -1,0 +1,49 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: game_of_life
+    expose:
+      - 3306
+    volumes:
+      - ./mysqldata:/var/lib/mysql
+      
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  react:
+    image: robertaro/game-of-life-react
+    restart: always
+    ports:
+      - 3000:3000
+
+  game-runner:
+    image: robertaro/game-of-life-game-runner
+    restart: always
+    ports:
+      - 3004:3004
+
+  user-api:
+    image: robertaro/game-of-life-user-api
+    restart: always
+    ports:
+      - 3001:3001
+
+  active-games-api:
+    image: robertaro/game-of-life-active-games-api
+    restart: always
+    ports:
+      - 3002:3002
+
+  game-history-api:
+    image: robertaro/game-of-life-game-history-api
+    restart: always
+    ports:
+      - 3003:3003

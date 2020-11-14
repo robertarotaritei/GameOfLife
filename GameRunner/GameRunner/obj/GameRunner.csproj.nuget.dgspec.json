@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\School\\GameOfLifePresentation\\GameRunner\\GameRunner\\GameRunner.csproj": {}
+    "D:\\School\\GameOfLife\\GameRunner\\GameRunner\\GameRunner.csproj": {}
   },
   "projects": {
-    "D:\\School\\GameOfLifePresentation\\GameRunner\\GameRunner\\GameRunner.csproj": {
+    "D:\\School\\GameOfLife\\GameRunner\\GameRunner\\GameRunner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\School\\GameOfLifePresentation\\GameRunner\\GameRunner\\GameRunner.csproj",
+        "projectUniqueName": "D:\\School\\GameOfLife\\GameRunner\\GameRunner\\GameRunner.csproj",
         "projectName": "GameRunner",
-        "projectPath": "D:\\School\\GameOfLifePresentation\\GameRunner\\GameRunner\\GameRunner.csproj",
+        "projectPath": "D:\\School\\GameOfLife\\GameRunner\\GameRunner\\GameRunner.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "D:\\School\\GameOfLifePresentation\\GameRunner\\GameRunner\\obj\\",
+        "outputPath": "D:\\School\\GameOfLife\\GameRunner\\GameRunner\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,12 @@
 version: 2.1
 
-orbs:
-  windows: circleci/windows@2.2.0
-  sonarcloud: sonarsource/sonarcloud@1.0.2
+executors:
+  docker-publisher:
+    environment:
+      REACT: robertaro/game-of-life-react
+      GAME_RUNNER: robertaro/game-of-life-game-runner
+    docker:
+      - image: circleci/buildpack-deps:stretch
 
 jobs:
   build-and-test-react:
@@ -12,11 +16,24 @@ jobs:
       - checkout
       - run: cd game-of-life && npm install
       - run: cd game-of-life && npm run build
-      - run: cd game-of-life && npm test --reporters=jest-junit
+      - run: cd game-of-life && npm test -- --maxWorkers=2 --logHeapUsage
       - run: cd game-of-life && cp -r build /tmp/build
       - store_artifacts:
           path: /tmp/build
-  build-game-runner:
+  
+  publish-latest-react:
+    executor: docker-publisher
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: |
+            cd game-of-life && docker build -t $REACT:latest .
+      - run: docker save -o image.tar $REACT
+      - run: |
+            echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker push $REACT:latest
+  
+  build-and-test-game-runner:
     docker: 
       - image: mcr.microsoft.com/dotnet/core/sdk:3.1
     steps:
@@ -30,16 +47,21 @@ jobs:
             - C:\Users\circleci\.nuget\packages
           key: dotnet-packages-v1-{{ checksum "GameRunner/GameRunner/GameRunner.csproj" }}
       - run: cd GameRunner; dotnet build --configuration Release
+      - run: cd GameRunner; dotnet test -v n --results-directory:test_results --collect:"Code Coverage"
       - store_artifacts:
           path: GameRunner
-  test-game-runner:
-    docker: 
-      - image: mcr.microsoft.com/dotnet/core/sdk:3.1
+
+  publish-latest-game-runner:
+    executor: docker-publisher
     steps:
       - checkout
-      - run: cd GameRunner; dotnet test -v n --results-directory:test_results --collect:"Code Coverage"
-      - store_test_results:
-          path: GameRunner\test_results
+      - setup_remote_docker
+      - run: |
+            cd GameRunner && docker build -t $GAME_RUNNER:latest .
+      - run: docker save -o image.tar $GAME_RUNNER
+      - run: |
+            echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker push $GAME_RUNNER:latest
           
 workflows:
   build_and_test:
@@ -48,14 +70,17 @@ workflows:
           filters:
             branches:
               only: master
-      - build-game-runner:
+      - publish-latest-react:
+          context: Docker
           filters:
             branches:
               only: master
-      - test-game-runner:
+      - build-and-test-game-runner:
           filters:
             branches:
               only: master
-          requires:
-            - build-game-runner
-              
+      - publish-latest-game-runner:
+          context: Docker
+          filters:
+            branches:
+              only: master

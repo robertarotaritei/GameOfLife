@@ -1,20 +1,20 @@
-﻿using Microsoft.AspNetCore.Connections.Features;
-using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AspNetCore.SignalR.Client;
 using System;
 
 namespace GameRunner
 {
     public class Program
     {
-        static Client client;
-        static HubConnector hubConnector;
-        static GameStateCalculator calculator;
+        protected Program()
+        {
+
+        }
 
         static void Main()
         {
-            client = new Client();
-            hubConnector = new HubConnector();
-            calculator = new GameStateCalculator();
+            var client = new Client();
+            var hubConnector = new HubConnector();
+            var calculator = new GameStateCalculator();
             hubConnector.OnClosed();
             hubConnector.Connection.On<GameState>("GameInitiated", (currentState) =>
             {

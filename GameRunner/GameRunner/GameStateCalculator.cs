@@ -1,69 +1,66 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GameRunner
 {
     public class GameStateCalculator
     {
+        int MaxRows;
+        int MaxColumns;
+
+        public GameStateCalculator()
+        {
+            MaxRows = 40;
+            MaxColumns = 80;
+        }
+
         public bool[][] CalculateNextState(GameState currentState)
         {
-            if (currentState != null)
+            MaxRows = currentState.Generation.Length;
+            MaxColumns = currentState.Generation[0].Length;
+
+            bool[][] nextGeneration = new bool[MaxRows][];
+            for (int currentRow = 0; currentRow < MaxRows; currentRow++)
             {
-                var rows = currentState.Generation.Length;
-                var columns = currentState.Generation[0].Length;
-
-                bool[][] nextGeneration = new bool[rows][];
-                for (int i = 0; i < rows; i++)
-                {
-                    nextGeneration[i] = new bool[columns];
-                    currentState.Generation[i].CopyTo(nextGeneration[i], 0);
-                }
-
-                for (int i = 0; i < rows; i++)
-                {
-                    for (int j = 0; j < columns; j++)
-                    {
-                        int lifeCount = 0;
-                        if (i > 0)
-                        {
-                            lifeCount += currentState.Generation[i - 1][j] ? 1 : 0;
-
-                            if (j > 0)
-                                lifeCount += currentState.Generation[i - 1][j - 1] ? 1 : 0;
-
-                            if (j < columns - 1)
-                                lifeCount += currentState.Generation[i - 1][j + 1] ? 1 : 0;
-                        }
-
-                        if (i < rows - 1)
-                        {
-                            lifeCount += currentState.Generation[i + 1][j] ? 1 : 0;
-
-                            if (j > 0)
-                                lifeCount += currentState.Generation[i + 1][j - 1] ? 1 : 0;
-
-                            if (j < columns - 1)
-                                lifeCount += currentState.Generation[i + 1][j + 1] ? 1 : 0;
-                        }
-
-                        if (j > 0)
-                            lifeCount += currentState.Generation[i][j - 1] ? 1 : 0;
-
-                        if (j < columns - 1)
-                            lifeCount += currentState.Generation[i][j + 1] ? 1 : 0;
-
-                        if (lifeCount == 3)
-                            nextGeneration[i][j] = true;
-
-                        nextGeneration[i][j] = lifeCount >= 2 && lifeCount <= 3 && nextGeneration[i][j];
-                    }
-                }
-
-                return nextGeneration;
+                nextGeneration[currentRow] = new bool[MaxColumns];
+                currentState.Generation[currentRow].CopyTo(nextGeneration[currentRow], 0);
             }
 
-            return null;
+            for (int currentRow = 0; currentRow < MaxRows; currentRow++)
+            {
+                for (int currentColumn = 0; currentColumn < MaxColumns; currentColumn++)
+                {
+                    int lifeCount = CalculateLifeCount(currentState, currentRow, currentColumn);
+
+                    nextGeneration[currentRow][currentColumn] = lifeCount == 3;
+                    nextGeneration[currentRow][currentColumn] = lifeCount >= 2 && lifeCount <= 3 && nextGeneration[currentRow][currentColumn];
+                }
+            }
+
+            return nextGeneration;
+        }
+
+        private int CalculateLifeCount(GameState gameState, int currentRow, int currentColumn)
+        {
+            int lifeCount = 0;
+
+            if (currentRow > 0)
+            {
+                lifeCount += Convert.ToInt32(gameState.Generation[currentRow - 1][currentColumn]);
+                lifeCount += currentColumn > 0 ? Convert.ToInt32(gameState.Generation[currentRow - 1][currentColumn - 1]) : 0;
+                lifeCount += currentColumn < MaxColumns - 1 ? Convert.ToInt32(gameState.Generation[currentRow - 1][currentColumn+ 1]) : 0;
+            }
+
+            if (currentRow < MaxRows - 1)
+            {
+                lifeCount += Convert.ToInt32(gameState.Generation[currentRow + 1][currentColumn]);
+                lifeCount += currentColumn > 0 ? Convert.ToInt32(gameState.Generation[currentRow + 1][currentColumn- 1]) : 0;
+                lifeCount += currentColumn < MaxColumns - 1 ? Convert.ToInt32(gameState.Generation[currentRow + 1][currentColumn+ 1]) : 0;
+            }
+            
+            lifeCount += currentColumn > 0 ? Convert.ToInt32(gameState.Generation[currentRow][currentColumn- 1]) : 0;
+            lifeCount += currentColumn < MaxColumns - 1 ? Convert.ToInt32(gameState.Generation[currentRow][currentColumn+ 1]) : 0;
+
+            return lifeCount;
         }
     }
 }

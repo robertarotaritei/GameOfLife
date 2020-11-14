@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+8Ddf5GJ98lxGfgMPN0O8bM3JqnK4Gq7nFmOcs0jduIvgrPzi91EFjMMkAzlKt+U7rgbi0zPOsJDDe9f8DX7Kw==",
+  "dgSpecHash": "aGofRgi/XHv+C7aM1U1mvi3VKDMZQcMeI4EBuSNE2KrsewKxj6JDfLhJdKRqY//cvMmyJHwVLsv1FaIx37LoBQ==",
   "success": true,
-  "projectFilePath": "D:\\School\\GameOfLifePresentation\\GameRunner\\GameRunnerTests\\GameRunnerTests.csproj",
+  "projectFilePath": "D:\\School\\GameOfLife\\GameRunner\\GameRunnerTests\\GameRunnerTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\3.1.9\\microsoft.aspnetcore.connections.abstractions.3.1.9.nupkg.sha512",
