@@ -22,28 +22,28 @@ services:
     image: robertaro/game-of-life-react
     restart: always
     ports:
-      - 3000:3000
+      - 80:80
 
   game-runner:
     image: robertaro/game-of-life-game-runner
     restart: always
-    ports:
-      - 3004:3004
+    expose:
+      - 3004
 
   user-api:
     image: robertaro/game-of-life-user-api
     restart: always
-    ports:
-      - 3001:3001
+    expose:
+      - 3001
 
   active-games-api:
     image: robertaro/game-of-life-active-games-api
     restart: always
-    ports:
-      - 3002:3002
+    expose:
+      - 3002
 
   game-history-api:
     image: robertaro/game-of-life-game-history-api
     restart: always
-    ports:
-      - 3003:3003
+    expose:
+      - 3003
