@@ -15,7 +15,7 @@ namespace GameRunner
             HttpClient = new HttpClient
             {
                 BaseAddress =
-                new Uri("http://localhost:3002")
+                new Uri("http://active-games-api:3002")
             };
 
             var val = "application/json";

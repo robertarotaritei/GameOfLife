@@ -19,7 +19,7 @@ services:
       - 8080:8080
      
   react:
-    image: robertaro/game-of-life/react:latest
+    image: robertaro/game-of-life-react:latest
     restart: on-failure
     ports:
       - 3000:3000

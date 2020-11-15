@@ -18,7 +18,6 @@ namespace GameRunner
             hubConnector.OnClosed();
             hubConnector.Connection.On<GameState>("GameInitiated", (currentState) =>
             {
-
                 var generation = calculator.CalculateNextState(currentState);
 
                 var nextState = new GameState()

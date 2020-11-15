@@ -33,7 +33,7 @@ namespace GameRunner
                     {
                         int lifeCount = CalculateLifeCount(currentState, currentRow, currentColumn);
 
-                        nextGeneration[currentRow][currentColumn] = lifeCount == 3;
+                        nextGeneration[currentRow][currentColumn] = lifeCount == 3 ? true : nextGeneration[currentRow][currentColumn];
                         nextGeneration[currentRow][currentColumn] = lifeCount >= 2 && lifeCount <= 3 && nextGeneration[currentRow][currentColumn];
                     }
                 }
