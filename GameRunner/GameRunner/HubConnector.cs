@@ -11,7 +11,7 @@ namespace GameRunner
         public HubConnector()
         {
             Connection = new HubConnectionBuilder()
-                    .WithUrl("http://active-games-api/Progress")
+                    .WithUrl("http://active-games-api:3002/Progress")
                     .Build();
         }
 
