@@ -1,5 +1,5 @@
-ç
-WD:\School\GameOfLifePresentation\GameRunner\GameRunnerTests\GameStateCalculator_Test.cs
+Û
+KD:\School\GameOfLife\GameRunner\GameRunnerTests\GameStateCalculator_Test.cs
 
  )
 
@@ -12,4 +12,4 @@ WD:\School\GameOfLifePresentation\GameRunner\GameRunnerTests\GameStateCalculator
 $$ 9
 '' ++ #
 (( "++7 C
-++ .." (
+++ ..6 <

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="D:\School\GameOfLife\game-of-life\src\components\NavigationBar.test.js">
+        <testCase name="NavigationBar renders without crashing" duration="6"/>
+        <testCase name="NavigationBar renders correctly" duration="19"/>
+        <testCase name="Render NavigationBar Log out Button" duration="52"/>
+    </file>
+    <file path="D:\School\GameOfLife\game-of-life\src\components\Login and Registration\RegistrationForm.test.js">
+        <testCase name="RegistrationForm renders without crashing" duration="11"/>
+        <testCase name="Render RegistrationForm Text" duration="51"/>
+        <testCase name="Render RegistrationForm Log in Button" duration="8"/>
+        <testCase name="RegistrationForm renders correctly" duration="11"/>
+    </file>
+    <file path="D:\School\GameOfLife\game-of-life\src\components\Login and Registration\LoginForm.test.js">
+        <testCase name="LoginForm renders without crashing" duration="10"/>
+        <testCase name="Render LoginForm" duration="51"/>
+        <testCase name="Render LoginForm Text" duration="5"/>
+        <testCase name="Render LoginForm Register Button" duration="5"/>
+        <testCase name="LoginForm renders correctly" duration="18"/>
+    </file>
+    <file path="D:\School\GameOfLife\game-of-life\src\components\pages\GameHistory.test.js">
+        <testCase name="GameHistory renders without crashing" duration="70"/>
+        <testCase name="Render GameHistory" duration="47"/>
+        <testCase name="GameHistory renders correctly" duration="18"/>
+    </file>
+    <file path="D:\School\GameOfLife\game-of-life\src\App.test.js">
+        <testCase name="App renders without crashing" duration="4"/>
+        <testCase name="Welcome Page shows up" duration="14"/>
+        <testCase name="App renders correctly" duration="4"/>
+    </file>
+    <file path="D:\School\GameOfLife\game-of-life\src\components\pages\Welcome.test.js">
+        <testCase name="Welcome renders without crashing" duration="1"/>
+        <testCase name="Render Welcome" duration="6"/>
+        <testCase name="Welcome renders correctly" duration="2"/>
+    </file>
+    <file path="D:\School\GameOfLife\game-of-life\src\components\History\History.test.js">
+        <testCase name="History renders correctly" duration="60"/>
+        <testCase name="Render History" duration="1190"/>
+    </file>
+    <file path="D:\School\GameOfLife\game-of-life\src\components\pages\Dashboard.test.js">
+        <testCase name="Dashboard renders without crashing" duration="2"/>
+        <testCase name="Render Dashboard" duration="1044"/>
+        <testCase name="Dashboard renders correctly" duration="230"/>
+    </file>
+    <file path="D:\School\GameOfLife\game-of-life\src\components\GameOfLifeGrid\Game.test.js">
+        <testCase name="Game renders without crashing" duration="192"/>
+        <testCase name="Render Game" duration="957"/>
+        <testCase name="Game renders correctly" duration="222"/>
+    </file>
+    <file path="D:\School\GameOfLife\game-of-life\src\components\History\HistoryList.test.js">
+        <testCase name="Render Game Michael" duration="1892"/>
+        <testCase name="Render Game Dan" duration="1016"/>
+        <testCase name="HistoryList renders correctly" duration="325"/>
+    </file>
+</testExecutions>

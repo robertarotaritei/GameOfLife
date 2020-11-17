@@ -4,14 +4,14 @@
   <ProjectLanguage>C#</ProjectLanguage>
   <ProjectType>Test</ProjectType>
   <ProjectGuid>da9bbe46-3d26-475e-8d99-f94f262ad1b5</ProjectGuid>
-  <FullPath>D:\School\GameOfLifePresentation\GameRunner\GameRunnerTests\GameRunnerTests.csproj</FullPath>
+  <FullPath>D:\School\GameOfLife\GameRunner\GameRunnerTests\GameRunnerTests.csproj</FullPath>
   <IsExcluded>false</IsExcluded>
   <AnalysisResults>
-    <AnalysisResult Id="FilesToAnalyze" Location="D:\School\GameOfLifePresentation\GameRunner\.sonarqube\out\1\FilesToAnalyze.txt" />
+    <AnalysisResult Id="FilesToAnalyze" Location="D:\School\GameOfLife\GameRunner\.sonarqube\out\1\FilesToAnalyze.txt" />
   </AnalysisResults>
   <AnalysisSettings>
-    <Property Name="sonar.cs.roslyn.reportFilePath">D:\School\GameOfLifePresentation\GameRunner\GameRunnerTests\bin\Debug\netcoreapp3.1\GameRunnerTests.dll.RoslynCA.json|D:\School\GameOfLifePresentation\GameRunner\GameRunnerTests\bin\Debug\netcoreapp3.1\GameRunnerTests.dll.RoslynCA.json</Property>
-    <Property Name="sonar.cs.analyzer.projectOutPath">D:\School\GameOfLifePresentation\GameRunner\.sonarqube\out\1</Property>
+    <Property Name="sonar.cs.roslyn.reportFilePath">D:\School\GameOfLife\GameRunner\GameRunnerTests\bin\Debug\netcoreapp3.1\GameRunnerTests.dll.RoslynCA.json|D:\School\GameOfLife\GameRunner\GameRunnerTests\bin\Debug\netcoreapp3.1\GameRunnerTests.dll.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPath">D:\School\GameOfLife\GameRunner\.sonarqube\out\1</Property>
   </AnalysisSettings>
   <Configuration>Debug</Configuration>
   <Platform>AnyCPU</Platform>

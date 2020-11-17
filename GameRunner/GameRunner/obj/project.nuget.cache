@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Pv2cVaoXTd2+kWdSPsJXhKvZGlMD1YR6ZQCQwKkzvYmhQBlnGpS9EvWOC6eAi9y54aEQKOvtqcSk6keYpHxyLw==",
+  "dgSpecHash": "APn7gWAjC3c3rrVZ0R79Gb1w8yVH/uKbhAmwFvPCCM4fATk2hR1q1MmsO5Cy5mWCQlHtPb+l/avQ30Fiun4kgw==",
   "success": true,
   "projectFilePath": "D:\\School\\GameOfLife\\GameRunner\\GameRunner\\GameRunner.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\coverlet.msbuild\\2.9.0\\coverlet.msbuild.2.9.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\3.1.9\\microsoft.aspnetcore.connections.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client\\3.1.9\\microsoft.aspnetcore.http.connections.client.3.1.9.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.http.connections.common\\3.1.9\\microsoft.aspnetcore.http.connections.common.3.1.9.nupkg.sha512",

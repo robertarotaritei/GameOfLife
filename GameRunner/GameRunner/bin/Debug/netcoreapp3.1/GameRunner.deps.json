@@ -8,12 +8,14 @@
     ".NETCoreApp,Version=v3.1": {
       "GameRunner/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Client": "3.1.9"
+          "Microsoft.AspNetCore.SignalR.Client": "3.1.9",
+          "coverlet.msbuild": "2.9.0"
         },
         "runtime": {
           "GameRunner.dll": {}
         }
       },
+      "coverlet.msbuild/2.9.0": {},
       "Microsoft.AspNetCore.Connections.Abstractions/3.1.9": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "3.1.9",
@@ -229,6 +231,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "coverlet.msbuild/2.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-t+2du2q+z0FFklyP6HGSoKssRj0NequInLvgQ9rtxHskbgmAENxgt83eTQSRyxJ8DAThW8WOYhOuhuXIs//ZyA==",
+      "path": "coverlet.msbuild/2.9.0",
+      "hashPath": "coverlet.msbuild.2.9.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Connections.Abstractions/3.1.9": {
       "type": "package",

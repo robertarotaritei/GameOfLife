@@ -41,6 +41,12 @@
             "Microsoft.AspNetCore.SignalR.Client": {
               "target": "Package",
               "version": "[3.1.9, )"
+            },
+            "coverlet.msbuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.9.0, )"
             }
           },
           "imports": [

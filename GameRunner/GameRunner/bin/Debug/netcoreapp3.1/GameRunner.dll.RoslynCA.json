@@ -12,516 +12,17 @@
       },
       "results": [
         {
-          "ruleId": "S1118",
-          "level": "warning",
-          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/Program.cs",
-                "region": {
-                  "startLine": 7,
-                  "startColumn": 18,
-                  "endLine": 7,
-                  "endColumn": 25
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1128",
-          "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/Client.cs",
-                "region": {
-                  "startLine": 2,
-                  "startColumn": 1,
-                  "endLine": 2,
-                  "endColumn": 34
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1075",
-          "level": "warning",
-          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/HubConnector.cs",
-                "region": {
-                  "startLine": 16,
-                  "startColumn": 30,
-                  "endLine": 16,
-                  "endColumn": 62
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1128",
-          "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 2,
-                  "startColumn": 1,
-                  "endLine": 2,
-                  "endColumn": 34
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1128",
-          "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 3,
-                  "startColumn": 1,
-                  "endLine": 3,
-                  "endColumn": 19
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1075",
-          "level": "warning",
-          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/Client.cs",
-                "region": {
-                  "startLine": 19,
-                  "startColumn": 25,
-                  "endLine": 19,
-                  "endColumn": 48
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1128",
-          "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/HubConnector.cs",
-                "region": {
-                  "startLine": 3,
-                  "startColumn": 1,
-                  "endLine": 3,
-                  "endColumn": 34
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1128",
-          "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/HubConnector.cs",
-                "region": {
-                  "startLine": 4,
-                  "startColumn": 1,
-                  "endLine": 4,
-                  "endColumn": 19
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1450",
-          "level": "warning",
-          "message": "Remove the field 'hubConnector' and declare it as a local variable in the relevant methods.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/Program.cs",
-                "region": {
-                  "startLine": 10,
-                  "startColumn": 29,
-                  "endLine": 10,
-                  "endColumn": 41
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1128",
-          "level": "warning",
-          "message": "Remove this unnecessary 'using'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/Program.cs",
-                "region": {
-                  "startLine": 1,
-                  "startColumn": 1,
-                  "endLine": 1,
-                  "endColumn": 49
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3776",
-          "level": "warning",
-          "message": "Refactor this method to reduce its Cognitive Complexity from 93 to the 15 allowed.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 9,
-                  "startColumn": 25,
-                  "endLine": 9,
-                  "endColumn": 43
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 11,
-                  "startColumn": 13,
-                  "endLine": 11,
-                  "endColumn": 15
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 17,
-                  "endLine": 17,
-                  "endColumn": 20
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 23,
-                  "startColumn": 17,
-                  "endLine": 23,
-                  "endColumn": 20
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 25,
-                  "startColumn": 21,
-                  "endLine": 25,
-                  "endColumn": 24
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 28,
-                  "startColumn": 25,
-                  "endLine": 28,
-                  "endColumn": 27
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 30,
-                  "startColumn": 76,
-                  "endLine": 30,
-                  "endColumn": 77
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 32,
-                  "startColumn": 29,
-                  "endLine": 32,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 33,
-                  "startColumn": 84,
-                  "endLine": 33,
-                  "endColumn": 85
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 35,
-                  "startColumn": 29,
-                  "endLine": 35,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 36,
-                  "startColumn": 84,
-                  "endLine": 36,
-                  "endColumn": 85
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 39,
-                  "startColumn": 25,
-                  "endLine": 39,
-                  "endColumn": 27
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 41,
-                  "startColumn": 76,
-                  "endLine": 41,
-                  "endColumn": 77
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 43,
-                  "startColumn": 29,
-                  "endLine": 43,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 44,
-                  "startColumn": 84,
-                  "endLine": 44,
-                  "endColumn": 85
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 46,
-                  "startColumn": 29,
-                  "endLine": 46,
-                  "endColumn": 31
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 47,
-                  "startColumn": 84,
-                  "endLine": 47,
-                  "endColumn": 85
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 50,
-                  "startColumn": 25,
-                  "endLine": 50,
-                  "endColumn": 27
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 51,
-                  "startColumn": 76,
-                  "endLine": 51,
-                  "endColumn": 77
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 53,
-                  "startColumn": 25,
-                  "endLine": 53,
-                  "endColumn": 27
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 54,
-                  "startColumn": 76,
-                  "endLine": 54,
-                  "endColumn": 77
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 56,
-                  "startColumn": 25,
-                  "endLine": 56,
-                  "endColumn": 27
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
-                "region": {
-                  "startLine": 59,
-                  "startColumn": 63,
-                  "endLine": 59,
-                  "endColumn": 65
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": "+1",
-              "1": "+2 (incl 1 for nesting)",
-              "10": "+4 (incl 3 for nesting)",
-              "11": "+5 (incl 4 for nesting)",
-              "12": "+5 (incl 4 for nesting)",
-              "13": "+6 (incl 5 for nesting)",
-              "14": "+5 (incl 4 for nesting)",
-              "15": "+6 (incl 5 for nesting)",
-              "16": "+4 (incl 3 for nesting)",
-              "17": "+5 (incl 4 for nesting)",
-              "18": "+4 (incl 3 for nesting)",
-              "19": "+5 (incl 4 for nesting)",
-              "2": "+2 (incl 1 for nesting)",
-              "20": "+4 (incl 3 for nesting)",
-              "21": "+1",
-              "3": "+3 (incl 2 for nesting)",
-              "4": "+4 (incl 3 for nesting)",
-              "5": "+5 (incl 4 for nesting)",
-              "6": "+5 (incl 4 for nesting)",
-              "7": "+6 (incl 5 for nesting)",
-              "8": "+5 (incl 4 for nesting)",
-              "9": "+6 (incl 5 for nesting)"
-            }
-          }
-        },
-        {
           "ruleId": "S2245",
           "level": "warning",
           "message": "Make sure that using this pseudorandom number generator is safe here.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/HubConnector.cs",
+                "uri": "file:///D:/School/GameOfLife/GameRunner/GameRunner/HubConnector.cs",
                 "region": {
-                  "startLine": 24,
+                  "startLine": 22,
                   "startColumn": 34,
-                  "endLine": 24,
+                  "endLine": 22,
                   "endColumn": 46
                 }
               }
@@ -532,18 +33,39 @@
           }
         },
         {
-          "ruleId": "S1168",
+          "ruleId": "S1075",
           "level": "warning",
-          "message": "Return an empty collection instead of null.",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/School/GameOfLifePresentation/GameRunner/GameRunner/GameStateCalculator.cs",
+                "uri": "file:///D:/School/GameOfLife/GameRunner/GameRunner/HubConnector.cs",
                 "region": {
-                  "startLine": 66,
-                  "startColumn": 13,
-                  "endLine": 66,
-                  "endColumn": 25
+                  "startLine": 14,
+                  "startColumn": 30,
+                  "endLine": 14,
+                  "endColumn": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1075",
+          "level": "warning",
+          "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/School/GameOfLife/GameRunner/GameRunner/Client.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 25,
+                  "endLine": 18,
+                  "endColumn": 55
                 }
               }
             }
@@ -570,72 +92,6 @@
             ]
           }
         },
-        "S1118": {
-          "id": "S1118",
-          "shortDescription": "Utility classes should not have public constructors",
-          "fullDescription": "Utility classes, which are collections of static members, are not meant to be instantiated.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1118",
-          "properties": {
-            "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope",
-              "TestSourceScope"
-            ]
-          }
-        },
-        "S1128": {
-          "id": "S1128",
-          "shortDescription": "Unused \"using\" should be removed",
-          "fullDescription": "Although unnecessary using won't change anything to the produced application, removing them:",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1128",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope",
-              "TestSourceScope"
-            ]
-          }
-        },
-        "S1168": {
-          "id": "S1168",
-          "shortDescription": "Empty arrays and collections should be returned instead of null",
-          "fullDescription": "Returning null instead of an actual array or collection forces callers of the method to explicitly test for nullity, making them more complex and less readable.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1168",
-          "properties": {
-            "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope"
-            ]
-          }
-        },
-        "S1450": {
-          "id": "S1450",
-          "shortDescription": "Private fields only used as local variables in methods should become local variables",
-          "fullDescription": "When the value of a private field is always assigned to in a class' methods before being read, then it is not being used to store class information. Therefore, it should become a local variable in the relevant methods to prevent any misunderstanding.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1450",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope"
-            ]
-          }
-        },
         "S2245": {
           "id": "S2245",
           "shortDescription": "Using pseudorandom number generators (PRNGs) is security-sensitive",
@@ -650,23 +106,6 @@
               "SonarWay",
               "MainSourceScope",
               "NotConfigurable"
-            ]
-          }
-        },
-        "S3776": {
-          "id": "S3776",
-          "shortDescription": "Cognitive Complexity of methods should not be too high",
-          "fullDescription": "Cognitive Complexity is a measure of how hard the control flow of a method is to understand. Methods with high Cognitive Complexity will be difficult to maintain.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3776",
-          "properties": {
-            "category": "Critical Code Smell",
-            "isEnabledByDefault": false,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope",
-              "TestSourceScope"
             ]
           }
         }

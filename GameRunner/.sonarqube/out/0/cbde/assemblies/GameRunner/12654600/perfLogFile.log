@@ -1,3 +1,0 @@
-File name	Line	Function	Duration[ms]	Explored nodes
-D:\School\GameOfLifePresentation\GameRunner\GameRunner\Client.cs	29	_GameRunner.Client.UpdateGame$GameRunner.GameState$	0	3
-D:\School\GameOfLifePresentation\GameRunner\GameRunner\Client.cs	36	_GameRunner.Client.SendConnectionId$string$	0	3
