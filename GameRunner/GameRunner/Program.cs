@@ -3,33 +3,16 @@ using System;
 
 namespace GameRunner
 {
-    public class Program
+    class Program
     {
-        protected Program()
-        {
+        protected Program(){ }
 
-        }
-
-        static void Main()
+        private static void Main()
         {
-            var client = new Client();
-            var hubConnector = new HubConnector();
-            var calculator = new GameStateCalculator();
+            string baseUrl = "http://active-games-api:3002";
+            var hubConnector = new HubConnector(baseUrl + "/Progress");
             hubConnector.OnClosed();
-            hubConnector.Connection.On<GameState>("GameInitiated", (currentState) =>
-            {
-                var generation = calculator.CalculateNextState(currentState);
-
-                var nextState = new GameState()
-                {
-                    Generation = generation,
-                    ReactConnectionId = currentState.ReactConnectionId,
-                    RunnerConnectionId = currentState.RunnerConnectionId,
-                };
-
-                client.UpdateGame(nextState);
-            });
-
+            hubConnector.OnConnected();
             try
             {
                 hubConnector.Connection.StartAsync();

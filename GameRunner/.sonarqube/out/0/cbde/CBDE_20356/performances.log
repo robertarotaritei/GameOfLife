@@ -1,26 +1,24 @@
 D:\School\GameOfLife\GameRunner\GameRunner\Client.cs
-UpdateGame 3
+UpdateGame 32
 UpdateGame -1
-SendConnectionId 3
-SendConnectionId -1
 
 D:\School\GameOfLife\GameRunner\GameRunner\GameState.cs
 
 D:\School\GameOfLife\GameRunner\GameRunner\GameStateCalculator.cs
-CalculateNextState 3
+CalculateNextState 5
 CalculateNextState -1
 CalculateLifeCount 2
 CalculateLifeCount -1
 
 D:\School\GameOfLife\GameRunner\GameRunner\HubConnector.cs
-OnClosed 1
+OnClosed 2
 OnClosed -1
+OnConnected 2
+OnConnected -1
 
 D:\School\GameOfLife\GameRunner\GameRunner\Program.cs
-Main 1
+Main 2
 Main -1
-
-D:\School\GameOfLife\GameRunner\GameRunner\System\Web\HttpContext.cs
 
 D:\School\GameOfLife\GameRunner\GameRunner\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
 

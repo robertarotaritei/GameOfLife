@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameRunner", "GameRunner\GameRunner.csproj", "{BBE75A5D-BB56-4CEA-BF3E-FB86888E3695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameRunnerTests", "GameRunnerTests\GameRunnerTests.csproj", "{DA9BBE46-3D26-475E-8D99-F94F262AD1B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameRunnerTests", "GameRunnerTests\GameRunnerTests.csproj", "{DA9BBE46-3D26-475E-8D99-F94F262AD1B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

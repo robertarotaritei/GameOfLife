@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace GameRunner
 {
@@ -10,12 +11,12 @@ namespace GameRunner
     {
         public HttpClient HttpClient { get; }
 
-        public Client()
+        public Client(string connection)
         {
             HttpClient = new HttpClient
             {
                 BaseAddress =
-                new Uri("http://active-games-api:3002")
+                new Uri(connection)
             };
 
             var val = "application/json";
@@ -26,18 +27,11 @@ namespace GameRunner
             HttpClient.DefaultRequestHeaders.Accept.Add(media);
         }
 
-        public void UpdateGame(GameState gameState)
+        public Task<HttpResponseMessage> UpdateGame(GameState gameState)
         {
             var action = "games/activegames/update";
             var content = new StringContent(JsonSerializer.Serialize(gameState), Encoding.UTF8, "application/json");
-            HttpClient.PostAsync(action, content);
-        }
-
-        public void SendConnectionId(string connectionId)
-        {
-            var action = "games/activegames/runnerConnection";
-            var content = new StringContent(JsonSerializer.Serialize(connectionId));
-            HttpClient.PostAsync(action, content);
+            return HttpClient.PostAsync(action, content);
         }
     }
 }
