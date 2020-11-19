@@ -1,0 +1,26 @@
+D:\School\GameOfLife\GameRunner\GameRunner\Client.cs
+UpdateGame 31
+UpdateGame -1
+
+D:\School\GameOfLife\GameRunner\GameRunner\GameState.cs
+
+D:\School\GameOfLife\GameRunner\GameRunner\GameStateCalculator.cs
+CalculateNextState 5
+CalculateNextState -1
+CalculateLifeCount 2
+CalculateLifeCount -1
+
+D:\School\GameOfLife\GameRunner\GameRunner\HubConnector.cs
+OnClosed 24
+OnClosed -1
+CalculateNextState 4
+CalculateNextState -1
+
+D:\School\GameOfLife\GameRunner\GameRunner\Program.cs
+Main 2
+Main -1
+
+D:\School\GameOfLife\GameRunner\GameRunner\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+
+D:\School\GameOfLife\GameRunner\GameRunner\obj\Debug\netcoreapp3.1\GameRunner.AssemblyInfo.cs
+

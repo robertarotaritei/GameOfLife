@@ -28,7 +28,7 @@ namespace GameRunnerTests
             var result = calculator.CalculateNextState(initialState);
 
             //Assert
-            Assert.AreEqual(expectedState.Generation.ToString(), result.ToString());
+            Assert.AreEqual(expectedState.ToString(), result.ToString());
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@ namespace GameRunnerTests
             var result = calculator.CalculateNextState(initialState);
 
             //Assert
-            Assert.AreEqual(new bool[0][].ToString(), result.ToString());
+            Assert.AreEqual(new GameState().ToString(), result.ToString());
         }
     }
 }

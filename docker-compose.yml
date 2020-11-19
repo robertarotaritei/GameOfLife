@@ -33,8 +33,8 @@ services:
   user-api:
     image: robertaro/game-of-life-user-api:latest
     restart: always
-    ports:
-      - 3001:3001
+    expose:
+      - 3001
 
   active-games-api:
     image: robertaro/game-of-life-active-games-api:latest
@@ -45,5 +45,5 @@ services:
   game-history-api:
     image: robertaro/game-of-life-game-history-api:latest
     restart: always
-    ports:
-      - 3003:3003
+    expose:
+      - 3003

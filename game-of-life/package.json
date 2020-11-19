@@ -49,5 +49,13 @@
     "reportPath": ".",
     "reportFile": "sonar-report.xml",
     "indent": 4
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js",
+      "!src/serviceWorker.js",
+      "!src/setupProxy.js"
+    ]
   }
 }

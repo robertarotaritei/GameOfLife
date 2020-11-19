@@ -14,7 +14,6 @@ test('Render Game', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-
 it('Game renders correctly', () => {
   const tree = renderer
     .create(<Game />)

@@ -13,7 +13,7 @@ namespace GameRunner
             MaxColumns = 80;
         }
 
-        public bool[][] CalculateNextState(GameState currentState)
+        public GameState CalculateNextState(GameState currentState)
         {
             if (currentState != null)
             {
@@ -38,10 +38,12 @@ namespace GameRunner
                     }
                 }
 
-                return nextGeneration;
+                currentState.Generation = nextGeneration;
+                
+                return currentState;
             }
 
-            return new bool[0][];
+            return new GameState();
         }
 
         private int CalculateLifeCount(GameState gameState, int currentRow, int currentColumn)

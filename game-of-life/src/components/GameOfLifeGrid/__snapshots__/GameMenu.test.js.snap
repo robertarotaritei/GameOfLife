@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameMenu renders correctly 1`] = `
+<div>
+  <div
+    className="btn-toolbar"
+    role="toolbar"
+  >
+    <button
+      className="btn-default"
+    >
+      Resume
+    </button>
+    <button
+      className="btn-default"
+    >
+      Pause
+    </button>
+    <button
+      className="btn-default"
+    >
+      Back to First Generation
+    </button>
+    <button
+      className="btn-default"
+    >
+      Reset
+    </button>
+    <button
+      className="btn-default"
+    >
+      Slow
+    </button>
+    <button
+      className="btn-default"
+    >
+      Fast
+    </button>
+    <div>
+      <button
+        className="btn-default"
+      >
+        Seed
+      </button>
+      <button
+        className="btn-default"
+      >
+        Save First Generation
+      </button>
+    </div>
+  </div>
+</div>
+`;

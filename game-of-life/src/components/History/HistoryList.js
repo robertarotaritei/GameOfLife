@@ -1,5 +1,5 @@
 import React from 'react';
-import History from './History'
+import Game from '../GameOfLifeGrid/Game'
 
 class HistoryList extends React.Component {
 
@@ -7,7 +7,7 @@ class HistoryList extends React.Component {
         return (
             <div>
                 {this.props.games.map(currentGame => (
-                    <History key={currentGame.id} game={currentGame} />
+                    <Game key={currentGame.id} game={currentGame} history={true}/>
                 ))}
                 <div
                     style={{

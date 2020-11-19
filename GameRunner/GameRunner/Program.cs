@@ -10,9 +10,10 @@ namespace GameRunner
         private static void Main()
         {
             string baseUrl = "http://active-games-api:3002";
-            var hubConnector = new HubConnector(baseUrl + "/Progress");
+            var hubConnector = new HubConnector(baseUrl);
+
             hubConnector.OnClosed();
-            hubConnector.OnConnected();
+            hubConnector.Connection.On<GameState>("GameInitiated", (currentState) => { hubConnector.CalculateNextState(currentState); });
             try
             {
                 hubConnector.Connection.StartAsync();

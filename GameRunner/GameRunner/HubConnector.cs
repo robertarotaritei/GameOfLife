@@ -9,10 +9,11 @@ namespace GameRunner
         public HubConnection Connection { get; }
         public GameStateCalculator Calculator { get; }
         public Client Client { get;  }
+
         public HubConnector(string connection)
         {
             Connection = new HubConnectionBuilder()
-                    .WithUrl(connection)
+                    .WithUrl(connection + "/Progress")
                     .Build();
 
             Calculator = new GameStateCalculator();
@@ -28,21 +29,12 @@ namespace GameRunner
             };
         }
 
-        public void OnConnected()
+        public GameState CalculateNextState(GameState currentState)
         {
-            Connection.On<GameState>("GameInitiated", (currentState) =>
-            {
-                var generation = Calculator.CalculateNextState(currentState);
+            var nextState = Calculator.CalculateNextState(currentState);
+            Client.UpdateGame(nextState);
 
-                var nextState = new GameState()
-                {
-                    Generation = generation,
-                    ReactConnectionId = currentState.ReactConnectionId,
-                    RunnerConnectionId = currentState.RunnerConnectionId,
-                };
-
-                Client.UpdateGame(nextState);
-            });
+            return nextState;
         }
     }
 }

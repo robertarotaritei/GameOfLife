@@ -23,6 +23,14 @@ class Game extends React.Component {
 
 	componentDidMount = () => {
 		this.ConnectToHub();
+
+		if(this.props.game){
+            this.setState({
+                initialState: JSON.parse(this.props.game.initialState),
+                gridFull: JSON.parse(this.props.game.initialState),
+                nextGeneration: JSON.parse(this.props.game.initialState)
+            });
+        }
 	}
 	
 	ConnectToHub() {
@@ -71,7 +79,7 @@ class Game extends React.Component {
 	}
 
 	seed = () => {
-		let gridCopy = arrayClone(this.state.gridFull);
+		let gridCopy = JSON.parse(JSON.stringify((this.state.gridFull)));
 		for (let i = 0; i < this.rows; i++) {
 			for (let j = 0; j < this.cols; j++) {
 				if (Math.floor(Math.random() * 4) === 1) {
@@ -214,7 +222,28 @@ class Game extends React.Component {
 
   	render() {
 		return (
-			<div onMouseDown={this.onMouseClicked} onMouseUp={this.onMouseClicked}>
+			<div>
+			{this.props.history ? (
+				<div>
+				{this.props.game ? (
+                    <div>
+                        <h3>{this.props.game.author}'s Game</h3>
+                        <GameMenu
+                            playState={this.state.playState}
+                            playButton={this.playButton}
+                            resumeButton={this.resumeButton}
+                            pauseButton={this.pauseButton}
+                            stop={this.stopButton}
+                            slow={this.slow}
+							fast={this.fast}
+							history={this.props.history}
+				        />
+                        {this.mapGrid()}
+                    </div>
+                ) : null}
+				</div>
+			) : (
+				<div onMouseDown={this.onMouseClicked} onMouseUp={this.onMouseClicked}>
 				<GameMenu
 					playState={this.state.playState}
 					playButton={this.playButton}
@@ -226,15 +255,14 @@ class Game extends React.Component {
 					clear={this.clear}
 					seed={this.seed}
 					save={this.save}
+					history={this.props.history}
 				/>
 				{this.mapGrid()}
 			</div>
+			)}
+			</div>
 		);
     }
-}
-
-function arrayClone(arr) {
-	return JSON.parse(JSON.stringify(arr));
 }
 
 export default Game;

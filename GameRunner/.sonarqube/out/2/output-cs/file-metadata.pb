@@ -1,0 +1,8 @@
+=
+4D:\School\GameOfLife\GameRunner\GameRunner\Client.csutf-8@
+7D:\School\GameOfLife\GameRunner\GameRunner\GameState.csutf-8J
+AD:\School\GameOfLife\GameRunner\GameRunner\GameStateCalculator.csutf-8C
+:D:\School\GameOfLife\GameRunner\GameRunner\HubConnector.csutf-8>
+5D:\School\GameOfLife\GameRunner\GameRunner\Program.csutf-8|
+qD:\School\GameOfLife\GameRunner\GameRunner\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8h
+]D:\School\GameOfLife\GameRunner\GameRunner\obj\Debug\netcoreapp3.1\GameRunner.AssemblyInfo.csutf-8

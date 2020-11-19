@@ -12,10 +12,10 @@ class GameMenu extends React.Component {
 							Play
 						</button>
 					) : (
-						<button className="btn-default" onClick={this.props.resumeButton}>
-							Resume
-						</button>
-					)}
+							<button className="btn-default" onClick={this.props.resumeButton}>
+								Resume
+							</button>
+						)}
 					<button className="btn-default" onClick={this.props.pauseButton}>
 						Pause
 					</button>
@@ -23,7 +23,7 @@ class GameMenu extends React.Component {
 						Back to First Generation
 					</button>
 					<button className="btn-default" onClick={this.props.clear}>
-					 	Reset
+						Reset
 					</button>
 					<button className="btn-default" onClick={this.props.slow}>
 						Slow
@@ -31,12 +31,19 @@ class GameMenu extends React.Component {
 					<button className="btn-default" onClick={this.props.fast}>
 						Fast
 					</button>
-					<button className="btn-default" onClick={this.props.seed}>
-						Seed
-					</button>
-					<button className="btn-default" onClick={this.props.save}>
-						Save First Generation
-					</button>
+					{this.props.history ?
+						null
+						:
+						(
+							<div>
+								<button className="btn-default" onClick={this.props.seed}>
+									Seed
+								</button>
+								<button className="btn-default" onClick={this.props.save}>
+									Save First Generation
+								</button>
+							</div>
+						)}
 				</ButtonToolbar>
 			</div>
 		)

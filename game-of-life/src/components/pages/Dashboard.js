@@ -9,7 +9,7 @@ class Dashboard extends React.Component {
       <div className="game">
         <NavigationBar />
         <div className="container">
-        	<Game/>
+        	<Game history={false}/>
         </div>
       </div>
       );
