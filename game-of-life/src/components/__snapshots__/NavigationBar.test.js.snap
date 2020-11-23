@@ -20,6 +20,7 @@ exports[`NavigationBar renders correctly 1`] = `
   </button>
   <button
     className="linkbutton"
+    data-testid="logOut"
     onClick={[Function]}
   >
     Log out

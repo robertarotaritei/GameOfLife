@@ -4,7 +4,7 @@ import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import UserStore from '../../stores/UserStore';
 
 class Game extends React.Component {
-  	constructor() {
+	constructor() {
 		super();
 		this.speed = 600;
 		this.cols = 80;
@@ -18,39 +18,45 @@ class Game extends React.Component {
 			playState: 'play',
 			reactConnectionId: '',
 			runnerConnectionId: '',
-    	}
+		}
 	}
 
 	componentDidMount = () => {
-		this.ConnectToHub();
+		let mounted = true;
 
-		if(this.props.game){
-            this.setState({
-                initialState: JSON.parse(this.props.game.initialState),
-                gridFull: JSON.parse(this.props.game.initialState),
-                nextGeneration: JSON.parse(this.props.game.initialState)
-            });
-        }
+		if (mounted) {
+			this.ConnectToHub();
+
+			if (this.props.game) {
+				this.setState({
+					initialState: JSON.parse(this.props.game.initialState),
+					gridFull: JSON.parse(this.props.game.initialState),
+					nextGeneration: JSON.parse(this.props.game.initialState)
+				});
+			}
+		}
+
+		return () => mounted = false;
 	}
-	
+
 	ConnectToHub() {
-		const hubConnection =  new HubConnectionBuilder()
-		  	.withUrl("http://localhost:3002/Progress")
+		const hubConnection = new HubConnectionBuilder()
+			.withUrl("http://localhost:3002/Progress")
 			.configureLogging(LogLevel.Information)
 			.build();
 
-		this.setState({ hubConnection}, () => {
+		this.setState({ hubConnection }, () => {
 			this.state.hubConnection
 				.start()
 				.then(() => console.log('Connection started!'))
 				.then(() => this.getConnectionId(hubConnection))
 				.catch(err => console.log('Error while establishing connection :('));
-		
+
 			this.state.hubConnection.on('GameProgressed', (gameState) => {
-				if(this.intervalId) {
-					this.setState({ 
+				if (this.intervalId) {
+					this.setState({
 						nextGeneration: gameState.generation,
-						runnerConnectionId: gameState.reactConnectionId					
+						runnerConnectionId: gameState.reactConnectionId
 					});
 				}
 			});
@@ -64,17 +70,17 @@ class Game extends React.Component {
 	getConnectionId = (hubConnection) => {
 		hubConnection.invoke('getconnectionid').then(
 			(data) => {
-				this.setState({reactConnectionId: data});
+				this.setState({ reactConnectionId: data });
 			}
 		);
 	}
 
 	onMouseClicked = (event) => {
-		if(event.type === "mousedown"){
-			this.setState({click: true});
+		if (event.type === "mousedown") {
+			this.setState({ click: true });
 		}
-		else{
-			this.setState({click: false});
+		else {
+			this.setState({ click: false });
 		}
 	}
 
@@ -96,8 +102,8 @@ class Game extends React.Component {
 	playButton = () => {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
-		this.setState({initialState: this.state.gridFull});
-		this.setState({playState: "resume"});
+		this.setState({ initialState: this.state.gridFull });
+		this.setState({ playState: "resume" });
 	}
 
 	resumeButton = () => {
@@ -115,18 +121,12 @@ class Game extends React.Component {
 			gridFull: this.state.initialState,
 			nextGeneration: this.state.initialState
 		});
-		this.setState({playState: "play"});
+		this.setState({ playState: "play" });
 	}
 
-	slow = () => {
-		this.speed = 600;
-		this.resumeButton();
-	}
+	slow = () => { this.speed = 600; }
 
-	fast = () => {
-		this.speed = 200;
-		this.resumeButton();
-	}
+	fast = () => { this.speed = 200; }
 
 	clear = () => {
 		var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
@@ -147,8 +147,8 @@ class Game extends React.Component {
 			method: 'POST',
 			mode: 'cors',
 			headers: {
-			  'Accept': 'application/json',
-			  'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(game)
 		}).catch(console.log)
@@ -166,31 +166,32 @@ class Game extends React.Component {
 			method: 'POST',
 			mode: 'cors',
 			headers: {
-			  'Accept': 'application/json',
-			  'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(gameState)
-			})
+		})
 
-		if(this.state.gridFull !== this.state.nextGeneration){
-			this.setState({gridFull: this.state.nextGeneration});
+		if (this.state.gridFull !== this.state.nextGeneration) {
+			this.setState({ gridFull: this.state.nextGeneration });
 		}
 	}
-	
-	mapGrid(){
+
+	mapGrid() {
 		return (
 			<div
 				className="grid"
 				style={{
-				display: "grid",
-				gridTemplateColumns: `repeat(${this.cols}, 15px)`,
-			}}>
+					display: "grid",
+					gridTemplateColumns: `repeat(${this.cols}, 15px)`,
+				}}>
 				{this.state.gridFull.map((rows, i) =>
 					rows.map((col, k) => (
 						<div
+							data-testid={`${i}-${k}`}
 							key={`${i}-${k}`}
 							onClick={() => {
-								let g = this.state.gridFull;  
+								let g = this.state.gridFull;
 								g[i][k] = !g[i][k];
 								this.setState({
 									gridFull: g,
@@ -198,8 +199,8 @@ class Game extends React.Component {
 								})
 							}}
 							onMouseEnter={() => {
-								if(this.state.click === true) {
-									let g = this.state.gridFull;  
+								if (this.state.click === true) {
+									let g = this.state.gridFull;
 									g[i][k] = !g[i][k];
 									this.setState({
 										gridFull: g,
@@ -212,7 +213,7 @@ class Game extends React.Component {
 								height: 15,
 								backgroundColor: this.state.gridFull[i][k] ? "white" : undefined,
 								border: "solid thin black"
-							}}	
+							}}
 						/>
 					))
 				)}
@@ -220,49 +221,49 @@ class Game extends React.Component {
 		);
 	}
 
-  	render() {
+	render() {
 		return (
 			<div>
-			{this.props.history ? (
-				<div>
-				{this.props.game ? (
-                    <div>
-                        <h3>{this.props.game.author}'s Game</h3>
-                        <GameMenu
-                            playState={this.state.playState}
-                            playButton={this.playButton}
-                            resumeButton={this.resumeButton}
-                            pauseButton={this.pauseButton}
-                            stop={this.stopButton}
-                            slow={this.slow}
-							fast={this.fast}
-							history={this.props.history}
-				        />
-                        {this.mapGrid()}
-                    </div>
-                ) : null}
-				</div>
-			) : (
-				<div onMouseDown={this.onMouseClicked} onMouseUp={this.onMouseClicked}>
-				<GameMenu
-					playState={this.state.playState}
-					playButton={this.playButton}
-					resumeButton={this.resumeButton}
-					pauseButton={this.pauseButton}
-					stop={this.stopButton}
-					slow={this.slow}
-					fast={this.fast}
-					clear={this.clear}
-					seed={this.seed}
-					save={this.save}
-					history={this.props.history}
-				/>
-				{this.mapGrid()}
-			</div>
-			)}
+				{this.props.history ? (
+					<div>
+						{this.props.game ? (
+							<div>
+								<h3>{this.props.game.author}'s Game</h3>
+								<GameMenu
+									playState={this.state.playState}
+									playButton={this.playButton}
+									resumeButton={this.resumeButton}
+									pauseButton={this.pauseButton}
+									stop={this.stopButton}
+									slow={this.slow}
+									fast={this.fast}
+									history={this.props.history}
+								/>
+								{this.mapGrid()}
+							</div>
+						) : null}
+					</div>
+				) : (
+						<div onMouseDown={this.onMouseClicked} onMouseUp={this.onMouseClicked}>
+							<GameMenu
+								playState={this.state.playState}
+								playButton={this.playButton}
+								resumeButton={this.resumeButton}
+								pauseButton={this.pauseButton}
+								stop={this.stopButton}
+								slow={this.slow}
+								fast={this.fast}
+								clear={this.clear}
+								seed={this.seed}
+								save={this.save}
+								history={this.props.history}
+							/>
+							{this.mapGrid()}
+						</div>
+					)}
 			</div>
 		);
-    }
+	}
 }
 
 export default Game;

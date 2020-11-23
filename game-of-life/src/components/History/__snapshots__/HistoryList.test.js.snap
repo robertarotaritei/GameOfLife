@@ -15,35 +15,41 @@ exports[`HistoryList renders correctly 1`] = `
           >
             <button
               className="btn-default"
+              data-testid="play"
               onClick={[Function]}
             >
               Play
             </button>
             <button
               className="btn-default"
+              data-testid="pause"
               onClick={[Function]}
             >
               Pause
             </button>
             <button
               className="btn-default"
+              data-testid="back"
               onClick={[Function]}
             >
               Back to First Generation
             </button>
             <button
               className="btn-default"
+              data-testid="reset"
             >
               Reset
             </button>
             <button
               className="btn-default"
+              data-testid="slow"
               onClick={[Function]}
             >
               Slow
             </button>
             <button
               className="btn-default"
+              data-testid="fast"
               onClick={[Function]}
             >
               Fast
@@ -60,6 +66,7 @@ exports[`HistoryList renders correctly 1`] = `
           }
         >
           <div
+            data-testid="0-0"
             onClick={[Function]}
             onMouseEnter={[Function]}
             style={
@@ -72,6 +79,7 @@ exports[`HistoryList renders correctly 1`] = `
             }
           />
           <div
+            data-testid="0-1"
             onClick={[Function]}
             onMouseEnter={[Function]}
             style={
@@ -84,6 +92,7 @@ exports[`HistoryList renders correctly 1`] = `
             }
           />
           <div
+            data-testid="1-0"
             onClick={[Function]}
             onMouseEnter={[Function]}
             style={
@@ -96,6 +105,7 @@ exports[`HistoryList renders correctly 1`] = `
             }
           />
           <div
+            data-testid="1-1"
             onClick={[Function]}
             onMouseEnter={[Function]}
             style={

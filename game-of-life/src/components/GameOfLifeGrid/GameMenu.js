@@ -8,41 +8,44 @@ class GameMenu extends React.Component {
 			<div>
 				<ButtonToolbar>
 					{this.props.playState === 'play' ? (
-						<button className="btn-default" onClick={this.props.playButton}>
+						<button data-testid='play' className="btn-default" onClick={this.props.playButton}>
 							Play
 						</button>
 					) : (
-							<button className="btn-default" onClick={this.props.resumeButton}>
+							<button data-testid='resume' className="btn-default" onClick={this.props.resumeButton}>
 								Resume
 							</button>
 						)}
-					<button className="btn-default" onClick={this.props.pauseButton}>
+					<button data-testid='pause' className="btn-default" onClick={this.props.pauseButton}>
 						Pause
 					</button>
-					<button className="btn-default" onClick={this.props.stop}>
+					<button data-testid='back' className="btn-default" onClick={this.props.stop}>
 						Back to First Generation
 					</button>
-					<button className="btn-default" onClick={this.props.clear}>
+					<button data-testid='reset' className="btn-default" onClick={this.props.clear}>
 						Reset
 					</button>
-					<button className="btn-default" onClick={this.props.slow}>
+					<button data-testid='slow' className="btn-default" onClick={this.props.slow}>
 						Slow
 					</button>
-					<button className="btn-default" onClick={this.props.fast}>
+					<button data-testid='fast' className="btn-default" onClick={this.props.fast}>
 						Fast
 					</button>
 					{this.props.history ?
 						null
 						:
 						(
-							<div>
-								<button className="btn-default" onClick={this.props.seed}>
-									Seed
-								</button>
-								<button className="btn-default" onClick={this.props.save}>
-									Save First Generation
-								</button>
-							</div>
+							<button data-testid='seed' className="btn-default" onClick={this.props.seed}>
+								Seed
+							</button>
+						)}
+					{this.props.history ?
+						null
+						:
+						(
+							<button data-testid='save' className="btn-default" onClick={this.props.save}>
+								Save First Generation
+							</button>
 						)}
 				</ButtonToolbar>
 			</div>

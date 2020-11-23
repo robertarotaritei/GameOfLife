@@ -24,20 +24,11 @@ class RegistrationForm extends React.Component {
 
   setInputValue(property, val) {
     val = val.trim();
-    if(val.length > 15) {
+    if (val.length > 15) {
       return;
     }
     this.setState({
       [property]: val
-    })
-  }
-
-  resetForm() {
-    this.setState({
-      username: '',
-      password: '',
-      passwordConfirmation: '',
-      buttonDisabled: false
     })
   }
 
@@ -51,21 +42,21 @@ class RegistrationForm extends React.Component {
       return <Redirect to='/login' />
     }
   }
-  
+
 
   async doRegister() {
-    if(!this.state.username) {
+    if (!this.state.username) {
       return;
     }
 
-    if(!this.state.password) {
-        return;
+    if (!this.state.password) {
+      return;
     }
 
-    if(!this.state.passwordConfirmation) {
-        return;
+    if (!this.state.passwordConfirmation) {
+      return;
     }
-    
+
     runInAction(() => {
       UserStore.loading = true;
     });
@@ -74,13 +65,13 @@ class RegistrationForm extends React.Component {
     error = this.state.password !== this.state.passwordConfirmation ? 'Passwords do not match' : '';
     let res = await fetch(`/credentials/user/verifyusername?username=${this.state.username}`)
     let result = await res.json();
-    
+
     runInAction(() => {
       UserStore.loading = false;
     });
-    
+
     error = result.title !== "Not Found" ? 'Username already exists' : error;
-    if(error === '') {
+    if (error === '') {
       runInAction(() => {
         UserStore.loading = true;
       });
@@ -101,7 +92,7 @@ class RegistrationForm extends React.Component {
 
       alert("New user created");
       this.setRedirect();
-        
+
       runInAction(() => {
         UserStore.loading = false;
       });
@@ -116,31 +107,34 @@ class RegistrationForm extends React.Component {
       <div className="registrationForm">
         {this.renderRedirect()}
         Register
-        <InputField 
+        <InputField
+          className='username'
           type='text'
           placeholder='Username'
           value={this.state.username ? this.state.username : ''}
-          onChange={ (val) => this.setInputValue('username', val) }
+          onChange={(val) => this.setInputValue('username', val)}
         />
-        <InputField 
+        <InputField
+          className='password'
           type='password'
           placeholder='Password'
           value={this.state.password ? this.state.password : ''}
-          onChange={ (val) => this.setInputValue('password', val) }
+          onChange={(val) => this.setInputValue('password', val)}
         />
-        <InputField 
+        <InputField
+          className='repeatPassword'
           type='password'
           placeholder='Repeat Password'
           value={this.state.passwordConfirmation ? this.state.passwordConfirmation : ''}
-          onChange={ (val) => this.setInputValue('passwordConfirmation', val) }
+          onChange={(val) => this.setInputValue('passwordConfirmation', val)}
         />
-        <SubmitButton 
+        <SubmitButton
           text='Register'
           disabled={this.state.buttonDisabled}
-          onClick={ () => this.doRegister()}
+          onClick={() => this.doRegister()}
         />
         <p>
-          Already have an account? 
+          Already have an account?
           <button className="linkbutton" onClick={this.setRedirect}>Log in</button>
         </p>
       </div>

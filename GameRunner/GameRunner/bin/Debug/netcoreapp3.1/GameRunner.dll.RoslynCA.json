@@ -12,27 +12,6 @@
       },
       "results": [
         {
-          "ruleId": "S2245",
-          "level": "warning",
-          "message": "Make sure that using this pseudorandom number generator is safe here.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/School/GameOfLife/GameRunner/GameRunner/HubConnector.cs",
-                "region": {
-                  "startLine": 27,
-                  "startColumn": 34,
-                  "endLine": 27,
-                  "endColumn": 46
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S1075",
           "level": "warning",
           "message": "Refactor your code not to use hardcoded absolute paths or URIs.",
@@ -45,6 +24,27 @@
                   "startColumn": 30,
                   "endLine": 12,
                   "endColumn": 60
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2245",
+          "level": "warning",
+          "message": "Make sure that using this pseudorandom number generator is safe here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/School/GameOfLife/GameRunner/GameRunner/HubConnector.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 34,
+                  "endLine": 27,
+                  "endColumn": 46
                 }
               }
             }

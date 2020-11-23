@@ -25,23 +25,12 @@ class LoginForm extends React.Component {
 
   setInputValue(property, val) {
     val = val.trim();
-    if(val.length > 15) {
-      return;
-    }
     this.setState({
       [property]: val
     })
   }
 
-  resetForm() {
-    this.setState({
-      username: '',
-      password: '',
-      buttonDisabled: false
-    })
-  }
-
-  setRedirect = () => {
+  setRedirectLogin = () => {
     this.setState({
       redirect: true
     })
@@ -57,13 +46,13 @@ class LoginForm extends React.Component {
   }
 
   async doLogin() {
-    if(!this.state.username) {
+    if (!this.state.username) {
       return;
     }
-    if(!this.state.password) {
+    if (!this.state.password) {
       return;
     }
-      
+
     runInAction(() => {
       UserStore.loading = true;
     });
@@ -71,14 +60,14 @@ class LoginForm extends React.Component {
     let userId = 0;
     let res = await fetch(`/credentials/user/verify?username=${this.state.username}&password=${this.state.password}`)
     let result = await res.json();
-      
+
     runInAction(() => {
       UserStore.loading = false;
     });
 
     userId = result;
-    if(userId.title !== "Not Found") {
-        
+    if (userId.title !== "Not Found") {
+
       runInAction(() => {
         UserStore.loading = true;
       });
@@ -96,7 +85,7 @@ class LoginForm extends React.Component {
         UserStore.loading = false;
       });
 
-      this.setState({redirectDashboard: true});
+      this.setState({ redirectDashboard: true });
     }
     else {
       alert("Username and password combination not valid");
@@ -107,26 +96,28 @@ class LoginForm extends React.Component {
     return (
       <div className="loginForm">
         Log in
-        <InputField 
+        <InputField
+          className='username'
           type='text'
           placeholder='Username'
           value={this.state.username ? this.state.username : ''}
-          onChange={ (val) => this.setInputValue('username', val) }
+          onChange={(val) => this.setInputValue('username', val)}
         />
-        <InputField 
+        <InputField
+          className='password'
           type='password'
           placeholder='Password'
           value={this.state.password ? this.state.password : ''}
-          onChange={ (val) => this.setInputValue('password', val) }
+          onChange={(val) => this.setInputValue('password', val)}
         />
-        <SubmitButton 
+        <SubmitButton
           text='Login'
           disabled={this.state.buttonDisabled}
-          onClick={ () => this.doLogin()}
+          onClick={() => this.doLogin()}
         />
         {this.renderRedirect()}
         <p>
-          Don't have an account? <button className="linkbutton" onClick={this.setRedirect}> Register</button>
+          Don't have an account? <button className="linkbutton" onClick={this.setRedirectLogin}> Register</button>
         </p>
       </div>
     );

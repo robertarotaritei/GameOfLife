@@ -2,9 +2,9 @@
 <CoverageSession>
   <Summary numSequencePoints="157" visitedSequencePoints="89" numBranchPoints="30" visitedBranchPoints="30" sequenceCoverage="56.68" branchCoverage="100" maxCyclomaticComplexity="46" minCyclomaticComplexity="7" visitedClasses="4" numClasses="9" visitedMethods="14" numMethods="25" />
   <Modules>
-    <Module hash="7F911FEF-FD4B-4D29-A2F5-4B8A35E05292">
+    <Module hash="794483A4-9188-4011-8487-03FFC902F2E2">
       <ModulePath>GameRunner.dll</ModulePath>
-      <ModuleTime>2020-11-18T04:48:08</ModuleTime>
+      <ModuleTime>2020-11-21T07:50:56</ModuleTime>
       <ModuleName>GameRunner</ModuleName>
       <Files>
         <File uid="1" fullPath="D:\School\GameOfLife\GameRunner\GameRunner\Client.cs" />
@@ -369,9 +369,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="ABDDB821-53AF-4B5A-A053-DA1B5DBB0A6F">
+    <Module hash="08D93131-3C9F-45BB-9137-0F51D588810F">
       <ModulePath>GameRunner.Tests.dll</ModulePath>
-      <ModuleTime>2020-11-18T04:48:08</ModuleTime>
+      <ModuleTime>2020-11-21T07:50:56</ModuleTime>
       <ModuleName>GameRunner.Tests</ModuleName>
       <Files>
         <File uid="6" fullPath="C:\Users\PC\.nuget\packages\microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs" />

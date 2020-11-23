@@ -22,7 +22,7 @@ services:
     image: robertaro/game-of-life-react:latest
     restart: on-failure
     ports:
-      - 3000:3000
+      - 8000:3000
     stdin_open: true
 
   game-runner:

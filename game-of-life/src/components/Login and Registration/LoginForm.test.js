@@ -4,6 +4,28 @@ import renderer from 'react-test-renderer';
 import LoginForm from './LoginForm';
 import { shallow } from "enzyme";
 
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({ title: 'Ok' }),
+  })
+);
+
+beforeEach(() => {
+  fetch.mockClear();
+});
+
+it('LoginForm clicks', () => {
+  jest.spyOn(window, 'alert').mockImplementation(() => {});
+  const wrapper = shallow(<LoginForm />);
+  wrapper.find('SubmitButton').simulate('click');
+  wrapper.find('.username').simulate('change', 'usernametoolong1234');
+  wrapper.find('SubmitButton').simulate('click');
+  wrapper.find('.username').simulate('change', 'username');
+  wrapper.find('SubmitButton').simulate('click');
+  wrapper.find('.password').simulate('change', 'password');
+  wrapper.find('SubmitButton').simulate('click');
+});
+
 test("LoginForm renders without crashing", () => {
   shallow(<LoginForm />);
 });

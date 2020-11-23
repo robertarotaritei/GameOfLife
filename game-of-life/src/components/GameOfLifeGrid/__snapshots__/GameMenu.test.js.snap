@@ -8,46 +8,52 @@ exports[`GameMenu renders correctly 1`] = `
   >
     <button
       className="btn-default"
+      data-testid="resume"
     >
       Resume
     </button>
     <button
       className="btn-default"
+      data-testid="pause"
     >
       Pause
     </button>
     <button
       className="btn-default"
+      data-testid="back"
     >
       Back to First Generation
     </button>
     <button
       className="btn-default"
+      data-testid="reset"
     >
       Reset
     </button>
     <button
       className="btn-default"
+      data-testid="slow"
     >
       Slow
     </button>
     <button
       className="btn-default"
+      data-testid="fast"
     >
       Fast
     </button>
-    <div>
-      <button
-        className="btn-default"
-      >
-        Seed
-      </button>
-      <button
-        className="btn-default"
-      >
-        Save First Generation
-      </button>
-    </div>
+    <button
+      className="btn-default"
+      data-testid="seed"
+    >
+      Seed
+    </button>
+    <button
+      className="btn-default"
+      data-testid="save"
+    >
+      Save First Generation
+    </button>
   </div>
 </div>
 `;

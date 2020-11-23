@@ -1,8 +1,14 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import NavigationBar from './NavigationBar';
 import renderer from 'react-test-renderer';
 import { shallow } from "enzyme";
+
+it('NavigationBar clicks', () => {
+  const {getByTestId} = render(<NavigationBar />);
+  let button = getByTestId('logOut');
+  fireEvent.click(button);
+});
 
 test("NavigationBar renders without crashing", () => {
   shallow(<NavigationBar />);

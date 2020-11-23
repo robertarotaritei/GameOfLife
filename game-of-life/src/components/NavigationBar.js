@@ -60,7 +60,7 @@ class NavigationBar extends React.Component {
                 Welcome {UserStore.username}
                 <button className="linkbutton" onClick={this.setRedirectDashboard}>Dashboard</button>
                 <button className="linkbutton" onClick={this.setRedirectHistory}>Game History</button>
-                <button className="linkbutton" onClick={this.doLogout}>Log out</button>
+                <button data-testid='logOut' className="linkbutton" onClick={this.doLogout}>Log out</button>
             </div>
         );
     }
