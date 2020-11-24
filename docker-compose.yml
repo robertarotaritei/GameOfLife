@@ -1,33 +1,16 @@
 version: '3.1'
 
-services:
-  db: 
-    image: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: game_of_life
-    expose:
-      - 3306
-    volumes:
-      - ./mysqldata:/var/lib/mysql
-           
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-     
-  react:
-    image: robertaro/game-of-life-react:latest
-    restart: on-failure
-    stdin_open: true
-    
+services:     
   reverseproxy:
     image: robertaro/game-of-life-reverse-proxy:latest
     restart: always
     ports:
       - 80:80
+
+  react:
+    image: robertaro/game-of-life-react:latest
+    restart: on-failure
+    stdin_open: true
 
   game-runner:
     image: robertaro/game-of-life-game-runner:latest
