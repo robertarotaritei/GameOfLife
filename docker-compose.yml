@@ -19,11 +19,15 @@ services:
       - 8080:8080
      
   react:
-    image: robertaro/game-of-life-react:latest
+    image: robertaro/game-of-life-game-react:latest
     restart: on-failure
-    ports:
-      - 8000:3000
     stdin_open: true
+    
+  reverseproxy:
+    image: robertaro/game-of-life-game-reverse-proxy:latest
+    restart: always
+    ports:
+      - 80:80
 
   game-runner:
     image: robertaro/game-of-life-game-runner:latest

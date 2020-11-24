@@ -124,9 +124,9 @@ class Game extends React.Component {
 		this.setState({ playState: "play" });
 	}
 
-	slow = () => { this.speed = 600; }
+	slow = () => { this.speed = 600; this.resumeButton(); }
 
-	fast = () => { this.speed = 200; }
+	fast = () => { this.speed = 200; this.resumeButton(); }
 
 	clear = () => {
 		var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
