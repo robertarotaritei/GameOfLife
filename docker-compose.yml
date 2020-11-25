@@ -9,7 +9,7 @@ services:
       - 80:80
 
   react:
-    image: robertaro/game-of-life-react:latest
+    image: react
     restart: on-failure
     stdin_open: true
 
