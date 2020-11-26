@@ -41,7 +41,7 @@ class Game extends React.Component {
 
 	ConnectToHub() {
 		const hubConnection = new HubConnectionBuilder()
-			.withUrl("https://activegamesapi.azurewebsites.net/Progress")
+			.withUrl('http://active-games-api:3002/Progress')
 			.configureLogging(LogLevel.Information)
 			.build();
 
@@ -191,12 +191,14 @@ class Game extends React.Component {
 							data-testid={`${i}-${k}`}
 							key={`${i}-${k}`}
 							onClick={() => {
-								let g = this.state.gridFull;
-								g[i][k] = !g[i][k];
-								this.setState({
-									gridFull: g,
-									nextGeneration: g
-								})
+								if (!this.props.history) {
+									let g = this.state.gridFull;
+									g[i][k] = !g[i][k];
+									this.setState({
+										gridFull: g,
+										nextGeneration: g
+									})
+								}
 							}}
 							onMouseEnter={() => {
 								if (this.state.click === true) {
