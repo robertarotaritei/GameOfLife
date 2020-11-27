@@ -5,9 +5,8 @@ import './App.css'
 import UserStore from './stores/UserStore';
 import LoginForm from './components/Login and Registration/LoginForm';
 import RegistrationForm from './components/Login and Registration/RegistrationForm';
-import Dashboard from './components/pages/Dashboard'
-import GameHistory from './components/pages/GameHistory'
-import Welcome from './components/pages/Welcome'
+import Dashboard from './components/pages/Dashboard';
+import Welcome from './components/pages/Welcome';
 import { runInAction } from 'mobx';
 
 class App extends React.Component {
@@ -46,7 +45,6 @@ class App extends React.Component {
                   <Route exact path="/register" render={() => (<Redirect to="/dashboard" />)} />
                   <Route exact path="/login" render={() => (<Redirect to="/dashboard" />)} />
                   <Route exact path="/dashboard" component={Dashboard}/>
-                  <Route exact path="/history" component={GameHistory}/>
                 </Switch>
             </Router>
           </div>
@@ -61,8 +59,7 @@ class App extends React.Component {
                 <Route exact path="/" component={Welcome}/>
                 <Route exact path="/register" component={RegistrationForm} />
                 <Route exact path="/login" component={LoginForm}/>
-                <Route exact path="/dashboard" render={() => (<Redirect to="/login" />)} />    
-                <Route exact path="/history" render={() => (<Redirect to="/login" />)}/>
+                <Route exact path="/dashboard" render={() => (<Redirect to="/login" />)} />
               </Switch>
             </Router>
           </div>

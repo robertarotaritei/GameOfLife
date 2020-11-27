@@ -1,9 +1,11 @@
 import React from 'react';
-import InputField from './InputField'
-import SubmitButton from './SubmitButton'
-import { Redirect } from 'react-router-dom'
+import InputField from './InputField';
+import SubmitButton from './SubmitButton';
+import { Redirect } from 'react-router-dom';
 import UserStore from '../../stores/UserStore';
 import { runInAction } from 'mobx';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class RegistrationForm extends React.Component {
 
@@ -13,7 +15,6 @@ class RegistrationForm extends React.Component {
       username: '',
       password: '',
       passwordConfirmation: '',
-      buttonDisabled: false
     }
 
     runInAction(() => {
@@ -104,39 +105,49 @@ class RegistrationForm extends React.Component {
 
   render() {
     return (
-      <div className="registrationForm">
+      <div className="loginForm">
         {this.renderRedirect()}
-        Register
+        <div style={{ textAlign: 'center', color: '#355e3b', marginTop: '30px' }}>
+          <Typography variant='h5' style={{fontWeight: 'bold'}}>
+            Register
+          </Typography>
+        </div>
         <InputField
-          className='username'
           type='text'
           placeholder='Username'
           value={this.state.username ? this.state.username : ''}
           onChange={(val) => this.setInputValue('username', val)}
         />
         <InputField
-          className='password'
           type='password'
           placeholder='Password'
           value={this.state.password ? this.state.password : ''}
           onChange={(val) => this.setInputValue('password', val)}
         />
         <InputField
-          className='repeatPassword'
           type='password'
           placeholder='Repeat Password'
           value={this.state.passwordConfirmation ? this.state.passwordConfirmation : ''}
           onChange={(val) => this.setInputValue('passwordConfirmation', val)}
         />
-        <SubmitButton
-          text='Register'
-          disabled={this.state.buttonDisabled}
-          onClick={() => this.doRegister()}
-        />
-        <p>
-          Already have an account?
-          <button className="linkbutton" onClick={this.setRedirect}>Log in</button>
-        </p>
+        <div style={{ textAlign: 'center' }}>
+          <SubmitButton
+            text='Register'
+            onClick={() => this.doRegister()}
+          />
+        </div>
+        <div style={{ display: 'flex', marginTop: '30px' }}>
+          <Typography variant='h6' style={{fontWeight: 'bold'}}>
+            Already have an account?
+          </Typography>
+          <div style={{ color: '#355e3b' }}>
+            <Button color="inherit" size="medium" onClick={this.setRedirect}>
+              <Typography style={{fontWeight: 'bold'}}>
+                Log in
+              </Typography>
+            </Button>
+          </div>
+        </div>
       </div>
     );
   }

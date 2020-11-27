@@ -103,7 +103,7 @@ class Game extends React.Component {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
 		this.setState({ initialState: this.state.gridFull });
-		this.setState({ playState: "resume" });
+		this.setState({ playState: "pause" });
 	}
 
 	resumeButton = () => {
@@ -113,6 +113,7 @@ class Game extends React.Component {
 
 	pauseButton = () => {
 		clearInterval(this.intervalId);
+		this.setState({ playState: "play" });
 	}
 
 	stopButton = () => {
@@ -136,6 +137,7 @@ class Game extends React.Component {
 			generation: 0
 		});
 		clearInterval(this.intervalId);
+		this.setState({ playState: "play" });
 	}
 
 	save = () => {
@@ -180,15 +182,10 @@ class Game extends React.Component {
 	mapGrid() {
 		return (
 			<div
-				className="grid"
-				style={{
-					display: "grid",
-					gridTemplateColumns: `repeat(${this.cols}, 15px)`,
-				}}>
+				style={{ display: "grid", gridTemplateColumns: `repeat(${this.cols}, 16px)` }}>
 				{this.state.gridFull.map((rows, i) =>
 					rows.map((col, k) => (
 						<div
-							data-testid={`${i}-${k}`}
 							key={`${i}-${k}`}
 							onClick={() => {
 								if (!this.props.history) {
@@ -211,10 +208,10 @@ class Game extends React.Component {
 								}
 							}}
 							style={{
-								width: 15,
-								height: 15,
-								backgroundColor: this.state.gridFull[i][k] ? "white" : undefined,
-								border: "solid thin black"
+								width: 16,
+								height: 16,
+								backgroundColor: this.state.gridFull[i][k] ? "black" : undefined,
+								border: "solid thin #355e3b"
 							}}
 						/>
 					))
@@ -225,7 +222,7 @@ class Game extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div style={{marginTop: '30px'}}>
 				{this.props.history ? (
 					<div>
 						{this.props.game ? (
@@ -234,7 +231,6 @@ class Game extends React.Component {
 								<GameMenu
 									playState={this.state.playState}
 									playButton={this.playButton}
-									resumeButton={this.resumeButton}
 									pauseButton={this.pauseButton}
 									stop={this.stopButton}
 									slow={this.slow}
@@ -250,7 +246,6 @@ class Game extends React.Component {
 							<GameMenu
 								playState={this.state.playState}
 								playButton={this.playButton}
-								resumeButton={this.resumeButton}
 								pauseButton={this.pauseButton}
 								stop={this.stopButton}
 								slow={this.slow}

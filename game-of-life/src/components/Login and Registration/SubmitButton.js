@@ -4,10 +4,9 @@ class SubmitButton extends React.Component {
 
   render() {
     return (
-      <div className="submitButton">
+      <div className="submitButton" style={{ marginTop: '40px' }}>
         <button
           className='btn'
-          disabled={this.props.disabled}
           onClick={ () => this.props.onClick() }
           >
           {this.props.text}

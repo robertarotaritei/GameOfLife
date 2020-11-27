@@ -1,9 +1,11 @@
 import React from 'react';
-import InputField from './InputField'
-import SubmitButton from './SubmitButton'
-import UserStore from '../../stores/UserStore'
+import InputField from './InputField';
+import SubmitButton from './SubmitButton';
+import UserStore from '../../stores/UserStore';
 import { runInAction } from 'mobx';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class LoginForm extends React.Component {
 
@@ -12,7 +14,6 @@ class LoginForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      buttonDisabled: false,
       redirect: false,
       redirectDashboard: false
     }
@@ -95,30 +96,42 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="loginForm">
-        Log in
+        <div style={{ textAlign: 'center', color: '#355e3b', marginTop: '30px' }}>
+          <Typography variant='h5' style={{fontWeight: 'bold'}}>
+            Log in
+          </Typography>
+        </div>
         <InputField
-          className='username'
           type='text'
           placeholder='Username'
           value={this.state.username ? this.state.username : ''}
           onChange={(val) => this.setInputValue('username', val)}
         />
         <InputField
-          className='password'
           type='password'
           placeholder='Password'
           value={this.state.password ? this.state.password : ''}
           onChange={(val) => this.setInputValue('password', val)}
         />
-        <SubmitButton
-          text='Login'
-          disabled={this.state.buttonDisabled}
-          onClick={() => this.doLogin()}
-        />
+        <div style={{ textAlign: 'center' }}>
+          <SubmitButton
+            text='Log in'
+            onClick={() => this.doLogin()}
+          />
+        </div>
         {this.renderRedirect()}
-        <p>
-          Don't have an account? <button className="linkbutton" onClick={this.setRedirectLogin}> Register</button>
-        </p>
+        <div style={{ display: 'flex', marginTop: '30px' }}>
+          <Typography variant='h6' style={{fontWeight: 'bold'}}>
+            Don't have an account?
+          </Typography>
+          <div style={{ color: '#355e3b' }}>
+            <Button color="inherit" size="medium" onClick={this.setRedirectLogin}>
+              <Typography style={{fontWeight: 'bold'}}>
+                Register
+              </Typography>
+            </Button>
+          </div>
+        </div>
       </div>
     );
   }

@@ -7,13 +7,9 @@ class HistoryList extends React.Component {
         return (
             <div>
                 {this.props.games.map(currentGame => (
-                    <Game key={currentGame.id} game={currentGame} history={true}/>
+                    <Game key={currentGame.id} game={currentGame} history={true} />
                 ))}
-                <div
-                    style={{
-                        paddingBottom: 20
-                    }}
-                />
+                <div style={{ paddingBottom: 20 }} />
             </div>
         );
     }
