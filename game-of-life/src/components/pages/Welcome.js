@@ -4,7 +4,6 @@ import UserStore from '../../stores/UserStore';
 import { runInAction } from 'mobx';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import GameOfLifeGIF from '../../gameoflife.gif';
 
 class Welcome extends React.Component {
 
@@ -52,7 +51,7 @@ class Welcome extends React.Component {
                     Welcome to the <span style={{ color: '#355e3b' }}> Game of Life</span>.
                 </Typography>
                 <div style={{ display: 'flex', marginTop: '40px' }}>
-                    <img src={GameOfLifeGIF} style={{ border: 'solid', borderWidth: 'thick', borderColor: '#355e3b' }} alt="GameOfLife" />
+                    <img src={'/gameoflife.gif'} style={{ border: 'solid', borderWidth: 'thick', borderColor: '#355e3b' }} alt="GameOfLife" />
                     <Typography variant='h6' style={{ marginLeft: '20px' }}>
                         &nbsp;&nbsp;&nbsp;The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970.<br />
                         It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. <br />

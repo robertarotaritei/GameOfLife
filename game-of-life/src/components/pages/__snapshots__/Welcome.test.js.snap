@@ -33,7 +33,7 @@ exports[`Welcome renders correctly 1`] = `
   >
     <img
       alt="GameOfLife"
-      src="gameoflife.gif"
+      src="/gameoflife.gif"
       style={
         Object {
           "border": "solid",
