@@ -44,10 +44,3 @@ test('Dashboard Page shows up when logged in and going to /login', () => {
   const linkElement = getByText(/Welcome/i);
   expect(linkElement).toBeInTheDocument();
 });
-
-it('App renders correctly', () => {
-  const tree = renderer
-    .create(<App />)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
-});
