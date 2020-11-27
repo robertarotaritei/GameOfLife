@@ -15,12 +15,6 @@ test("HistoryList renders without crashing", () => {
   shallow(<HistoryList games={games} />);
 });
 
-test('Render HistoryList', () => {
-  const { getByText } = render(<HistoryList games={games} />);
-  const linkElement = getByText(/Play/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
 it('HistoryList renders correctly', () => {
   const tree = renderer
     .create(<HistoryList games={games} />)

@@ -1,29 +1,144 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavigationBar renders correctly 1`] = `
-<div
-  className="topnav"
+<header
+  className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
+  style={
+    Object {
+      "background": "#355e3b",
+    }
+  }
 >
-  Welcome 
-  
-  <button
-    className="linkbutton"
-    onClick={[Function]}
+  <div
+    className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
   >
-    Dashboard
-  </button>
-  <button
-    className="linkbutton"
-    onClick={[Function]}
-  >
-    Game History
-  </button>
-  <button
-    className="linkbutton"
-    data-testid="logOut"
-    onClick={[Function]}
-  >
-    Log out
-  </button>
-</div>
+    <h5
+      className="MuiTypography-root MuiTypography-h5"
+      style={
+        Object {
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Welcome 
+      
+    </h5>
+    <div
+      className="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
+    >
+      <div
+        style={
+          Object {
+            "color": "d3d3d3",
+            "float": "right",
+          }
+        }
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+              style={
+                Object {
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Dashboard
+            </p>
+          </span>
+        </button>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+              style={
+                Object {
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Game History
+            </p>
+          </span>
+        </button>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          data-testid="logOut"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "marginLeft": "20px",
+            }
+          }
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <p
+              className="MuiTypography-root MuiTypography-body1"
+              style={
+                Object {
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Log out
+            </p>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
 `;

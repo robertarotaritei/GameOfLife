@@ -2,7 +2,13 @@
 
 exports[`HistoryList renders correctly 1`] = `
 <div>
-  <div>
+  <div
+    style={
+      Object {
+        "marginTop": "30px",
+      }
+    }
+  >
     <div>
       <div>
         <h3>
@@ -14,54 +20,159 @@ exports[`HistoryList renders correctly 1`] = `
             role="toolbar"
           >
             <button
-              className="btn-default"
+              className="MuiButtonBase-root MuiIconButton-root"
               data-testid="play"
+              disabled={false}
+              onBlur={[Function]}
               onClick={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
             >
-              Play
+              <span
+                className="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8 5v14l11-7z"
+                  />
+                </svg>
+              </span>
+              <span
+                className="MuiTouchRipple-root"
+              />
             </button>
             <button
-              className="btn-default"
-              data-testid="pause"
-              onClick={[Function]}
-            >
-              Pause
-            </button>
-            <button
-              className="btn-default"
-              data-testid="back"
-              onClick={[Function]}
-            >
-              Back to First Generation
-            </button>
-            <button
-              className="btn-default"
-              data-testid="reset"
-            >
-              Reset
-            </button>
-            <button
-              className="btn-default"
+              className="MuiButtonBase-root MuiIconButton-root"
               data-testid="slow"
+              disabled={false}
+              onBlur={[Function]}
               onClick={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
             >
-              Slow
+              <span
+                className="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 0115.58 6.85l1.85-1.23A10 10 0 003.35 19a2 2 0 001.72 1h13.85a2 2 0 001.74-1 10 10 0 00-.27-10.44zm-9.79 6.84a2 2 0 002.83 0l5.66-8.49-8.49 5.66a2 2 0 000 2.83z"
+                  />
+                </svg>
+              </span>
+              <span
+                className="MuiTouchRipple-root"
+              />
             </button>
             <button
-              className="btn-default"
-              data-testid="fast"
+              className="MuiButtonBase-root MuiIconButton-root"
+              data-testid="back"
+              disabled={false}
+              onBlur={[Function]}
               onClick={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
             >
-              Fast
+              <span
+                className="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"
+                  />
+                </svg>
+              </span>
+              <span
+                className="MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              className="MuiButtonBase-root MuiIconButton-root"
+              data-testid="reset"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </span>
+              <span
+                className="MuiTouchRipple-root"
+              />
             </button>
           </div>
         </div>
         <div
-          className="grid"
           style={
             Object {
               "display": "grid",
-              "gridTemplateColumns": "repeat(80, 15px)",
+              "gridTemplateColumns": "repeat(80, 16px)",
             }
           }
         >
@@ -71,10 +182,10 @@ exports[`HistoryList renders correctly 1`] = `
             onMouseEnter={[Function]}
             style={
               Object {
-                "backgroundColor": "white",
-                "border": "solid thin black",
-                "height": 15,
-                "width": 15,
+                "backgroundColor": "black",
+                "border": "solid thin #355e3b",
+                "height": 16,
+                "width": 16,
               }
             }
           />
@@ -84,10 +195,10 @@ exports[`HistoryList renders correctly 1`] = `
             onMouseEnter={[Function]}
             style={
               Object {
-                "backgroundColor": "white",
-                "border": "solid thin black",
-                "height": 15,
-                "width": 15,
+                "backgroundColor": "black",
+                "border": "solid thin #355e3b",
+                "height": 16,
+                "width": 16,
               }
             }
           />
@@ -98,9 +209,9 @@ exports[`HistoryList renders correctly 1`] = `
             style={
               Object {
                 "backgroundColor": undefined,
-                "border": "solid thin black",
-                "height": 15,
-                "width": 15,
+                "border": "solid thin #355e3b",
+                "height": 16,
+                "width": 16,
               }
             }
           />
@@ -111,9 +222,9 @@ exports[`HistoryList renders correctly 1`] = `
             style={
               Object {
                 "backgroundColor": undefined,
-                "border": "solid thin black",
-                "height": 15,
-                "width": 15,
+                "border": "solid thin #355e3b",
+                "height": 16,
+                "width": 16,
               }
             }
           />

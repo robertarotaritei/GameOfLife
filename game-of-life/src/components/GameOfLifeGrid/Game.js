@@ -186,6 +186,7 @@ class Game extends React.Component {
 				{this.state.gridFull.map((rows, i) =>
 					rows.map((col, k) => (
 						<div
+							data-testid={`${i}-${k}`}
 							key={`${i}-${k}`}
 							onClick={() => {
 								if (!this.props.history) {
@@ -222,7 +223,7 @@ class Game extends React.Component {
 
 	render() {
 		return (
-			<div style={{marginTop: '30px'}}>
+			<div style={{ marginTop: '30px' }}>
 				{this.props.history ? (
 					<div>
 						{this.props.game ? (

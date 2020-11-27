@@ -21,8 +21,6 @@ it('Game clicks', () => {
   fireEvent.click(button);
   button = getByTestId('play');
   fireEvent.click(button);
-  button = getByTestId('resume');
-  fireEvent.click(button);
   button = getByTestId('pause');
   fireEvent.click(button);
   button = getByTestId('back');
@@ -41,12 +39,6 @@ it('Game clicks', () => {
 
 test("Game renders without crashing", () => {
   shallow(<Game />);
-});
-
-test('Render Game', () => {
-  const { getByText } = render(<Game />);
-  const linkElement = getByText(/Play/i);
-  expect(linkElement).toBeInTheDocument();
 });
 
 it('Game renders correctly', () => {

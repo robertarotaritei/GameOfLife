@@ -78,7 +78,7 @@ class NavigationBar extends React.Component {
                                     Game History
                             </Typography>
                             </Button>
-                            <Button color="inherit" size="medium" onClick={this.doLogout} style={{ marginLeft: '20px' }}>
+                            <Button data-testid='logOut' color="inherit" size="medium" onClick={this.doLogout} style={{ marginLeft: '20px' }}>
                                 <Typography style={{fontWeight: 'bold'}}>
                                     Log out
                             </Typography>

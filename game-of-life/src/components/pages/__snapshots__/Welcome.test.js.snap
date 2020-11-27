@@ -1,29 +1,202 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Welcome renders correctly 1`] = `
-<div
-  className="app"
->
-  <div
-    className="container"
+<div>
+  <h3
+    className="MuiTypography-root MuiTypography-h3"
+    style={
+      Object {
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
   >
-    Welcome to the Game of Life.
-    <br />
-    <br />
-    Click here to log in 
-    <button
-      onClick={[Function]}
+    Welcome to the 
+    <span
+      style={
+        Object {
+          "color": "#355e3b",
+        }
+      }
     >
-      Log in
-    </button>
-    <br />
-    <br />
-    Or here if you don't have an account already 
-    <button
-      onClick={[Function]}
+       Game of Life
+    </span>
+    .
+  </h3>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "marginTop": "40px",
+      }
+    }
+  >
+    <img
+      alt="GameOfLife"
+      src="gameoflife.gif"
+      style={
+        Object {
+          "border": "solid",
+          "borderColor": "#355e3b",
+          "borderWidth": "thick",
+        }
+      }
+    />
+    <h6
+      className="MuiTypography-root MuiTypography-h6"
+      style={
+        Object {
+          "marginLeft": "20px",
+        }
+      }
     >
-      Register
-    </button>
+         The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970.
+      <br />
+      It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. 
+      <br />
+         One interacts with the Game of Life by creating an initial configuration and observing how it evolves. 
+      <br />
+         The game has three rules: 
+      <br />
+           1. Any live cell with two or three live neighbours survives. 
+      <br />
+           2. Any dead cell with three live neighbours becomes a live cell.
+      <br />
+           3. All other live cells die in the next generation. 
+      <br />
+    </h6>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "center",
+        "marginTop": "40px",
+      }
+    }
+  >
+    <h5
+      className="MuiTypography-root MuiTypography-h5"
+      style={
+        Object {
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Click here to
+    </h5>
+    <div
+      style={
+        Object {
+          "color": "#355e3b",
+        }
+      }
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1"
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Log in
+          </p>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "center",
+        "marginTop": "40px",
+      }
+    }
+  >
+    <h5
+      className="MuiTypography-root MuiTypography-h5"
+      style={
+        Object {
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Or
+    </h5>
+    <div
+      style={
+        Object {
+          "color": "#355e3b",
+        }
+      }
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1"
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            here
+          </p>
+        </span>
+      </button>
+    </div>
+    <h5
+      className="MuiTypography-root MuiTypography-h5"
+      style={
+        Object {
+          "fontWeight": "bold",
+        }
+      }
+    >
+      if you don't have an account already
+    </h5>
   </div>
 </div>
 `;

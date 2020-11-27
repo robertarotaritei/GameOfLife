@@ -2,11 +2,35 @@
 
 exports[`RegistrationForm renders correctly 1`] = `
 <div
-  className="registrationForm"
+  className="loginForm"
 >
-  Register
+  <div
+    style={
+      Object {
+        "color": "#355e3b",
+        "marginTop": "30px",
+        "textAlign": "center",
+      }
+    }
+  >
+    <h5
+      className="MuiTypography-root MuiTypography-h5"
+      style={
+        Object {
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Register
+    </h5>
+  </div>
   <div
     className="inputField"
+    style={
+      Object {
+        "marginTop": "30px",
+      }
+    }
   >
     <input
       className="input"
@@ -18,6 +42,11 @@ exports[`RegistrationForm renders correctly 1`] = `
   </div>
   <div
     className="inputField"
+    style={
+      Object {
+        "marginTop": "30px",
+      }
+    }
   >
     <input
       className="input"
@@ -29,6 +58,11 @@ exports[`RegistrationForm renders correctly 1`] = `
   </div>
   <div
     className="inputField"
+    style={
+      Object {
+        "marginTop": "30px",
+      }
+    }
   >
     <input
       className="input"
@@ -39,24 +73,87 @@ exports[`RegistrationForm renders correctly 1`] = `
     />
   </div>
   <div
-    className="submitButton"
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
   >
-    <button
-      className="btn"
-      disabled={false}
-      onClick={[Function]}
+    <div
+      className="submitButton"
+      style={
+        Object {
+          "marginTop": "40px",
+        }
+      }
     >
-      Register
-    </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        Register
+      </button>
+    </div>
   </div>
-  <p>
-    Already have an account?
-    <button
-      className="linkbutton"
-      onClick={[Function]}
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "marginTop": "30px",
+      }
+    }
+  >
+    <h6
+      className="MuiTypography-root MuiTypography-h6"
+      style={
+        Object {
+          "fontWeight": "bold",
+        }
+      }
     >
-      Log in
-    </button>
-  </p>
+      Already have an account?
+    </h6>
+    <div
+      style={
+        Object {
+          "color": "#355e3b",
+        }
+      }
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <p
+            className="MuiTypography-root MuiTypography-body1"
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Log in
+          </p>
+        </span>
+      </button>
+    </div>
+  </div>
 </div>
 `;

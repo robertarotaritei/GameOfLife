@@ -108,23 +108,26 @@ class RegistrationForm extends React.Component {
       <div className="loginForm">
         {this.renderRedirect()}
         <div style={{ textAlign: 'center', color: '#355e3b', marginTop: '30px' }}>
-          <Typography variant='h5' style={{fontWeight: 'bold'}}>
+          <Typography variant='h5' style={{ fontWeight: 'bold' }}>
             Register
           </Typography>
         </div>
         <InputField
+          className='username'
           type='text'
           placeholder='Username'
           value={this.state.username ? this.state.username : ''}
           onChange={(val) => this.setInputValue('username', val)}
         />
         <InputField
+          className='password'
           type='password'
           placeholder='Password'
           value={this.state.password ? this.state.password : ''}
           onChange={(val) => this.setInputValue('password', val)}
         />
         <InputField
+          className='repeatPassword'
           type='password'
           placeholder='Repeat Password'
           value={this.state.passwordConfirmation ? this.state.passwordConfirmation : ''}
@@ -137,12 +140,12 @@ class RegistrationForm extends React.Component {
           />
         </div>
         <div style={{ display: 'flex', marginTop: '30px' }}>
-          <Typography variant='h6' style={{fontWeight: 'bold'}}>
+          <Typography variant='h6' style={{ fontWeight: 'bold' }}>
             Already have an account?
           </Typography>
           <div style={{ color: '#355e3b' }}>
             <Button color="inherit" size="medium" onClick={this.setRedirect}>
-              <Typography style={{fontWeight: 'bold'}}>
+              <Typography style={{ fontWeight: 'bold' }}>
                 Log in
               </Typography>
             </Button>

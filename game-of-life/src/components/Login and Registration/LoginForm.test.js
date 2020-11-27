@@ -31,9 +31,9 @@ test("LoginForm renders without crashing", () => {
 });
 
 test('Render LoginForm', () => {
-  const { getByText } = render(<LoginForm />);
-  const linkElement = getByText(/Log in/i);
-  expect(linkElement).toBeInTheDocument();
+  const { getAllByText } = render(<LoginForm />);
+  const linkElement = getAllByText(/Log in/i);
+  expect(linkElement[0]).toBeInTheDocument();
 });
 
 test('Render LoginForm Text', () => {

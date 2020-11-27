@@ -86,8 +86,7 @@ body, html, #root, .app, .container {
   cursor: pointer;
   display: inline;
   font-size: 26px;
-  font-family: 'Roboto';
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding: 0;
   perspective-origin: 0 0;
   text-align: start;

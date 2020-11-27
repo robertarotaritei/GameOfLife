@@ -10,22 +10,15 @@ test("App renders without crashing", () => {
 
 test('Welcome Page shows up', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/Welcome to the Game of Life/i);
+  const linkElement = getByText(/Welcome to/i);
   expect(linkElement).toBeInTheDocument();
 });
 
 test('Login Page shows up when going to /dashboard', () => {
   window.history.pushState({}, 'Dashboard', '/dashboard');
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/Login/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
-test('Login Page shows up when going to /history', () => {
-  window.history.pushState({}, 'GameHistory', '/history');
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/Login/i);
-  expect(linkElement).toBeInTheDocument();
+  const { getAllByText } = render(<App />);
+  const linkElement = getAllByText(/Log in/i);
+  expect(linkElement[0]).toBeInTheDocument();
 });
 
 test('Dashboard Page shows up when logged in', () => {
