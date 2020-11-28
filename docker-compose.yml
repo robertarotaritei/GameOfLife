@@ -2,15 +2,20 @@ version: '3.1'
 
 services:
 
+  reverseproxy:
+    image: robertaro/game-of-life-reverse-proxy:latest
+    restart: always
+    ports:
+      - 80:80
+
   react:
+    image: react
     image: robertaro/game-of-life-react:latest
     restart: on-failure
-    ports:
-      - 3000:3000
     stdin_open: true
 
   game-runner:
-    image: robertaro/game-of-life-game-runner:latest
+    image: robertaro/game-of-life-runner:latest
     restart: on-failure
     stdin_open: true
 
@@ -19,12 +24,6 @@ services:
     restart: always
     expose:
       - 3001
-  
-  active-games-api:
-    image: robertaro/game-of-life-active-games-api:latest
-    restart: always
-    ports:
-      - 3002:3002
       
   game-history-api:
     image: robertaro/game-of-life-game-history-api:latest
