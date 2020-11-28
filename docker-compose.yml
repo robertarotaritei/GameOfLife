@@ -14,7 +14,7 @@ services:
     stdin_open: true
 
   game-runner:
-    image: robertaro/game-of-life-runner:latest
+    image: robertaro/game-of-life-game-runner:latest
     restart: on-failure
     stdin_open: true
 
