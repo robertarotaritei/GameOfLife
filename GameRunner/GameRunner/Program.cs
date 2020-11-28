@@ -9,7 +9,7 @@ namespace GameRunner
 
         private static void Main()
         {
-            string baseUrl = "http://activegamesapi.azurewebsites.net";
+            string baseUrl = "https://activegamesapi.azurewebsites.net";
             var hubConnector = new HubConnector(baseUrl);
 
             hubConnector.OnClosed();
