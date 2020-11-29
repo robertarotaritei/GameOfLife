@@ -79,7 +79,7 @@ class Welcome extends React.Component {
                         Or
                     </Typography>
                     <div style={{ color: '#355e3b' }}>
-                        <Button color="inherit" size="medium" onClick={this.setRedirectLogin}>
+                        <Button color="inherit" size="medium" onClick={this.setRedirectRegister}>
                             <Typography style={{ fontWeight: 'bold' }}>
                                 here
                             </Typography>

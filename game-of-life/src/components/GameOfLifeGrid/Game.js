@@ -172,7 +172,7 @@ class Game extends React.Component {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(gameState)
-		})
+		}).catch(console.log)
 
 		if (this.state.gridFull !== this.state.nextGeneration) {
 			this.setState({ gridFull: this.state.nextGeneration });
