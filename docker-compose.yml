@@ -18,6 +18,12 @@ services:
     restart: always
     expose:
       - 3001
+  
+  user-api:
+    image: robertaro/game-of-life-active-games-api:latest
+    restart: always
+    expose:
+      - 3002
 
   game-runner:
     image: robertaro/game-of-life-game-runner:latest

@@ -9,8 +9,9 @@ namespace GameRunner
 
         private static void Main()
         {
-            string baseUrl = "https://activegamesapi.azurewebsites.net";
-            var hubConnector = new HubConnector(baseUrl);
+            string apiUrl = "http://active-games-api:3003";
+            string hubUrl = "https://gameoflifeapp.azurewebsites.net";
+            var hubConnector = new HubConnector(hubUrl, apiUrl);
 
             hubConnector.OnClosed();
             hubConnector.Connection.On<GameState>("GameInitiated", (currentState) => { hubConnector.CalculateNextState(currentState); });
