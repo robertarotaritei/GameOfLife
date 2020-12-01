@@ -12,7 +12,7 @@ namespace GameRunnerTests
         {
             //Arrange
             var url = "http://localhost:3000";
-            var hubConnector = new HubConnector(url, url);
+            var hubConnector = new HubConnector(url);
 
             //Assert
             Assert.AreEqual(hubConnector.Connection.State, HubConnectionState.Disconnected);
@@ -23,7 +23,7 @@ namespace GameRunnerTests
         {
             //Arrange
             var url = "http://localhost:3000";
-            var hubConnector = new HubConnector(url, url);
+            var hubConnector = new HubConnector(url);
             var expected = new Client(url);
 
             //Assert
@@ -35,7 +35,7 @@ namespace GameRunnerTests
         {
             //Arrange
             var url = "http://localhost:3000";
-            var hubConnector = new HubConnector(url, url);
+            var hubConnector = new HubConnector(url);
             var expected = new GameStateCalculator();
 
             //Assert
@@ -47,7 +47,7 @@ namespace GameRunnerTests
         {
             //Arrange
             var url = "http://localhost:3000";
-            var hubConnector = new HubConnector(url, url);
+            var hubConnector = new HubConnector(url);
 
             //Act
             hubConnector.OnClosed();
@@ -61,7 +61,7 @@ namespace GameRunnerTests
         {
             //Arrange
             var url = "http://localhost:3000";
-            var hubConnector = new HubConnector(url, url);
+            var hubConnector = new HubConnector(url);
             var initialState = new GameState();
             var expectedState = new GameState();
 

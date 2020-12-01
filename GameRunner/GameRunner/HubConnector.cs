@@ -10,14 +10,14 @@ namespace GameRunner
         public GameStateCalculator Calculator { get; }
         public Client Client { get;  }
 
-        public HubConnector(string hubUrl, string apiUrl)
+        public HubConnector(string baseUrl)
         {
             Connection = new HubConnectionBuilder()
-                    .WithUrl(hubUrl + "/Progress")
+                    .WithUrl(baseUrl + "/Progress")
                     .Build();
 
             Calculator = new GameStateCalculator();
-            Client = new Client(apiUrl);
+            Client = new Client(baseUrl);
         }
 
         public void OnClosed()
