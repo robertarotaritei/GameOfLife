@@ -18,17 +18,16 @@ class NavigationBar extends React.Component {
         }
 
         runInAction(() => {
-            UserStore.isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            UserStore.key = sessionStorage.getItem('key');
         });
     }
 
     async doLogout() {
-        sessionStorage.removeItem('isLoggedIn');
+        sessionStorage.removeItem('key');
         sessionStorage.removeItem('username');
-        sessionStorage.removeItem('id');
 
         runInAction(() => {
-            UserStore.isLoggedIn = false;
+            UserStore.key = '';
             UserStore.username = '';
         })
     }

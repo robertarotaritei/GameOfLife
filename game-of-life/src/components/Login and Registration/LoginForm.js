@@ -58,27 +58,24 @@ class LoginForm extends React.Component {
       UserStore.loading = true;
     });
 
-    let userId = 0;
     let res = await fetch(`/credentials/user/verify?username=${this.state.username}&password=${this.state.password}`)
     let result = await res.json();
 
     runInAction(() => {
       UserStore.loading = false;
     });
-
-    userId = result;
-    if (userId.title !== "Not Found") {
+    
+    if (result.title !== "Not Found") {
 
       runInAction(() => {
         UserStore.loading = true;
       });
 
-      sessionStorage.setItem('isLoggedIn', true);
-      sessionStorage.setItem('username', userId.username);
-      sessionStorage.setItem('id', userId.id);
+      sessionStorage.setItem('key', result);
+      sessionStorage.setItem('username', this.state.username);
       runInAction(() => {
-        UserStore.isLoggedIn = true;
-        UserStore.username = userId.username;
+        UserStore.key = result;
+        UserStore.username = this.state.username;
       })
 
       runInAction(() => {

@@ -12,20 +12,34 @@ import Typography from '@material-ui/core/Typography';
 
 class App extends React.Component {
 
-  constructor(){
+  constructor() {
     super();
 
     runInAction(() => {
-      UserStore.isLoggedIn = sessionStorage.getItem('isLoggedIn');
+      UserStore.key = sessionStorage.getItem('key');
       UserStore.username = sessionStorage.getItem('username');
       UserStore.loading = false;
     });
-    
+  }
+
+  componentDidMount() {
+    let username = UserStore.username;
+    let key = UserStore.key;
+    let result = fetch(`/credentials/user/token?username=${username}&token=${key}`);
+
+    if (result !== true) {
+      sessionStorage.removeItem('key');
+      sessionStorage.removeItem('username');
+      runInAction(() => {
+        UserStore.key = "";
+        UserStore.username = "";
+      });
+    }
   }
 
   render() {
 
-    if(UserStore.loading) {
+    if (UserStore.loading) {
       return (
         <div className="app">
           <div className='container'>
@@ -38,16 +52,16 @@ class App extends React.Component {
     }
     else {
 
-      if(UserStore.isLoggedIn) {
+      if (UserStore.key !== '') {
         return (
           <div className="app">
-              <Router>
-                <Switch>
-                  <Route exact path="/" render={() => (<Redirect to="/dashboard" />)}/>
-                  <Route exact path="/register" render={() => (<Redirect to="/dashboard" />)} />
-                  <Route exact path="/login" render={() => (<Redirect to="/dashboard" />)} />
-                  <Route exact path="/dashboard" component={Dashboard}/>
-                </Switch>
+            <Router>
+              <Switch>
+                <Route exact path="/" render={() => (<Redirect to="/dashboard" />)} />
+                <Route exact path="/register" render={() => (<Redirect to="/dashboard" />)} />
+                <Route exact path="/login" render={() => (<Redirect to="/dashboard" />)} />
+                <Route exact path="/dashboard" component={Dashboard} />
+              </Switch>
             </Router>
           </div>
         );
@@ -58,9 +72,9 @@ class App extends React.Component {
           <div className='container'>
             <Router>
               <Switch>
-                <Route exact path="/" component={Welcome}/>
+                <Route exact path="/" component={Welcome} />
                 <Route exact path="/register" component={RegistrationForm} />
-                <Route exact path="/login" component={LoginForm}/>
+                <Route exact path="/login" component={LoginForm} />
                 <Route exact path="/dashboard" render={() => (<Redirect to="/login" />)} />
               </Switch>
             </Router>

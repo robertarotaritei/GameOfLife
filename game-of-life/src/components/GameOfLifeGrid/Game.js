@@ -6,12 +6,13 @@ import UserStore from '../../stores/UserStore';
 class Game extends React.Component {
 	constructor() {
 		super();
-		this.speed = 600;
+		this.speed = 800;
 		this.cols = 80;
 		this.rows = 40;
 
 		this.state = {
 			gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+			nextGeneration: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
 			click: false,
 			initialState: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
 			playState: 'play',
@@ -29,7 +30,8 @@ class Game extends React.Component {
 			if (this.props.game) {
 				this.setState({
 					initialState: JSON.parse(this.props.game.initialState),
-					gridFull: JSON.parse(this.props.game.initialState)
+					gridFull: JSON.parse(this.props.game.initialState),
+					nextGeneration: JSON.parse(this.props.game.initialState)
 				});
 			}
 		}
@@ -53,7 +55,7 @@ class Game extends React.Component {
 			this.state.hubConnection.on('GameProgressed', (gameState) => {
 				if (this.intervalId) {
 					this.setState({
-						girdFull: gameState.generation,
+						nextGeneration: gameState.generation,
 						runnerConnectionId: gameState.reactConnectionId
 					});
 				}
@@ -87,11 +89,13 @@ class Game extends React.Component {
 				}
 			}
 		}
-		this.setState({ gridFull: gridCopy });
+		this.setState({
+			gridFull: gridCopy,
+			nextGeneration: gridCopy
+		});
 	}
 
-	playButton = (e) => {
-		e.preventDefault();
+	playButton = () => {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
 		this.setState({ initialState: this.state.gridFull });
@@ -111,17 +115,21 @@ class Game extends React.Component {
 
 	stopButton = () => {
 		clearInterval(this.intervalId);
-		this.setState({ gridFull: this.state.initialState });
+		this.setState({
+			gridFull: this.state.initialState,
+			nextGeneration: this.state.initialState
+		});
 		this.setState({ playState: "play" });
 	}
 
-	slow = () => { this.speed = 600; this.resumeButton(); }
+	slow = () => { this.speed = 800; this.resumeButton(); }
 
-	fast = () => { this.speed = 200; this.resumeButton(); }
+	fast = () => { this.speed = 450; this.resumeButton(); }
 
 	clear = () => {
 		var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
 		this.setState({
+			nextGeneration: grid,
 			gridFull: grid,
 			generation: 0
 		});
@@ -132,7 +140,7 @@ class Game extends React.Component {
 	save = () => {
 		let game = {
 			author: UserStore.username,
-			initialState: JSON.stringify(this.state.initialState)
+			initialState: JSON.stringify(this.state.gridFull)
 		};
 		fetch('/history/gamehistory', {
 			method: 'POST',
@@ -162,6 +170,10 @@ class Game extends React.Component {
 			},
 			body: JSON.stringify(gameState)
 		}).catch(console.log)
+
+		if (this.state.gridFull !== this.state.nextGeneration) {
+			this.setState({ gridFull: this.state.nextGeneration });
+		}
 	}
 
 	mapGrid() {
@@ -177,14 +189,20 @@ class Game extends React.Component {
 								if (!this.props.history) {
 									let g = this.state.gridFull;
 									g[i][k] = !g[i][k];
-									this.setState({ gridFull: g })
+									this.setState({
+										gridFull: g,
+										nextGeneration: g
+									})
 								}
 							}}
 							onMouseEnter={() => {
 								if (this.state.click === true) {
 									let g = this.state.gridFull;
 									g[i][k] = !g[i][k];
-									this.setState({ gridFull: g })
+									this.setState({
+										gridFull: g,
+										nextGeneration: g
+									})
 								}
 							}}
 							style={{
