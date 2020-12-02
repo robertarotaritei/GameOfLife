@@ -29,7 +29,6 @@ class NavigationBar extends React.Component {
 
         runInAction(() => {
             UserStore.isLoggedIn = false;
-            UserStore.userId = 0;
             UserStore.username = '';
         })
     }

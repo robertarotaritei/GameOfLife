@@ -18,11 +18,6 @@ services:
     restart: always
     expose:
       - 3001
-
-  game-runner:
-    image: robertaro/game-of-life-game-runner:latest
-    restart: on-failure
-    stdin_open: true
       
   game-history-api:
     image: robertaro/game-of-life-game-history-api:latest

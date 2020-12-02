@@ -23,9 +23,13 @@ it('Game clicks', () => {
   fireEvent.click(button);
   button = getByTestId('pause');
   fireEvent.click(button);
+  button = getByTestId('resume');
+  fireEvent.click(button);
   button = getByTestId('back');
   fireEvent.click(button);
   button = getByTestId('reset');
+  fireEvent.click(button);
+  button = getByTestId('speed');
   fireEvent.click(button);
   button = getByTestId('slow');
   fireEvent.click(button);

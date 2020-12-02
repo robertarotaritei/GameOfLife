@@ -78,7 +78,6 @@ class LoginForm extends React.Component {
       sessionStorage.setItem('id', userId.id);
       runInAction(() => {
         UserStore.isLoggedIn = true;
-        UserStore.userId = userId.id;
         UserStore.username = userId.username;
       })
 

@@ -8,40 +8,7 @@ exports[`GameMenu renders correctly 1`] = `
   >
     <button
       className="MuiButtonBase-root MuiIconButton-root"
-      data-testid="pause"
-      disabled={false}
-      onBlur={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
-    >
-      <span
-        className="MuiIconButton-label"
-      >
-        <svg
-          aria-hidden={true}
-          className="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
-      className="MuiButtonBase-root MuiIconButton-root"
-      data-testid="slow"
+      data-testid="speed"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}

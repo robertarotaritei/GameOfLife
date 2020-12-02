@@ -25,31 +25,41 @@ class GameMenu extends React.Component {
 		this.setState({ speed: !this.state.speed });
 	}
 
+	renderPlayPause = () => {
+		switch (this.props.playState) {
+			case 'play':
+				return <IconButton data-testid='play' onClick={this.props.playButton} >
+					<PlayArrowIcon />
+				</IconButton>;
+			case 'resume':
+				return <IconButton data-testid='resume' onClick={this.props.resumeButton} >
+					<PlayArrowIcon />
+				</IconButton>
+			case 'pause':
+				return <IconButton data-testid='pause' onClick={this.props.pauseButton}>
+					<PauseIcon />
+				</IconButton>
+			default :
+				return null;
+		}
+	}
+
 	render() {
 		return (
 			<div>
 				<ButtonToolbar>
-					{this.props.playState === 'play' ? (
-						<IconButton data-testid='play' onClick={this.props.playButton} >
-							<PlayArrowIcon />
-						</IconButton>
-					) : (
-							<IconButton data-testid='pause' onClick={this.props.pauseButton}>
-								<PauseIcon />
-							</IconButton>
-						)
-					}
-					<IconButton data-testid='slow' onClick={this.changeSpeed}>
+					{this.renderPlayPause()}
+					<IconButton data-testid='speed' onClick={this.changeSpeed}>
 						<SpeedIcon />
 					</IconButton>
 					{this.state.speed ? (
-						<IconButton data-testid='slow' onClick={this.props.slow}  size='small' style={{backgroundColor: '#93b498'}} >
+						<IconButton data-testid='slow' onClick={this.props.slow} size='small' style={{ backgroundColor: '#93b498' }} >
 							<AcUnitIcon />
 						</IconButton>
 					) : null
 					}
 					{this.state.speed ? (
-						<IconButton data-testid='fast' onClick={this.props.fast} size='small' style={{backgroundColor: '#93b498'}} >
+						<IconButton data-testid='fast' onClick={this.props.fast} size='small' style={{ backgroundColor: '#93b498' }} >
 							<FastForwardIcon />
 						</IconButton>
 					) : null
@@ -57,9 +67,13 @@ class GameMenu extends React.Component {
 					<IconButton data-testid='back' onClick={this.props.stop}>
 						<RestoreIcon />
 					</IconButton>
-					<IconButton data-testid='reset' onClick={this.props.clear}>
-						<ClearIcon />
-					</IconButton>
+					{this.props.history ?
+						null : (
+							<IconButton data-testid='reset' onClick={this.props.clear}>
+								<ClearIcon />
+							</IconButton>
+						)
+					}
 					{this.props.history ?
 						null : (
 							<IconButton data-testid='seed' onClick={this.props.seed}>

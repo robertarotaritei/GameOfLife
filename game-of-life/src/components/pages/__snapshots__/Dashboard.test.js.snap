@@ -213,7 +213,7 @@ exports[`Dashboard renders correctly 1`] = `
             </button>
             <button
               className="MuiButtonBase-root MuiIconButton-root"
-              data-testid="slow"
+              data-testid="speed"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}

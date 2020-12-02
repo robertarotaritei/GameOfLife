@@ -17,7 +17,6 @@ class App extends React.Component {
 
     runInAction(() => {
       UserStore.isLoggedIn = sessionStorage.getItem('isLoggedIn');
-      UserStore.userId = sessionStorage.getItem('id');
       UserStore.username = sessionStorage.getItem('username');
       UserStore.loading = false;
     });

@@ -12,7 +12,6 @@ class Game extends React.Component {
 
 		this.state = {
 			gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
-			nextGeneration: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
 			click: false,
 			initialState: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
 			playState: 'play',
@@ -30,8 +29,7 @@ class Game extends React.Component {
 			if (this.props.game) {
 				this.setState({
 					initialState: JSON.parse(this.props.game.initialState),
-					gridFull: JSON.parse(this.props.game.initialState),
-					nextGeneration: JSON.parse(this.props.game.initialState)
+					gridFull: JSON.parse(this.props.game.initialState)
 				});
 			}
 		}
@@ -55,14 +53,10 @@ class Game extends React.Component {
 			this.state.hubConnection.on('GameProgressed', (gameState) => {
 				if (this.intervalId) {
 					this.setState({
-						nextGeneration: gameState.generation,
+						girdFull: gameState.generation,
 						runnerConnectionId: gameState.reactConnectionId
 					});
 				}
-			});
-
-			this.state.hubConnection.on('RunnerStarted', (runnerConnectionId) => {
-				this.setState({ runnerConnectionId });
 			});
 		});
 	}
@@ -93,13 +87,11 @@ class Game extends React.Component {
 				}
 			}
 		}
-		this.setState({
-			gridFull: gridCopy,
-			nextGeneration: gridCopy
-		});
+		this.setState({ gridFull: gridCopy });
 	}
 
-	playButton = () => {
+	playButton = (e) => {
+		e.preventDefault();
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
 		this.setState({ initialState: this.state.gridFull });
@@ -109,19 +101,17 @@ class Game extends React.Component {
 	resumeButton = () => {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
+		this.setState({ playState: "pause" });
 	}
 
 	pauseButton = () => {
 		clearInterval(this.intervalId);
-		this.setState({ playState: "play" });
+		this.setState({ playState: "resume" });
 	}
 
 	stopButton = () => {
 		clearInterval(this.intervalId);
-		this.setState({
-			gridFull: this.state.initialState,
-			nextGeneration: this.state.initialState
-		});
+		this.setState({ gridFull: this.state.initialState });
 		this.setState({ playState: "play" });
 	}
 
@@ -132,7 +122,6 @@ class Game extends React.Component {
 	clear = () => {
 		var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
 		this.setState({
-			nextGeneration: grid,
 			gridFull: grid,
 			generation: 0
 		});
@@ -143,7 +132,7 @@ class Game extends React.Component {
 	save = () => {
 		let game = {
 			author: UserStore.username,
-			initialState: JSON.stringify(this.state.gridFull)
+			initialState: JSON.stringify(this.state.initialState)
 		};
 		fetch('/history/gamehistory', {
 			method: 'POST',
@@ -173,10 +162,6 @@ class Game extends React.Component {
 			},
 			body: JSON.stringify(gameState)
 		}).catch(console.log)
-
-		if (this.state.gridFull !== this.state.nextGeneration) {
-			this.setState({ gridFull: this.state.nextGeneration });
-		}
 	}
 
 	mapGrid() {
@@ -192,20 +177,14 @@ class Game extends React.Component {
 								if (!this.props.history) {
 									let g = this.state.gridFull;
 									g[i][k] = !g[i][k];
-									this.setState({
-										gridFull: g,
-										nextGeneration: g
-									})
+									this.setState({ gridFull: g })
 								}
 							}}
 							onMouseEnter={() => {
 								if (this.state.click === true) {
 									let g = this.state.gridFull;
 									g[i][k] = !g[i][k];
-									this.setState({
-										gridFull: g,
-										nextGeneration: g
-									})
+									this.setState({ gridFull: g })
 								}
 							}}
 							style={{
@@ -247,6 +226,7 @@ class Game extends React.Component {
 							<GameMenu
 								playState={this.state.playState}
 								playButton={this.playButton}
+								resumeButton={this.resumeButton}
 								pauseButton={this.pauseButton}
 								stop={this.stopButton}
 								slow={this.slow}
