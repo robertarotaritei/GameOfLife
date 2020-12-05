@@ -22,11 +22,10 @@ class App extends React.Component {
     });
   }
 
-  componentDidMount() {
-    let username = UserStore.username;
-    let key = UserStore.key;
-    let result = fetch(`/credentials/user/token?username=${username}&token=${key}`);
-
+  async componentDidMount() {
+    let result = await fetch(`/credentials/user/token?username=${UserStore.username}&token=${UserStore.key}`);
+    result = await result.json();
+    
     if (result !== true) {
       sessionStorage.removeItem('key');
       sessionStorage.removeItem('username');
@@ -38,7 +37,6 @@ class App extends React.Component {
   }
 
   render() {
-
     if (UserStore.loading) {
       return (
         <div className="app">
@@ -52,15 +50,14 @@ class App extends React.Component {
     }
     else {
 
-      if (UserStore.key !== '') {
+      if (UserStore.key) {
         return (
           <div className="app">
             <Router>
               <Switch>
-                <Route exact path="/" render={() => (<Redirect to="/dashboard" />)} />
-                <Route exact path="/register" render={() => (<Redirect to="/dashboard" />)} />
-                <Route exact path="/login" render={() => (<Redirect to="/dashboard" />)} />
+                <Route exact path="/" component={Dashboard} />
                 <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/*" render={() => (<Redirect to="/dashboard" />)} />
               </Switch>
             </Router>
           </div>
@@ -73,9 +70,10 @@ class App extends React.Component {
             <Router>
               <Switch>
                 <Route exact path="/" component={Welcome} />
+                <Route exact path="/welcome" component={Welcome} />
                 <Route exact path="/register" component={RegistrationForm} />
                 <Route exact path="/login" component={LoginForm} />
-                <Route exact path="/dashboard" render={() => (<Redirect to="/login" />)} />
+                <Route exact path="/*" render={() => (<Redirect to="/login" />)} />
               </Switch>
             </Router>
           </div>

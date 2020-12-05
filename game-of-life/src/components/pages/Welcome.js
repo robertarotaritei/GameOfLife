@@ -17,7 +17,7 @@ class Welcome extends React.Component {
 
         runInAction(() => {
             UserStore.loading = false;
-            UserStore.isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            UserStore.key = sessionStorage.getItem('key');
         });
     }
 

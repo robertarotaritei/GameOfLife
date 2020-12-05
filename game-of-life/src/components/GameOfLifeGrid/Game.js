@@ -6,15 +6,13 @@ import UserStore from '../../stores/UserStore';
 class Game extends React.Component {
 	constructor() {
 		super();
-		this.speed = 800;
+		this.speed = 750;
 		this.cols = 80;
 		this.rows = 40;
-
 		this.state = {
-			gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+			gridFull: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
 			nextGeneration: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
 			click: false,
-			initialState: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
 			playState: 'play',
 			reactConnectionId: '',
 			runnerConnectionId: '',
@@ -29,7 +27,6 @@ class Game extends React.Component {
 
 			if (this.props.game) {
 				this.setState({
-					initialState: JSON.parse(this.props.game.initialState),
 					gridFull: JSON.parse(this.props.game.initialState),
 					nextGeneration: JSON.parse(this.props.game.initialState)
 				});
@@ -98,8 +95,8 @@ class Game extends React.Component {
 	playButton = () => {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
-		this.setState({ initialState: this.state.gridFull });
 		this.setState({ playState: "pause" });
+		sessionStorage.setItem('initialState', JSON.stringify(this.state.gridFull));
 	}
 
 	resumeButton = () => {
@@ -116,15 +113,15 @@ class Game extends React.Component {
 	stopButton = () => {
 		clearInterval(this.intervalId);
 		this.setState({
-			gridFull: this.state.initialState,
-			nextGeneration: this.state.initialState
+			gridFull: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+			nextGeneration: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false))
 		});
 		this.setState({ playState: "play" });
 	}
 
-	slow = () => { this.speed = 800; this.resumeButton(); }
+	slow = () => { this.speed = 750; this.resumeButton(); }
 
-	fast = () => { this.speed = 450; this.resumeButton(); }
+	fast = () => { this.speed = 400; this.resumeButton(); }
 
 	clear = () => {
 		var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
@@ -140,7 +137,7 @@ class Game extends React.Component {
 	save = () => {
 		let game = {
 			author: UserStore.username,
-			initialState: JSON.stringify(this.state.gridFull)
+			initialState: sessionStorage.getItem('initialState')
 		};
 		fetch('/history/gamehistory', {
 			method: 'POST',
@@ -178,8 +175,7 @@ class Game extends React.Component {
 
 	mapGrid() {
 		return (
-			<div
-				style={{ display: "grid", gridTemplateColumns: `repeat(${this.cols}, 16px)` }}>
+			<div style={{ display: "grid", gridTemplateColumns: `repeat(${this.cols}, 16px)` }}>
 				{this.state.gridFull.map((rows, i) =>
 					rows.map((col, k) => (
 						<div
@@ -240,21 +236,23 @@ class Game extends React.Component {
 						) : null}
 					</div>
 				) : (
-						<div onMouseDown={this.onMouseClicked} onMouseUp={this.onMouseClicked}>
-							<GameMenu
-								playState={this.state.playState}
-								playButton={this.playButton}
-								resumeButton={this.resumeButton}
-								pauseButton={this.pauseButton}
-								stop={this.stopButton}
-								slow={this.slow}
-								fast={this.fast}
-								clear={this.clear}
-								seed={this.seed}
-								save={this.save}
-								history={this.props.history}
-							/>
-							{this.mapGrid()}
+						<div>
+							<div onMouseDown={this.onMouseClicked} onMouseUp={this.onMouseClicked}>
+								<GameMenu
+									playState={this.state.playState}
+									playButton={this.playButton}
+									resumeButton={this.resumeButton}
+									pauseButton={this.pauseButton}
+									stop={this.stopButton}
+									slow={this.slow}
+									fast={this.fast}
+									clear={this.clear}
+									seed={this.seed}
+									save={this.save}
+									history={this.props.history}
+								/>
+								{this.mapGrid()}
+							</div>
 						</div>
 					)}
 			</div>

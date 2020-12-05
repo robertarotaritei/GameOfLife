@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
     }
 
     runInAction(() => {
-      UserStore.isLoggedIn = sessionStorage.getItem('isLoggedIn');
+      UserStore.key = sessionStorage.getItem('key');
       UserStore.loading = false;
     });
   }
@@ -60,7 +60,6 @@ class LoginForm extends React.Component {
 
     let res = await fetch(`/credentials/user/verify?username=${this.state.username}&password=${this.state.password}`)
     let result = await res.json();
-
     runInAction(() => {
       UserStore.loading = false;
     });

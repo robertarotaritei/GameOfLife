@@ -4,7 +4,6 @@ body, html, #root, .app, .container {
   background-color: #d3d3d3;
 }
 
-
 .container {
   color: black;
   display: flex;

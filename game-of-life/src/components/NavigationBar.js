@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import UserStore from '../stores/UserStore';
 import { runInAction } from 'mobx';
 import AppBar from '@material-ui/core/AppBar';
@@ -11,11 +10,6 @@ import Button from '@material-ui/core/Button';
 class NavigationBar extends React.Component {
     constructor() {
         super();
-
-        this.state = {
-            redirectDashboard: false,
-            redirectHistory: false,
-        }
 
         runInAction(() => {
             UserStore.key = sessionStorage.getItem('key');
@@ -32,35 +26,10 @@ class NavigationBar extends React.Component {
         })
     }
 
-    setRedirectDashboard = () => {
-        this.setState({
-            redirectDashboard: true,
-            redirectHistory: false
-        })
-    }
-
-    setRedirectHistory = () => {
-        this.setState({
-            redirectHistory: true,
-            redirectDashboard: false
-        })
-    }
-
-    renderRedirect = () => {
-        if (this.state.redirectDashboard) {
-            return <Redirect to="/dashboard" />
-        }
-
-        if (this.state.redirectHistory) {
-            return <Redirect to="/history" />
-        }
-    }
-
     render() {
         return (
             <AppBar position="static" style={{ background: '#355e3b' }}>
                 <Toolbar>
-                    {this.renderRedirect()}
                     <Typography variant='h5' style={{fontWeight: 'bold'}} >
                         Welcome {UserStore.username}
                     </Typography>

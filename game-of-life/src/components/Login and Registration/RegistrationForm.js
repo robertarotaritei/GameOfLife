@@ -18,7 +18,7 @@ class RegistrationForm extends React.Component {
     }
 
     runInAction(() => {
-      UserStore.isLoggedIn = sessionStorage.getItem('isLoggedIn');
+      UserStore.key = sessionStorage.getItem('key');
       UserStore.loading = false;
     });
   }
