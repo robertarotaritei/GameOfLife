@@ -137,7 +137,8 @@ class Game extends React.Component {
 	save = () => {
 		let game = {
 			author: UserStore.username,
-			initialState: sessionStorage.getItem('initialState')
+			initialState: sessionStorage.getItem('initialState'),
+			token: sessionStorage.getItem('key')
 		};
 		fetch('/history/gamehistory', {
 			method: 'POST',
