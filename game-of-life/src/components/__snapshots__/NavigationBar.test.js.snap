@@ -5,7 +5,7 @@ exports[`NavigationBar renders correctly 1`] = `
   className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
   style={
     Object {
-      "background": "#355e3b",
+      "background": "#063A4C",
     }
   }
 >
@@ -16,6 +16,7 @@ exports[`NavigationBar renders correctly 1`] = `
       className="MuiTypography-root MuiTypography-h5"
       style={
         Object {
+          "color": "#9BE8FF",
           "fontWeight": "bold",
         }
       }
@@ -29,113 +30,52 @@ exports[`NavigationBar renders correctly 1`] = `
       <div
         style={
           Object {
-            "color": "d3d3d3",
+            "color": "#9BE8FF",
             "float": "right",
           }
         }
       >
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+          className="btnNav"
+          style={
+            Object {
+              "backgroundColor": null,
+            }
+          }
         >
-          <span
-            className="MuiButton-label"
-          >
-            <p
-              className="MuiTypography-root MuiTypography-body1"
-              style={
-                Object {
-                  "fontWeight": "bold",
-                }
-              }
-            >
-              Dashboard
-            </p>
-          </span>
+          Dashboard
         </button>
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+          className="btnNav"
+          style={
+            Object {
+              "backgroundColor": null,
+            }
+          }
         >
-          <span
-            className="MuiButton-label"
-          >
-            <p
-              className="MuiTypography-root MuiTypography-body1"
-              style={
-                Object {
-                  "fontWeight": "bold",
-                }
-              }
-            >
-              Game History
-            </p>
-          </span>
+          Game History
         </button>
         <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          className="btnNav"
+          style={
+            Object {
+              "backgroundColor": null,
+            }
+          }
+        >
+          About
+        </button>
+        <button
+          className="btnNav"
           data-testid="logOut"
-          disabled={false}
-          onBlur={[Function]}
           onClick={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
           style={
             Object {
               "marginLeft": "20px",
             }
           }
-          tabIndex={0}
-          type="button"
         >
-          <span
-            className="MuiButton-label"
-          >
-            <p
-              className="MuiTypography-root MuiTypography-body1"
-              style={
-                Object {
-                  "fontWeight": "bold",
-                }
-              }
-            >
-              Log out
-            </p>
-          </span>
+          Log out
         </button>
       </div>
     </div>

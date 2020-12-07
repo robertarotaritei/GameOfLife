@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 import UserStore from '../../stores/UserStore';
 import { runInAction } from 'mobx';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 class RegistrationForm extends React.Component {
 
@@ -107,7 +106,7 @@ class RegistrationForm extends React.Component {
     return (
       <div className="loginForm">
         {this.renderRedirect()}
-        <div style={{ textAlign: 'center', color: '#355e3b', marginTop: '30px' }}>
+        <div style={{ textAlign: 'center', color: '#17c5fa', marginTop: '25px' }}>
           <Typography variant='h5' style={{ fontWeight: 'bold' }}>
             Register
           </Typography>
@@ -135,20 +134,18 @@ class RegistrationForm extends React.Component {
         />
         <div style={{ textAlign: 'center' }}>
           <SubmitButton
-            text='Register'
+            text='REGISTER'
             onClick={() => this.doRegister()}
           />
         </div>
-        <div style={{ display: 'flex', marginTop: '30px' }}>
-          <Typography variant='h6' style={{ fontWeight: 'bold' }}>
+        <div style={{ display: 'flex', marginTop: '30px', marginBottom: '20px' }}>
+          <Typography variant='h5' style={{ fontWeight: 'bold' }}>
             Already have an account?
           </Typography>
-          <div style={{ color: '#355e3b' }}>
-            <Button color="inherit" size="medium" onClick={this.setRedirect}>
-              <Typography style={{ fontWeight: 'bold' }}>
+          <div style={{ color: '#17c5fa' }}>
+              <button className='button' onClick={this.setRedirect} >
                 Log in
-              </Typography>
-            </Button>
+              </button>
           </div>
         </div>
       </div>

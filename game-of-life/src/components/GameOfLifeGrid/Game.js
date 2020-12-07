@@ -174,12 +174,39 @@ class Game extends React.Component {
 		}
 	}
 
+	colorBasedOnNeighbors(i, k){
+		let neighbors = 0;
+		if(i > 0){
+			neighbors += this.state.gridFull[i-1][k];
+			neighbors += k > 0 ? this.state.gridFull[i-1][k-1] : 0;
+			neighbors += k < this.cols - 1 ? this.state.gridFull[i-1][k+1] : 0;
+		}
+
+		if(i < this.rows - 1){
+			neighbors += this.state.gridFull[i+1][k];
+			neighbors += k > 0 ? this.state.gridFull[i+1][k-1] : 0;
+			neighbors += k < this.cols - 1 ? this.state.gridFull[i+1][k+1] : 0;
+		}
+		
+		neighbors += k > 0 ? this.state.gridFull[i][k-1] : 0;
+		neighbors += k < this.cols - 1 ? this.state.gridFull[i][k+1] : 0;
+
+		if(neighbors < 2){
+			return '#009ECE';
+		}
+		if(neighbors < 4){
+			return '#17C5FA';
+		}
+		return '#9BE8FF';
+	}
+
 	mapGrid() {
 		return (
 			<div style={{ display: "grid", gridTemplateColumns: `repeat(${this.cols}, 16px)` }}>
 				{this.state.gridFull.map((rows, i) =>
 					rows.map((col, k) => (
 						<div
+							className='cell'
 							data-testid={`${i}-${k}`}
 							key={`${i}-${k}`}
 							onClick={() => {
@@ -203,10 +230,7 @@ class Game extends React.Component {
 								}
 							}}
 							style={{
-								width: 16,
-								height: 16,
-								backgroundColor: this.state.gridFull[i][k] ? "black" : undefined,
-								border: "solid thin #355e3b"
+								backgroundColor: this.state.gridFull[i][k] ? this.colorBasedOnNeighbors(i,k) : undefined
 							}}
 						/>
 					))

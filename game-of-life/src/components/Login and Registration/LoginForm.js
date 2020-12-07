@@ -5,7 +5,6 @@ import UserStore from '../../stores/UserStore';
 import { runInAction } from 'mobx';
 import { Redirect } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 class LoginForm extends React.Component {
 
@@ -42,7 +41,7 @@ class LoginForm extends React.Component {
       return <Redirect to='/register' />
     }
     if (this.state.redirectDashboard) {
-      return <Redirect to='/dashboard' />
+      return <Redirect to='/' />
     }
   }
 
@@ -63,7 +62,7 @@ class LoginForm extends React.Component {
     runInAction(() => {
       UserStore.loading = false;
     });
-    
+
     if (result.title !== "Not Found") {
 
       runInAction(() => {
@@ -72,6 +71,7 @@ class LoginForm extends React.Component {
 
       sessionStorage.setItem('key', result);
       sessionStorage.setItem('username', this.state.username);
+      sessionStorage.setItem('selectedPage', 'dashboard');
       runInAction(() => {
         UserStore.key = result;
         UserStore.username = this.state.username;
@@ -80,7 +80,6 @@ class LoginForm extends React.Component {
       runInAction(() => {
         UserStore.loading = false;
       });
-
       this.setState({ redirectDashboard: true });
     }
     else {
@@ -91,7 +90,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="loginForm">
-        <div style={{ textAlign: 'center', color: '#355e3b', marginTop: '30px' }}>
+        <div style={{ textAlign: 'center', color: '#17c5fa', marginTop: '25px' }}>
           <Typography variant='h5' style={{ fontWeight: 'bold' }}>
             Log in
           </Typography>
@@ -112,21 +111,19 @@ class LoginForm extends React.Component {
         />
         <div style={{ textAlign: 'center' }}>
           <SubmitButton
-            text='Log in'
+            text='LOG IN'
             onClick={() => this.doLogin()}
           />
         </div>
         {this.renderRedirect()}
-        <div style={{ display: 'flex', marginTop: '30px' }}>
-          <Typography variant='h6' style={{ fontWeight: 'bold' }}>
+        <div style={{ display: 'flex', marginTop: '30px', marginBottom: '20px' }}>
+          <Typography variant='h5' style={{ fontWeight: 'bold' }}>
             Don't have an account?
           </Typography>
-          <div style={{ color: '#355e3b' }}>
-            <Button color="inherit" size="medium" onClick={this.setRedirectLogin}>
-              <Typography style={{ fontWeight: 'bold' }}>
-                Register
-              </Typography>
-            </Button>
+          <div style={{ color: '#17c5fa' }}>
+            <button className='button' onClick={this.setRedirectLogin}>
+              Register
+            </button>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ test("App renders without crashing", () => {
 
 test('Welcome Page shows up', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/Don't have an account?/i);
+  const linkElement = getByText(/Click here ?/i);
   expect(linkElement).toBeInTheDocument();
 });
 

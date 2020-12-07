@@ -4,7 +4,7 @@ class SubmitButton extends React.Component {
 
   render() {
     return (
-      <div className="submitButton" style={{ marginTop: '40px' }}>
+      <div className="submitButton" style={{ marginTop: '10px' }}>
         <button
           className='btn'
           onClick={ () => this.props.onClick() }

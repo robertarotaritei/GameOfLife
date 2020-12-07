@@ -1,54 +1,128 @@
-body, html, #root, .app, .container {
+body, html, #root, .app {
   width: 100%;
   height: 100%;
-  background-color: #d3d3d3;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(60deg, #000F14, #032530, #05303E);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 6s ease infinite;
+  -moz-animation: Gradient 6s ease infinite;
+  animation: Gradient 6s ease infinite;
 }
 
 .container {
-  color: black;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: #009ece;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #d3d3d3;
+  font-family: 'Roboto', sans-serif;
 }
 
 .loginForm {
- background-color: #93b498;
+ background-color: #042935;
  box-sizing: border-box;
  width: 100%;
- max-width: 450px;
+ max-width: 430px;
  padding-left: 20px;
  padding-right: 20px;
  border-style: solid;
- border-color: #355e3b;
+ border-color: #009ece;
 }
 
 .input {
- background-color: #d3d3d3;
+ background-color: #000F14;
  box-sizing: border-box;
- border: solid 2px #355e3b;
- color: black;
+ border: solid 2px #009ece;
+ color: #17c5fa;
  width: 100%;
  padding: 12px;
- font-size: 14px;
+ font-size: 18px;
 }
+
+.input:active {
+  background-color: #063A4C;
+ }
 
 .submitButton {
  padding-top: 16px;
 }
 
+input:focus{
+  outline: none;
+}
 
 .btn {
  width: 100%;
- max-width: 300px;
- color: #d3d3d3;
+ max-width: 280px;
+ color: #17c5fa;
  padding: 14px;
- font-size: 18px;
+ font-size: 20px;
  font-weight: bold;
  border: solid 2px black;
- background: #355e3b;
+ background: #009ece;
  cursor: pointer;
+}
+
+.btn:hover {
+  color: #9be8ff;
+  background: #17C5FA;
+ }
+
+.button {
+  color: #17c5fa;
+  font-size: 22px;
+  font-weight: bold;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  border: solid 2px transparent;
+  border-radius: 5%;
+}
+ 
+.button:hover {
+   color: #9be8ff;
+   background: #17c5fa;
+}
+
+.btnNav {
+  color: #17c5fa;
+  padding: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  border: solid 2px transparent;
+}
+ 
+.btnNav:hover {
+   color: #9be8ff;
+   background: #17c5fa;
+}
+
+.btnIcon {
+  height: 40px;
+  width: 40px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  background: transparent;
+  cursor: pointer;
+  border: solid 1px transparent;
+  border-radius: 50%;
+}
+ 
+.btnIcon:hover {
+   background: #009ECE;
+}
+
+.btnNav:focus, .btn:focus, .button:focus, .btnIcon:focus{
+  outline: none;
 }
 
 .topnav {
@@ -58,7 +132,7 @@ body, html, #root, .app, .container {
 
 .topnav a {
   float: left;
-  color: #d9d9d9;
+  color: #9be8ff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -66,13 +140,21 @@ body, html, #root, .app, .container {
 }
 
 .topnav a:hover {
-  background-color: #d9d9d9;
-  color: #d9d9d9;
+  background-color: #9be8ff;
+  color: #17c5fa;
 }
 
 .topnav a.active {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #17c5fa;
+  color: 9be8ff;
+}
+
+.cell {
+  width: 16px;
+	height: 16px;
+  border: solid thin #063A4C;
+  transition: background-color 0.5s ease;
+  background-color: transparent;
 }
 
 .linkbutton {
@@ -94,4 +176,40 @@ body, html, #root, .app, .container {
   -moz-appearance: none;
   -webkit-logical-height: 1em;
   -webkit-logical-width: auto;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+  background-position: 0% 50%
+  }
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
+}
+
+@-moz-keyframes Gradient {
+  0% {
+  background-position: 0% 50%
+  }
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
+}
+
+@keyframes Gradient {
+  0% {
+  background-position: 0% 50%
+  }
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
 }

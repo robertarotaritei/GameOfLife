@@ -15,7 +15,7 @@ exports[`Welcome renders correctly 1`] = `
     <span
       style={
         Object {
-          "color": "#355e3b",
+          "color": "#17c5fa",
         }
       }
     >
@@ -37,7 +37,7 @@ exports[`Welcome renders correctly 1`] = `
       style={
         Object {
           "border": "solid",
-          "borderColor": "#355e3b",
+          "borderColor": "#17c5fa",
           "borderWidth": "thick",
         }
       }
@@ -66,137 +66,65 @@ exports[`Welcome renders correctly 1`] = `
       <br />
     </h6>
   </div>
-  <div
-    style={
-      Object {
-        "display": "flex",
-        "justifyContent": "center",
-        "marginTop": "40px",
-      }
-    }
-  >
-    <h5
-      className="MuiTypography-root MuiTypography-h5"
-      style={
-        Object {
-          "fontWeight": "bold",
-        }
-      }
-    >
-      Click here to
-    </h5>
+  <div>
     <div
       style={
         Object {
-          "color": "#355e3b",
+          "display": "flex",
+          "justifyContent": "center",
+          "marginTop": "40px",
         }
       }
     >
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+      <h5
+        className="MuiTypography-root MuiTypography-h5"
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
       >
-        <span
-          className="MuiButton-label"
-        >
-          <p
-            className="MuiTypography-root MuiTypography-body1"
-            style={
-              Object {
-                "fontWeight": "bold",
-              }
-            }
-          >
-            Log in
-          </p>
-        </span>
-      </button>
-    </div>
-  </div>
-  <div
-    style={
-      Object {
-        "display": "flex",
-        "justifyContent": "center",
-        "marginTop": "40px",
-      }
-    }
-  >
-    <h5
-      className="MuiTypography-root MuiTypography-h5"
-      style={
-        Object {
-          "fontWeight": "bold",
+        Click here to
+      </h5>
+      <div
+        style={
+          Object {
+            "color": "#17c5fa",
+          }
         }
-      }
-    >
-      Or
-    </h5>
-    <div
-      style={
-        Object {
-          "color": "#355e3b",
-        }
-      }
-    >
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
-        disabled={false}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
       >
-        <span
-          className="MuiButton-label"
+        <button
+          className="button"
+          onClick={[Function]}
         >
-          <p
-            className="MuiTypography-root MuiTypography-body1"
-            style={
-              Object {
-                "fontWeight": "bold",
-              }
-            }
-          >
-            here
-          </p>
-        </span>
-      </button>
-    </div>
-    <h5
-      className="MuiTypography-root MuiTypography-h5"
-      style={
-        Object {
-          "fontWeight": "bold",
+          log in
+        </button>
+      </div>
+      <h5
+        className="MuiTypography-root MuiTypography-h5"
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
         }
-      }
-    >
-      if you don't have an account already
-    </h5>
+      >
+        or
+      </h5>
+      <div
+        style={
+          Object {
+            "color": "#17c5fa",
+          }
+        }
+      >
+        <button
+          className="button"
+          onClick={[Function]}
+        >
+          create an account
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;

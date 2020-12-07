@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import UserStore from '../../stores/UserStore';
 import { runInAction } from 'mobx';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 class Welcome extends React.Component {
 
@@ -46,12 +45,11 @@ class Welcome extends React.Component {
     render() {
         return (
             <div>
-                {this.renderRedirect()}
                 <Typography variant='h3' style={{ fontWeight: 'bold', textAlign: 'center' }}>
-                    Welcome to the <span style={{ color: '#355e3b' }}> Game of Life</span>.
+                    Welcome to the <span style={{ color: '#17c5fa' }}> Game of Life</span>.
                 </Typography>
                 <div style={{ display: 'flex', marginTop: '40px' }}>
-                    <img src={'/gameoflife.gif'} style={{ border: 'solid', borderWidth: 'thick', borderColor: '#355e3b' }} alt="GameOfLife" />
+                    <img src={'/gameoflife.gif'} style={{ border: 'solid', borderWidth: 'thick', borderColor: '#17c5fa' }} alt="GameOfLife" />
                     <Typography variant='h6' style={{ marginLeft: '20px' }}>
                         &nbsp;&nbsp;&nbsp;The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970.<br />
                         It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. <br />
@@ -62,34 +60,31 @@ class Welcome extends React.Component {
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. All other live cells die in the next generation. <br />
                     </Typography>
                 </div>
-                <div style={{ display: 'flex', marginTop: '40px', justifyContent: 'center' }}>
-                    <Typography variant='h5' style={{ fontWeight: 'bold' }}>
-                        Click here to
+                {this.props.loggedIn === true ? (
+                    null
+                ) : (
+                        <div>
+                            {this.renderRedirect()}
+                            <div style={{ display: 'flex', marginTop: '40px', justifyContent: 'center' }}>
+                                <Typography variant='h5' style={{ fontWeight: 'bold' }}>
+                                    Click here to
                     </Typography>
-                    <div style={{ color: '#355e3b' }}>
-                        <Button color="inherit" size="medium" onClick={this.setRedirectLogin}>
-                            <Typography style={{ fontWeight: 'bold' }}>
-                                Log in
-                            </Typography>
-                        </Button>
-                    </div>
-                </div>
-                <div style={{ display: 'flex', marginTop: '40px', justifyContent: 'center' }}>
-                    <Typography variant='h5' style={{ fontWeight: 'bold' }}>
-                        Or
+                                <div style={{ color: '#17c5fa' }}>
+                                    <button className='button' onClick={this.setRedirectLogin} >
+                                        log in
+                        </button>
+                                </div>
+                                <Typography variant='h5' style={{ fontWeight: 'bold' }}>
+                                    or
                     </Typography>
-                    <div style={{ color: '#355e3b' }}>
-                        <Button color="inherit" size="medium" onClick={this.setRedirectRegister}>
-                            <Typography style={{ fontWeight: 'bold' }}>
-                                here
-                            </Typography>
-                        </Button>
-                    </div>
-
-                    <Typography variant='h5' style={{ fontWeight: 'bold' }}>
-                        if you don't have an account already
-                    </Typography>
-                </div>
+                                <div style={{ color: '#17c5fa' }}>
+                                    <button className='button' onClick={this.setRedirectRegister}>
+                                        create an account
+                        </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
             </div>
         );
     }

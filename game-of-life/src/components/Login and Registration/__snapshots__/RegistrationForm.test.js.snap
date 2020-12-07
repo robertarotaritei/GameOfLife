@@ -7,8 +7,8 @@ exports[`RegistrationForm renders correctly 1`] = `
   <div
     style={
       Object {
-        "color": "#355e3b",
-        "marginTop": "30px",
+        "color": "#17c5fa",
+        "marginTop": "25px",
         "textAlign": "center",
       }
     }
@@ -83,7 +83,7 @@ exports[`RegistrationForm renders correctly 1`] = `
       className="submitButton"
       style={
         Object {
-          "marginTop": "40px",
+          "marginTop": "10px",
         }
       }
     >
@@ -91,7 +91,7 @@ exports[`RegistrationForm renders correctly 1`] = `
         className="btn"
         onClick={[Function]}
       >
-        Register
+        REGISTER
       </button>
     </div>
   </div>
@@ -99,12 +99,13 @@ exports[`RegistrationForm renders correctly 1`] = `
     style={
       Object {
         "display": "flex",
+        "marginBottom": "20px",
         "marginTop": "30px",
       }
     }
   >
-    <h6
-      className="MuiTypography-root MuiTypography-h6"
+    <h5
+      className="MuiTypography-root MuiTypography-h5"
       style={
         Object {
           "fontWeight": "bold",
@@ -112,46 +113,19 @@ exports[`RegistrationForm renders correctly 1`] = `
       }
     >
       Already have an account?
-    </h6>
+    </h5>
     <div
       style={
         Object {
-          "color": "#355e3b",
+          "color": "#17c5fa",
         }
       }
     >
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
-        disabled={false}
-        onBlur={[Function]}
+        className="button"
         onClick={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
       >
-        <span
-          className="MuiButton-label"
-        >
-          <p
-            className="MuiTypography-root MuiTypography-body1"
-            style={
-              Object {
-                "fontWeight": "bold",
-              }
-            }
-          >
-            Log in
-          </p>
-        </span>
+        Log in
       </button>
     </div>
   </div>

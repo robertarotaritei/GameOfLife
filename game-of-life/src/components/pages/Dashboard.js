@@ -2,13 +2,14 @@ import React from 'react';
 import NavigationBar from '../NavigationBar';
 import Game from '../GameOfLifeGrid/Game';
 import HistoryList from '../History/HistoryList';
+import Welcome from './Welcome';
 
 class Dashboard extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      dashboard: true,
+      selectedPage: sessionStorage.getItem('selectedPage'),
       games: []
     }
   }
@@ -23,24 +24,48 @@ class Dashboard extends React.Component {
 
   renderDashboard = (e) => {
     e.preventDefault();
-    this.setState({ dashboard: true });
+    this.setState({ selectedPage: 'dashboard' });
+    sessionStorage.setItem('selectedPage', 'dashboard');
   }
 
   renderGameHistory = (e) => {
     e.preventDefault();
-    this.setState({ dashboard: false });
+    this.setState({ selectedPage: 'history' });
+    sessionStorage.setItem('selectedPage', 'history');
+  }
+
+  renderWelcome = (e) => {
+    e.preventDefault();
+    this.setState({ selectedPage: 'welcome' });
+    sessionStorage.setItem('selectedPage', 'welcome');
+  }
+
+  renderSelectedPage = () => {
+    switch (this.state.selectedPage) {
+			case 'dashboard':
+        return <Game history={false} />;
+      case 'history':
+        return <HistoryList games={this.state.games} />
+      case 'welcome':
+        return <div style={{marginTop: '100px'}}>
+          <Welcome loggedIn={true}/>
+          </div>;
+      default:
+        return null;
+    }
   }
 
   render() {
     return (
-      <div className="game">
-        <NavigationBar renderDashboard={this.renderDashboard} renderGameHistory={this.renderGameHistory} />
+      <div>
+        <NavigationBar 
+          renderDashboard={this.renderDashboard} 
+          renderGameHistory={this.renderGameHistory} 
+          renderWelcome={this.renderWelcome} 
+          selectedPage={this.state.selectedPage} 
+        />
         <div className="container">
-          {this.state.dashboard ? (
-            <Game history={false} />
-          ) : (
-              <HistoryList games={this.state.games} />
-            )}
+          {this.renderSelectedPage()}
         </div>
       </div>
     );

@@ -20,115 +20,67 @@ exports[`HistoryList renders correctly 1`] = `
             role="toolbar"
           >
             <button
-              className="MuiButtonBase-root MuiIconButton-root"
+              className="btnIcon"
               data-testid="play"
-              disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
             >
-              <span
-                className="MuiIconButton-label"
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root"
+                focusable="false"
+                style={
+                  Object {
+                    "color": "#17c5fa",
+                  }
+                }
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden={true}
-                  className="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8 5v14l11-7z"
-                  />
-                </svg>
-              </span>
-              <span
-                className="MuiTouchRipple-root"
-              />
+                <path
+                  d="M8 5v14l11-7z"
+                />
+              </svg>
             </button>
             <button
-              className="MuiButtonBase-root MuiIconButton-root"
+              className="btnIcon"
               data-testid="speed"
-              disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
             >
-              <span
-                className="MuiIconButton-label"
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root"
+                focusable="false"
+                style={
+                  Object {
+                    "color": "#17c5fa",
+                  }
+                }
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden={true}
-                  className="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 0115.58 6.85l1.85-1.23A10 10 0 003.35 19a2 2 0 001.72 1h13.85a2 2 0 001.74-1 10 10 0 00-.27-10.44zm-9.79 6.84a2 2 0 002.83 0l5.66-8.49-8.49 5.66a2 2 0 000 2.83z"
-                  />
-                </svg>
-              </span>
-              <span
-                className="MuiTouchRipple-root"
-              />
+                <path
+                  d="M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 0115.58 6.85l1.85-1.23A10 10 0 003.35 19a2 2 0 001.72 1h13.85a2 2 0 001.74-1 10 10 0 00-.27-10.44zm-9.79 6.84a2 2 0 002.83 0l5.66-8.49-8.49 5.66a2 2 0 000 2.83z"
+                />
+              </svg>
             </button>
             <button
-              className="MuiButtonBase-root MuiIconButton-root"
+              className="btnIcon"
               data-testid="back"
-              disabled={false}
-              onBlur={[Function]}
               onClick={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
             >
-              <span
-                className="MuiIconButton-label"
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root"
+                focusable="false"
+                style={
+                  Object {
+                    "color": "#17c5fa",
+                  }
+                }
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden={true}
-                  className="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"
-                  />
-                </svg>
-              </span>
-              <span
-                className="MuiTouchRipple-root"
-              />
+                <path
+                  d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"
+                />
+              </svg>
             </button>
           </div>
         </div>
@@ -141,54 +93,46 @@ exports[`HistoryList renders correctly 1`] = `
           }
         >
           <div
+            className="cell"
             data-testid="0-0"
             onClick={[Function]}
             onMouseEnter={[Function]}
             style={
               Object {
-                "backgroundColor": "black",
-                "border": "solid thin #355e3b",
-                "height": 16,
-                "width": 16,
+                "backgroundColor": "#009ECE",
               }
             }
           />
           <div
+            className="cell"
             data-testid="0-1"
             onClick={[Function]}
             onMouseEnter={[Function]}
             style={
               Object {
-                "backgroundColor": "black",
-                "border": "solid thin #355e3b",
-                "height": 16,
-                "width": 16,
+                "backgroundColor": "#9BE8FF",
               }
             }
           />
           <div
+            className="cell"
             data-testid="1-0"
             onClick={[Function]}
             onMouseEnter={[Function]}
             style={
               Object {
                 "backgroundColor": undefined,
-                "border": "solid thin #355e3b",
-                "height": 16,
-                "width": 16,
               }
             }
           />
           <div
+            className="cell"
             data-testid="1-1"
             onClick={[Function]}
             onMouseEnter={[Function]}
             style={
               Object {
                 "backgroundColor": undefined,
-                "border": "solid thin #355e3b",
-                "height": 16,
-                "width": 16,
               }
             }
           />

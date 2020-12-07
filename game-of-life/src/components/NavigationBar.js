@@ -5,7 +5,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 
 class NavigationBar extends React.Component {
     constructor() {
@@ -19,6 +18,8 @@ class NavigationBar extends React.Component {
     async doLogout() {
         sessionStorage.removeItem('key');
         sessionStorage.removeItem('username');
+        sessionStorage.removeItem('selectedPage');
+        sessionStorage.removeItem('initialState');
 
         runInAction(() => {
             UserStore.key = '';
@@ -28,28 +29,25 @@ class NavigationBar extends React.Component {
 
     render() {
         return (
-            <AppBar position="static" style={{ background: '#355e3b' }}>
+            <AppBar position="static" style={{ background: '#063A4C' }}>
                 <Toolbar>
-                    <Typography variant='h5' style={{fontWeight: 'bold'}} >
+                    <Typography variant='h5' style={{ fontWeight: 'bold', color: '#9BE8FF' }} >
                         Welcome {UserStore.username}
                     </Typography>
                     <Container disableGutters>
-                        <div style={{ float: 'right', color: 'd3d3d3' }}>
-                            <Button color="inherit" size="medium" onClick={this.props.renderDashboard}>
-                                <Typography style={{fontWeight: 'bold'}}>
-                                    Dashboard
-                            </Typography>
-                            </Button>
-                            <Button color="inherit" size="medium" onClick={this.props.renderGameHistory}>
-                                <Typography style={{fontWeight: 'bold'}}>
-                                    Game History
-                            </Typography>
-                            </Button>
-                            <Button data-testid='logOut' color="inherit" size="medium" onClick={this.doLogout} style={{ marginLeft: '20px' }}>
-                                <Typography style={{fontWeight: 'bold'}}>
-                                    Log out
-                            </Typography>
-                            </Button>
+                        <div style={{ float: 'right', color: '#9BE8FF' }}>
+                            <button className='btnNav' onClick={this.props.renderDashboard} style={{ backgroundColor: this.props.selectedPage === 'dashboard' ? '#009ECE' : null }}>
+                                Dashboard
+                            </button>
+                            <button className='btnNav' onClick={this.props.renderGameHistory} style={{ backgroundColor: this.props.selectedPage === 'history' ? '#009ECE' : null }} >
+                                Game History
+                            </button>
+                            <button className='btnNav' onClick={this.props.renderWelcome} style={{ backgroundColor: this.props.selectedPage === 'welcome' ? '#009ECE' : null }} >
+                                About
+                            </button>
+                            <button className='btnNav' data-testid={'logOut'} onClick={this.doLogout} style={{ marginLeft: '20px' }}>
+                                Log out
+                            </button>
                         </div>
                     </Container>
                 </Toolbar>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ButtonToolbar } from 'react-bootstrap';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import { IconButton } from '@material-ui/core';
 import PauseIcon from '@material-ui/icons/Pause';
 import RestoreIcon from '@material-ui/icons/Restore';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -28,17 +27,17 @@ class GameMenu extends React.Component {
 	renderPlayPause = () => {
 		switch (this.props.playState) {
 			case 'play':
-				return <IconButton data-testid='play' onClick={this.props.playButton} >
-					<PlayArrowIcon />
-				</IconButton>;
+				return <button className='btnIcon'  data-testid='play' onClick={this.props.playButton} >
+					<PlayArrowIcon style={{ color: '#17c5fa' }}/>
+				</button>;
 			case 'resume':
-				return <IconButton data-testid='resume' onClick={this.props.resumeButton} >
-					<PlayArrowIcon />
-				</IconButton>
+				return <button className='btnIcon' data-testid='resume' onClick={this.props.resumeButton} >
+					<PlayArrowIcon style={{ color: '#17c5fa' }}/>
+				</button>
 			case 'pause':
-				return <IconButton data-testid='pause' onClick={this.props.pauseButton}>
-					<PauseIcon />
-				</IconButton>
+				return <button className='btnIcon' data-testid='pause' onClick={this.props.pauseButton}>
+					<PauseIcon style={{ color: '#17c5fa' }}/>
+				</button>
 			default :
 				return null;
 		}
@@ -49,43 +48,43 @@ class GameMenu extends React.Component {
 			<div>
 				<ButtonToolbar>
 					{this.renderPlayPause()}
-					<IconButton data-testid='speed' onClick={this.changeSpeed}>
-						<SpeedIcon />
-					</IconButton>
+					<button className='btnIcon' data-testid='speed' onClick={this.changeSpeed}>
+						<SpeedIcon style={{ color: '#17c5fa' }}/>
+					</button>
 					{this.state.speed ? (
-						<IconButton data-testid='slow' onClick={this.props.slow} size='small' style={{ backgroundColor: '#93b498' }} >
-							<AcUnitIcon />
-						</IconButton>
+						<button className='btnIcon' data-testid='slow' onClick={this.props.slow} style={{ backgroundColor: '#063A4C' }} >
+							<AcUnitIcon style={{ color: '#17c5fa' }}/>
+						</button>
 					) : null
 					}
 					{this.state.speed ? (
-						<IconButton data-testid='fast' onClick={this.props.fast} size='small' style={{ backgroundColor: '#93b498' }} >
-							<FastForwardIcon />
-						</IconButton>
+						<button className='btnIcon' data-testid='fast' onClick={this.props.fast} style={{ backgroundColor: '#063A4C' }} >
+							<FastForwardIcon style={{ color: '#17c5fa' }}/>
+						</button>
 					) : null
 					}
-					<IconButton data-testid='back' onClick={this.props.stop}>
-						<RestoreIcon />
-					</IconButton>
+					<button className='btnIcon' data-testid='back' onClick={this.props.stop}>
+						<RestoreIcon style={{ color: '#17c5fa' }}/>
+					</button>
 					{this.props.history ?
 						null : (
-							<IconButton data-testid='reset' onClick={this.props.clear}>
-								<ClearIcon />
-							</IconButton>
+							<button className='btnIcon' data-testid='reset' onClick={this.props.clear}>
+								<ClearIcon style={{ color: '#17c5fa' }}/>
+							</button>
 						)
 					}
 					{this.props.history ?
 						null : (
-							<IconButton data-testid='seed' onClick={this.props.seed}>
-								<SpaIcon />
-							</IconButton>
+							<button className='btnIcon' data-testid='seed' onClick={this.props.seed}>
+								<SpaIcon style={{ color: '#17c5fa' }}/>
+							</button>
 						)
 					}
 					{this.props.history ?
 						null : (
-							<IconButton data-testid='save' onClick={this.props.save}>
-								<SaveIcon />
-							</IconButton>
+							<button className='btnIcon' data-testid='save' onClick={this.props.save}>
+								<SaveIcon style={{ color: '#17c5fa' }}/>
+							</button>
 						)
 					}
 				</ButtonToolbar>
