@@ -42,14 +42,14 @@ class Dashboard extends React.Component {
 
   renderSelectedPage = () => {
     switch (this.state.selectedPage) {
-			case 'dashboard':
+      case 'dashboard':
         return <Game history={false} />;
       case 'history':
         return <HistoryList games={this.state.games} />
       case 'welcome':
-        return <div style={{marginTop: '100px'}}>
-          <Welcome loggedIn={true}/>
-          </div>;
+        return <div style={{ marginTop: '100px' }}>
+          <Welcome loggedIn={true} />
+        </div>;
       default:
         return null;
     }
@@ -58,14 +58,16 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <NavigationBar 
-          renderDashboard={this.renderDashboard} 
-          renderGameHistory={this.renderGameHistory} 
-          renderWelcome={this.renderWelcome} 
-          selectedPage={this.state.selectedPage} 
+        <NavigationBar
+          renderDashboard={this.renderDashboard}
+          renderGameHistory={this.renderGameHistory}
+          renderWelcome={this.renderWelcome}
+          selectedPage={this.state.selectedPage}
         />
         <div className="container">
-          {this.renderSelectedPage()}
+          <div style={{marginTop: '2.5rem'}}>
+            {this.renderSelectedPage()}
+          </div>
         </div>
       </div>
     );

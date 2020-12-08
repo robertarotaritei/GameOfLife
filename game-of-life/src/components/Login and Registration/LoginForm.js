@@ -4,7 +4,6 @@ import SubmitButton from './SubmitButton';
 import UserStore from '../../stores/UserStore';
 import { runInAction } from 'mobx';
 import { Redirect } from 'react-router-dom';
-import Typography from '@material-ui/core/Typography';
 
 class LoginForm extends React.Component {
 
@@ -91,9 +90,9 @@ class LoginForm extends React.Component {
     return (
       <div className="loginForm">
         <div style={{ textAlign: 'center', color: '#17c5fa', marginTop: '25px' }}>
-          <Typography variant='h5' style={{ fontWeight: 'bold' }}>
+          <p>
             Log in
-          </Typography>
+          </p>
         </div>
         <InputField
           className='username'
@@ -116,15 +115,13 @@ class LoginForm extends React.Component {
           />
         </div>
         {this.renderRedirect()}
-        <div style={{ display: 'flex', marginTop: '30px', marginBottom: '20px' }}>
-          <Typography variant='h5' style={{ fontWeight: 'bold' }}>
+        <div style={{ display: 'flex', marginBottom: '20px' }}>
+          <p>
             Don't have an account?
-          </Typography>
-          <div style={{ color: '#17c5fa' }}>
-            <button className='button' onClick={this.setRedirectLogin}>
-              Register
-            </button>
-          </div>
+          </p>
+          <button className='button' onClick={this.setRedirectLogin}>
+            Register
+          </button>
         </div>
       </div>
     );

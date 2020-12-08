@@ -9,7 +9,8 @@ class SubmitButton extends React.Component {
           className='btn'
           onClick={ () => this.props.onClick() }
           >
-          {this.props.text}
+          <span className="btn__content">{this.props.text}</span>
+          <span className="btn__glitch"></span>
         </button>
       </div>
     );

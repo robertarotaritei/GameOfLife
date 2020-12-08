@@ -5,7 +5,7 @@ import PauseIcon from '@material-ui/icons/Pause';
 import RestoreIcon from '@material-ui/icons/Restore';
 import ClearIcon from '@material-ui/icons/Clear';
 import AcUnitIcon from '@material-ui/icons/AcUnit';
-import FastForwardIcon from '@material-ui/icons/FastForward';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
 import SpaIcon from '@material-ui/icons/Spa';
 import SaveIcon from '@material-ui/icons/Save';
 import SpeedIcon from '@material-ui/icons/Speed';
@@ -59,7 +59,7 @@ class GameMenu extends React.Component {
 					}
 					{this.state.speed ? (
 						<button className='btnIcon' data-testid='fast' onClick={this.props.fast} style={{ backgroundColor: '#063A4C' }} >
-							<FastForwardIcon style={{ color: '#17c5fa' }}/>
+							<WhatshotIcon style={{ color: '#17c5fa' }}/>
 						</button>
 					) : null
 					}

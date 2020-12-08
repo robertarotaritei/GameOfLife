@@ -8,7 +8,6 @@ import RegistrationForm from './components/Login and Registration/RegistrationFo
 import Dashboard from './components/pages/Dashboard';
 import Welcome from './components/pages/Welcome';
 import { runInAction } from 'mobx';
-import Typography from '@material-ui/core/Typography';
 
 class App extends React.Component {
 
@@ -43,9 +42,9 @@ class App extends React.Component {
       return (
           <div className="app">
             <div className='container'>
-              <Typography variant='h3' style={{ fontWeight: 'bold', textAlign: 'center' }}>
+              <p style={{ fontSize: '3rem', textAlign: 'center' }}>
                 Loading, please wait...
-            </Typography>
+            </p>
             </div>
           </div>
       )

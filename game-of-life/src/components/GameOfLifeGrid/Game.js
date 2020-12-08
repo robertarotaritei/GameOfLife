@@ -96,7 +96,9 @@ class Game extends React.Component {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
 		this.setState({ playState: "pause" });
-		sessionStorage.setItem('initialState', JSON.stringify(this.state.gridFull));
+		if (!this.props.game) {
+			sessionStorage.setItem('initialState', JSON.stringify(this.state.gridFull));
+		}
 	}
 
 	resumeButton = () => {
@@ -112,10 +114,18 @@ class Game extends React.Component {
 
 	stopButton = () => {
 		clearInterval(this.intervalId);
-		this.setState({
-			gridFull: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
-			nextGeneration: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false))
-		});
+		if (this.props.game) {
+			this.setState({
+				gridFull: JSON.parse(this.props.game.initialState),
+				nextGeneration: JSON.parse(this.props.game.initialState)
+			});
+		}
+		else {
+			this.setState({
+				gridFull: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+				nextGeneration: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+			});
+		}
 		this.setState({ playState: "play" });
 	}
 
@@ -174,27 +184,27 @@ class Game extends React.Component {
 		}
 	}
 
-	colorBasedOnNeighbors(i, k){
+	colorBasedOnNeighbors(i, k) {
 		let neighbors = 0;
-		if(i > 0){
-			neighbors += this.state.gridFull[i-1][k];
-			neighbors += k > 0 ? this.state.gridFull[i-1][k-1] : 0;
-			neighbors += k < this.cols - 1 ? this.state.gridFull[i-1][k+1] : 0;
+		if (i > 0) {
+			neighbors += this.state.gridFull[i - 1][k];
+			neighbors += k > 0 ? this.state.gridFull[i - 1][k - 1] : 0;
+			neighbors += k < this.cols - 1 ? this.state.gridFull[i - 1][k + 1] : 0;
 		}
 
-		if(i < this.rows - 1){
-			neighbors += this.state.gridFull[i+1][k];
-			neighbors += k > 0 ? this.state.gridFull[i+1][k-1] : 0;
-			neighbors += k < this.cols - 1 ? this.state.gridFull[i+1][k+1] : 0;
+		if (i < this.rows - 1) {
+			neighbors += this.state.gridFull[i + 1][k];
+			neighbors += k > 0 ? this.state.gridFull[i + 1][k - 1] : 0;
+			neighbors += k < this.cols - 1 ? this.state.gridFull[i + 1][k + 1] : 0;
 		}
-		
-		neighbors += k > 0 ? this.state.gridFull[i][k-1] : 0;
-		neighbors += k < this.cols - 1 ? this.state.gridFull[i][k+1] : 0;
 
-		if(neighbors < 2){
+		neighbors += k > 0 ? this.state.gridFull[i][k - 1] : 0;
+		neighbors += k < this.cols - 1 ? this.state.gridFull[i][k + 1] : 0;
+
+		if (neighbors < 2) {
 			return '#009ECE';
 		}
-		if(neighbors < 4){
+		if (neighbors < 4) {
 			return '#17C5FA';
 		}
 		return '#9BE8FF';
@@ -230,7 +240,7 @@ class Game extends React.Component {
 								}
 							}}
 							style={{
-								backgroundColor: this.state.gridFull[i][k] ? this.colorBasedOnNeighbors(i,k) : undefined
+								backgroundColor: this.state.gridFull[i][k] ? this.colorBasedOnNeighbors(i, k) : undefined
 							}}
 						/>
 					))

@@ -3,7 +3,6 @@ import UserStore from '../stores/UserStore';
 import { runInAction } from 'mobx';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
 class NavigationBar extends React.Component {
@@ -29,11 +28,11 @@ class NavigationBar extends React.Component {
 
     render() {
         return (
-            <AppBar position="static" style={{ background: '#063A4C' }}>
-                <Toolbar>
-                    <Typography variant='h5' style={{ fontWeight: 'bold', color: '#9BE8FF' }} >
+            <AppBar className='navbar' position="fixed" style={{ background: '#063A4C', borderBottom: 'solid thin #009ECE', borderTop: 'solid thin #009ECE' }}>
+                <Toolbar variant="dense" style={{ maxHeight: '1.2rem' }}>
+                    <p className='name' style={{ color: '#9BE8FF' }} >
                         Welcome {UserStore.username}
-                    </Typography>
+                    </p>
                     <Container disableGutters>
                         <div style={{ float: 'right', color: '#9BE8FF' }}>
                             <button className='btnNav' onClick={this.props.renderDashboard} style={{ backgroundColor: this.props.selectedPage === 'dashboard' ? '#009ECE' : null }}>
@@ -45,7 +44,7 @@ class NavigationBar extends React.Component {
                             <button className='btnNav' onClick={this.props.renderWelcome} style={{ backgroundColor: this.props.selectedPage === 'welcome' ? '#009ECE' : null }} >
                                 About
                             </button>
-                            <button className='btnNav' data-testid={'logOut'} onClick={this.doLogout} style={{ marginLeft: '20px' }}>
+                            <button className='btnNav' data-testid={'logOut'} onClick={this.doLogout} style={{ marginLeft: '30px' }}>
                                 Log out
                             </button>
                         </div>
