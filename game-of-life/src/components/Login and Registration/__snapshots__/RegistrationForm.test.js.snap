@@ -13,16 +13,9 @@ exports[`RegistrationForm renders correctly 1`] = `
       }
     }
   >
-    <h5
-      className="MuiTypography-root MuiTypography-h5"
-      style={
-        Object {
-          "fontWeight": "bold",
-        }
-      }
-    >
+    <p>
       Register
-    </h5>
+    </p>
   </div>
   <div
     className="inputField"
@@ -91,7 +84,14 @@ exports[`RegistrationForm renders correctly 1`] = `
         className="btn"
         onClick={[Function]}
       >
-        REGISTER
+        <span
+          className="btn__content"
+        >
+          REGISTER
+        </span>
+        <span
+          className="btn__glitch"
+        />
       </button>
     </div>
   </div>
@@ -100,34 +100,18 @@ exports[`RegistrationForm renders correctly 1`] = `
       Object {
         "display": "flex",
         "marginBottom": "20px",
-        "marginTop": "30px",
       }
     }
   >
-    <h5
-      className="MuiTypography-root MuiTypography-h5"
-      style={
-        Object {
-          "fontWeight": "bold",
-        }
-      }
-    >
+    <p>
       Already have an account?
-    </h5>
-    <div
-      style={
-        Object {
-          "color": "#17c5fa",
-        }
-      }
+    </p>
+    <button
+      className="button"
+      onClick={[Function]}
     >
-      <button
-        className="button"
-        onClick={[Function]}
-      >
-        Log in
-      </button>
-    </div>
+      Log in
+    </button>
   </div>
 </div>
 `;

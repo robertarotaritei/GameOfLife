@@ -2,11 +2,10 @@
 
 exports[`Welcome renders correctly 1`] = `
 <div>
-  <h3
-    className="MuiTypography-root MuiTypography-h3"
+  <p
     style={
       Object {
-        "fontWeight": "bold",
+        "fontSize": "3rem",
         "textAlign": "center",
       }
     }
@@ -19,10 +18,20 @@ exports[`Welcome renders correctly 1`] = `
         }
       }
     >
-       Game of Life
+       Game 
+      <span
+        style={
+          Object {
+            "color": "#9be8ff",
+          }
+        }
+      >
+        of
+      </span>
+       Life
     </span>
     .
-  </h3>
+  </p>
   <div
     style={
       Object {
@@ -42,8 +51,7 @@ exports[`Welcome renders correctly 1`] = `
         }
       }
     />
-    <h6
-      className="MuiTypography-root MuiTypography-h6"
+    <p
       style={
         Object {
           "marginLeft": "20px",
@@ -64,7 +72,7 @@ exports[`Welcome renders correctly 1`] = `
       <br />
            3. All other live cells die in the next generation. 
       <br />
-    </h6>
+    </p>
   </div>
   <div>
     <div
@@ -76,54 +84,24 @@ exports[`Welcome renders correctly 1`] = `
         }
       }
     >
-      <h5
-        className="MuiTypography-root MuiTypography-h5"
-        style={
-          Object {
-            "fontWeight": "bold",
-          }
-        }
-      >
+      <p>
         Click here to
-      </h5>
-      <div
-        style={
-          Object {
-            "color": "#17c5fa",
-          }
-        }
+      </p>
+      <button
+        className="button"
+        onClick={[Function]}
       >
-        <button
-          className="button"
-          onClick={[Function]}
-        >
-          log in
-        </button>
-      </div>
-      <h5
-        className="MuiTypography-root MuiTypography-h5"
-        style={
-          Object {
-            "fontWeight": "bold",
-          }
-        }
-      >
+        log in
+      </button>
+      <p>
         or
-      </h5>
-      <div
-        style={
-          Object {
-            "color": "#17c5fa",
-          }
-        }
+      </p>
+      <button
+        className="button"
+        onClick={[Function]}
       >
-        <button
-          className="button"
-          onClick={[Function]}
-        >
-          create an account
-        </button>
-      </div>
+        create an account
+      </button>
     </div>
   </div>
 </div>

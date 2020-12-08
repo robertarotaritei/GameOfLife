@@ -3,28 +3,34 @@
 exports[`Dashboard renders correctly 1`] = `
 <div>
   <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary navbar mui-fixed MuiPaper-elevation4"
     style={
       Object {
         "background": "#063A4C",
+        "borderBottom": "solid thin #009ECE",
+        "borderTop": "solid thin #009ECE",
       }
     }
   >
     <div
-      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+      className="MuiToolbar-root MuiToolbar-dense MuiToolbar-gutters"
+      style={
+        Object {
+          "maxHeight": "1.2rem",
+        }
+      }
     >
-      <h5
-        className="MuiTypography-root MuiTypography-h5"
+      <p
+        className="name"
         style={
           Object {
             "color": "#9BE8FF",
-            "fontWeight": "bold",
           }
         }
       >
         Welcome 
         
-      </h5>
+      </p>
       <div
         className="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
       >
@@ -75,7 +81,7 @@ exports[`Dashboard renders correctly 1`] = `
             onClick={[Function]}
             style={
               Object {
-                "marginLeft": "20px",
+                "marginLeft": "30px",
               }
             }
           >
@@ -87,6 +93,14 @@ exports[`Dashboard renders correctly 1`] = `
   </header>
   <div
     className="container"
-  />
+  >
+    <div
+      style={
+        Object {
+          "marginTop": "2.5rem",
+        }
+      }
+    />
+  </div>
 </div>
 `;
