@@ -3,6 +3,7 @@
 exports[`Welcome renders correctly 1`] = `
 <div>
   <p
+    className="textAnimationBig"
     style={
       Object {
         "fontSize": "3rem",
@@ -52,6 +53,7 @@ exports[`Welcome renders correctly 1`] = `
       }
     />
     <p
+      className="textAnimationBig"
       style={
         Object {
           "marginLeft": "20px",

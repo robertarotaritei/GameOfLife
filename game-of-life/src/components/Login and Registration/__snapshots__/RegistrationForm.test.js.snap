@@ -2,116 +2,120 @@
 
 exports[`RegistrationForm renders correctly 1`] = `
 <div
-  className="loginForm"
+  className="registrationFormPolly"
 >
   <div
-    style={
-      Object {
-        "color": "#17c5fa",
-        "marginTop": "25px",
-        "textAlign": "center",
-      }
-    }
-  >
-    <p>
-      Register
-    </p>
-  </div>
-  <div
-    className="inputField"
-    style={
-      Object {
-        "marginTop": "30px",
-      }
-    }
-  >
-    <input
-      className="input"
-      onChange={[Function]}
-      placeholder="Username"
-      type="text"
-      value=""
-    />
-  </div>
-  <div
-    className="inputField"
-    style={
-      Object {
-        "marginTop": "30px",
-      }
-    }
-  >
-    <input
-      className="input"
-      onChange={[Function]}
-      placeholder="Password"
-      type="password"
-      value=""
-    />
-  </div>
-  <div
-    className="inputField"
-    style={
-      Object {
-        "marginTop": "30px",
-      }
-    }
-  >
-    <input
-      className="input"
-      onChange={[Function]}
-      placeholder="Repeat Password"
-      type="password"
-      value=""
-    />
-  </div>
-  <div
-    style={
-      Object {
-        "textAlign": "center",
-      }
-    }
+    className="loginForm"
   >
     <div
-      className="submitButton"
       style={
         Object {
-          "marginTop": "10px",
+          "color": "#17c5fa",
+          "marginTop": "25px",
+          "textAlign": "center",
         }
       }
     >
+      <p>
+        Register
+      </p>
+    </div>
+    <div
+      className="inputPolly"
+      style={
+        Object {
+          "marginTop": "30px",
+        }
+      }
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Username"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="inputPolly"
+      style={
+        Object {
+          "marginTop": "30px",
+        }
+      }
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      className="inputPolly"
+      style={
+        Object {
+          "marginTop": "30px",
+        }
+      }
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Repeat Password"
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        className="submitButton"
+        style={
+          Object {
+            "marginTop": "10px",
+          }
+        }
+      >
+        <button
+          className="btn"
+          onClick={[Function]}
+        >
+          <span
+            className="btn__content"
+          >
+            REGISTER
+          </span>
+          <span
+            className="btn__glitch"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "marginBottom": "30px",
+          "marginTop": "20px",
+        }
+      }
+    >
+      <p
+        className="textAnimationBig"
+      >
+        Already have an account?
+      </p>
       <button
-        className="btn"
+        className="button"
         onClick={[Function]}
       >
-        <span
-          className="btn__content"
-        >
-          REGISTER
-        </span>
-        <span
-          className="btn__glitch"
-        />
+        Log in
       </button>
     </div>
-  </div>
-  <div
-    style={
-      Object {
-        "display": "flex",
-        "marginBottom": "20px",
-      }
-    }
-  >
-    <p>
-      Already have an account?
-    </p>
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Log in
-    </button>
   </div>
 </div>
 `;

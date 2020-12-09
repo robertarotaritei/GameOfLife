@@ -30,27 +30,88 @@ body, html, #root, .app {
  background-color: #021A22;
  box-sizing: border-box;
  width: 100%;
+ position: absolute;
  max-width: 430px;
+ top: 2px;
+ left: 2px;
  padding-left: 20px;
  padding-right: 20px;
- border-style: solid;
- border-color: #009ece;
  clip-path: polygon(94% 0, 100% 15%, 100% 100%, 4% 100%, 0% 90%, 0 0);
+ animation: fadeIn 0.5s ease;
 }
 
-.input {
+@keyframes fadeIn{
+  0%{background-color: #000F14;}
+  50%{background-color: #036C8D;}
+  100%{background-color: #021A22;}
+}
+
+.loginFormPolly {
+  position: relative;
+  width: 434px;
+  height: 394px;
+  background-color: #009ece;
+  box-sizing: border-box;
+  clip-path: polygon(94% 0, 100% 15%, 100% 100%, 4% 100%, 0% 90%, 0 0);
+ }
+
+ .registrationFormPolly {
+  position: relative;
+  width: 434px;
+  height: 478px;
+  background-color: #009ece;
+  box-sizing: border-box;
+  clip-path: polygon(94% 0, 100% 15%, 100% 100%, 4% 100%, 0% 90%, 0 0);
+ }
+
+input {
  font-family: 'Tomorrow', sans-serif;
  background-color: #000F14;
  box-sizing: border-box;
- border: solid 2px #009ece;
+ position: absolute;
+ border: transparent;
  color: #17c5fa;
- width: 100%;
+ top: 2px;
+ left: 2px;
+ width: 380px;
+  height: 50px;
  padding: 12px;
  font-size: 18px;
  clip-path: polygon(92% 0, 100% 25%, 100% 100%, 0% 100%, 0% 25%, 5% 0%);
 }
 
-.input:active {
+.inputPolly {
+  position: relative;
+  width: 384px;
+  height: 54px;
+  background-color: #17c5fa;
+  box-sizing: border-box;
+  clip-path: polygon(92% 0, 100% 25%, 100% 100%, 0% 100%, 0% 25%, 5% 0%);
+ }
+
+.btn::before {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  bottom: -14px;
+  left: -13px;
+  background-color: #063A4C;
+  border-top: 2px solid #17c5fa;;
+  transform: rotate(45deg);
+}
+
+.btn::after {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: -14px;
+  right: -13px;
+  background-color: #063A4C;
+  border-bottom: 2px solid #17c5fa;
+  transform: rotate(45deg);
+}
+
+input:active {
   animation: InputBackground 0.5s ease;
  }
 
@@ -97,6 +158,8 @@ background-color: #000F14;
   position: absolute;
   bottom: -14px;
   left: -13px;
+  background-color: #063A4C;
+  border-top: 2px solid #17c5fa;;
   transform: rotate(45deg);
 }
 
@@ -107,6 +170,8 @@ background-color: #000F14;
   position: absolute;
   top: -14px;
   right: -13px;
+  background-color: #063A4C;
+  border-bottom: 2px solid #17c5fa;
   transform: rotate(45deg);
 }
 
@@ -123,12 +188,50 @@ background-color: #000F14;
   font-family: 'Tomorrow', sans-serif;
   border: solid 2px transparent;
   border-radius: 5%;
+  white-space: nowrap;
 }
 
 p {
   font-size: 1.5rem;
   background: transparent;
   font-family: 'Tomorrow', sans-serif;
+  animation: fade 1s normal;
+}
+
+@keyframes fade{
+  0%{color: #000F14;}
+  50%{color: #9BE8FF;}
+  100%{color: inherit;}
+}
+
+.textAnimationBig {
+  font-size: 1.5rem;
+  background: transparent;
+  font-family: 'Tomorrow', sans-serif;
+  margin: auto;
+  white-space: nowrap;
+  overflow: hidden;   
+  animation: animated-text 0.9s steps(30,end);
+}
+
+.textAnimationSmall {
+  font-size: 1.5rem;
+  background: transparent;
+  font-family: 'Tomorrow', sans-serif;
+  margin: auto;
+  white-space: nowrap;
+  overflow: hidden;   
+  animation: animated-text 0.8s steps(30,end);
+}
+
+
+@keyframes animated-text{
+  0%{width: 0%; border-right: solid 2px #17c5fa;}
+
+  65%{border-right: solid 2px #17c5fa;}
+  66%{border-right: none;}
+
+  100%{width: 70%;}
 }
  
 .button:hover {
@@ -170,7 +273,13 @@ p {
 }
  
 .btnIcon:hover {
-   background: #009ECE;
+   animation: fadeIcon 1.5s linear infinite;
+}
+
+@keyframes fadeIcon{
+  0%{background: #063A4C;}
+  50%{background: #036C8D;}
+  100%{background:  #063A4C;}
 }
 
 .btnNav:focus, .btn:focus, .button:focus, .btnIcon:focus{

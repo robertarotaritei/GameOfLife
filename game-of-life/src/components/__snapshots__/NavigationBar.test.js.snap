@@ -20,7 +20,6 @@ exports[`NavigationBar renders correctly 1`] = `
     }
   >
     <p
-      className="name"
       style={
         Object {
           "color": "#9BE8FF",

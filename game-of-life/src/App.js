@@ -42,7 +42,7 @@ class App extends React.Component {
       return (
           <div className="app">
             <div className='container'>
-              <p style={{ fontSize: '3rem', textAlign: 'center' }}>
+              <p className='textAnimationBig' style={{ fontSize: '3rem', textAlign: 'center' }}>
                 Loading, please wait...
             </p>
             </div>

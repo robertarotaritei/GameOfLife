@@ -4,9 +4,8 @@ class InputField extends React.Component {
 
   render() {
     return (
-      <div className="inputField" style={{ marginTop: '30px' }}>
+      <div className='inputPolly' style={{ marginTop: '30px' }}>
         <input
-          className='input'
           type={this.props.type}
           placeholder={this.props.placeholder}
           value={this.props.value}

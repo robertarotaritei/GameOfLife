@@ -11,9 +11,9 @@ exports[`HistoryList renders correctly 1`] = `
   >
     <div>
       <div>
-        <h3>
+        <p>
           's Game
-        </h3>
+        </p>
         <div>
           <div
             className="btn-toolbar"

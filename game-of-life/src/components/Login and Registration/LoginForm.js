@@ -88,40 +88,42 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="loginForm">
-        <div style={{ textAlign: 'center', color: '#17c5fa', marginTop: '25px' }}>
-          <p>
-            Log in
+      <div className="loginFormPolly">
+        <div className="loginForm">
+          <div style={{ textAlign: 'center', color: '#17c5fa', marginTop: '25px' }}>
+            <p>
+              Log in
           </p>
-        </div>
-        <InputField
-          className='username'
-          type='text'
-          placeholder='Username'
-          value={this.state.username ? this.state.username : ''}
-          onChange={(val) => this.setInputValue('username', val)}
-        />
-        <InputField
-          className='password'
-          type='password'
-          placeholder='Password'
-          value={this.state.password ? this.state.password : ''}
-          onChange={(val) => this.setInputValue('password', val)}
-        />
-        <div style={{ textAlign: 'center' }}>
-          <SubmitButton
-            text='LOG IN'
-            onClick={() => this.doLogin()}
+          </div>
+          <InputField
+            className='username'
+            type='text'
+            placeholder='Username'
+            value={this.state.username ? this.state.username : ''}
+            onChange={(val) => this.setInputValue('username', val)}
           />
-        </div>
-        {this.renderRedirect()}
-        <div style={{ display: 'flex', marginBottom: '20px' }}>
-          <p>
-            Don't have an account?
+          <InputField
+            className='password'
+            type='password'
+            placeholder='Password'
+            value={this.state.password ? this.state.password : ''}
+            onChange={(val) => this.setInputValue('password', val)}
+          />
+          <div style={{ textAlign: 'center' }}>
+            <SubmitButton
+              text='LOG IN'
+              onClick={() => this.doLogin()}
+            />
+          </div>
+          {this.renderRedirect()}
+          <div style={{ display: 'flex', marginBottom: '30px', marginTop: '20px' }}>
+            <p className="textAnimationSmall">
+              Don't have an account?
           </p>
-          <button className='button' onClick={this.setRedirectLogin}>
-            Register
+            <button className='button' onClick={this.setRedirectLogin}>
+              Register
           </button>
+          </div>
         </div>
       </div>
     );

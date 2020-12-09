@@ -30,7 +30,7 @@ class NavigationBar extends React.Component {
         return (
             <AppBar className='navbar' position="fixed" style={{ background: '#063A4C', borderBottom: 'solid thin #009ECE', borderTop: 'solid thin #009ECE' }}>
                 <Toolbar variant="dense" style={{ maxHeight: '1.2rem' }}>
-                    <p className='name' style={{ color: '#9BE8FF' }} >
+                    <p style={{ color: '#9BE8FF' }} >
                         Welcome {UserStore.username}
                     </p>
                     <Container disableGutters>

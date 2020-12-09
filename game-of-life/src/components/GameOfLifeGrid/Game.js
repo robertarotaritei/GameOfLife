@@ -256,7 +256,7 @@ class Game extends React.Component {
 					<div>
 						{this.props.game ? (
 							<div>
-								<h3>{this.props.game.author}'s Game</h3>
+								<p>{this.props.game.author}'s Game</p>
 								<GameMenu
 									playState={this.state.playState}
 									playButton={this.playButton}
