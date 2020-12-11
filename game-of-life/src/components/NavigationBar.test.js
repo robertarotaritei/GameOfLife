@@ -4,12 +4,6 @@ import NavigationBar from './NavigationBar';
 import renderer from 'react-test-renderer';
 import { shallow } from "enzyme";
 
-it('NavigationBar clicks', () => {
-  const {getByTestId} = render(<NavigationBar />);
-  let button = getByTestId('logOut');
-  fireEvent.click(button);
-});
-
 test("NavigationBar renders without crashing", () => {
   shallow(<NavigationBar />);
 });
@@ -21,8 +15,8 @@ it('NavigationBar renders correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Render NavigationBar Log out Button', () => {
+test('Render NavigationBar Log in Button', () => {
   const { getByText } = render(<NavigationBar />);
-  const linkElement = getByText(/Log out/i);
+  const linkElement = getByText(/Log in/i);
   expect(linkElement).toBeInTheDocument();
 });

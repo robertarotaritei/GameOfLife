@@ -6,8 +6,6 @@ exports[`NavigationBar renders correctly 1`] = `
   style={
     Object {
       "background": "#063A4C",
-      "borderBottom": "solid thin #009ECE",
-      "borderTop": "solid thin #009ECE",
     }
   }
 >
@@ -15,27 +13,31 @@ exports[`NavigationBar renders correctly 1`] = `
     className="MuiToolbar-root MuiToolbar-dense MuiToolbar-gutters"
     style={
       Object {
-        "maxHeight": "1.2rem",
+        "maxHeight": "2rem",
       }
     }
   >
-    <p
-      style={
-        Object {
-          "color": "#9BE8FF",
-        }
-      }
+    <div
+      className="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
     >
-      Welcome 
-      
-    </p>
+      <p
+        style={
+          Object {
+            "color": "#9BE8FF",
+            "marginLeft": "6em",
+          }
+        }
+      >
+        Welcome 
+        
+      </p>
+    </div>
     <div
       className="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
     >
       <div
         style={
           Object {
-            "color": "#9BE8FF",
             "float": "right",
           }
         }
@@ -49,6 +51,9 @@ exports[`NavigationBar renders correctly 1`] = `
           }
         >
           Dashboard
+          <span
+            className="btnNav__glitch"
+          />
         </button>
         <button
           className="btnNav"
@@ -59,6 +64,9 @@ exports[`NavigationBar renders correctly 1`] = `
           }
         >
           Game History
+          <span
+            className="btnNav__glitch"
+          />
         </button>
         <button
           className="btnNav"
@@ -69,18 +77,25 @@ exports[`NavigationBar renders correctly 1`] = `
           }
         >
           About
+          <span
+            className="btnNav__glitch"
+          />
         </button>
         <button
           className="btnNav"
-          data-testid="logOut"
+          data-testid="logIn"
           onClick={[Function]}
           style={
             Object {
-              "marginLeft": "30px",
+              "marginLeft": "1.5em",
+              "marginRight": "6em",
             }
           }
         >
-          Log out
+          Log in
+          <span
+            className="btnNav__glitch"
+          />
         </button>
       </div>
     </div>

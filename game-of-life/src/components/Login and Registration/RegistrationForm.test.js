@@ -40,12 +40,6 @@ test('Render RegistrationForm Text', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test('Render RegistrationForm Log in Button', () => {
-  const { getByText } = render(<RegistrationForm />);
-  const linkElement = getByText(/Log in/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
 it('RegistrationForm renders correctly', () => {
   const tree = renderer
     .create(<RegistrationForm />)

@@ -2,104 +2,138 @@
 
 exports[`LoginForm renders correctly 1`] = `
 <div
-  className="loginFormPolly"
+  className="container"
 >
   <div
-    className="loginForm"
+    className="loginFormPolly"
   >
     <div
-      style={
-        Object {
-          "color": "#17c5fa",
-          "marginTop": "25px",
-          "textAlign": "center",
-        }
-      }
-    >
-      <p>
-        Log in
-      </p>
-    </div>
-    <div
-      className="inputPolly"
-      style={
-        Object {
-          "marginTop": "30px",
-        }
-      }
-    >
-      <input
-        onChange={[Function]}
-        placeholder="Username"
-        type="text"
-        value=""
-      />
-    </div>
-    <div
-      className="inputPolly"
-      style={
-        Object {
-          "marginTop": "30px",
-        }
-      }
-    >
-      <input
-        onChange={[Function]}
-        placeholder="Password"
-        type="password"
-        value=""
-      />
-    </div>
-    <div
-      style={
-        Object {
-          "textAlign": "center",
-        }
-      }
+      className="loginForm"
     >
       <div
-        className="submitButton"
         style={
           Object {
-            "marginTop": "10px",
+            "color": "#17c5fa",
+            "marginTop": "25px",
+            "textAlign": "center",
           }
         }
       >
+        <p>
+          Log in
+        </p>
+      </div>
+      <div
+        className="inputPolly"
+        style={
+          Object {
+            "marginTop": "30px",
+          }
+        }
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="inputPolly"
+        style={
+          Object {
+            "marginTop": "30px",
+          }
+        }
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        style={
+          Object {
+            "textAlign": "center",
+          }
+        }
+      >
+        <div
+          className="submitButton"
+          style={
+            Object {
+              "marginTop": "10px",
+            }
+          }
+        >
+          <button
+            className="btn"
+            onClick={[Function]}
+          >
+            <span
+              className="btn__content"
+            >
+              LOG IN
+            </span>
+            <span
+              className="btn__glitch"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "marginBottom": "30px",
+            "marginTop": "30px",
+          }
+        }
+      >
+        <p
+          className="textAnimationSmall"
+        >
+          Don't have an account?
+        </p>
         <button
-          className="btn"
+          className="button"
           onClick={[Function]}
         >
-          <span
-            className="btn__content"
-          >
-            LOG IN
-          </span>
-          <span
-            className="btn__glitch"
-          />
+          Register
         </button>
       </div>
-    </div>
-    <div
-      style={
-        Object {
-          "display": "flex",
-          "marginBottom": "30px",
-          "marginTop": "20px",
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "marginBottom": "10px",
+          }
         }
-      }
-    >
-      <p
-        className="textAnimationSmall"
       >
-        Don't have an account?
-      </p>
-      <button
-        className="button"
-        onClick={[Function]}
-      >
-        Register
-      </button>
+        <p
+          className="textAnimationSmall"
+          style={
+            Object {
+              "fontSize": "1.2em",
+            }
+          }
+        >
+          Don't want to log in?
+        </p>
+        <button
+          className="button"
+          onClick={[Function]}
+          style={
+            Object {
+              "fontSize": "1.2em",
+            }
+          }
+        >
+          Go back to the game
+        </button>
+      </div>
     </div>
   </div>
 </div>

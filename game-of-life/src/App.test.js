@@ -7,9 +7,9 @@ test("App renders without crashing", () => {
   shallow(<App />);
 });
 
-test('Welcome Page shows up', () => {
+test('Dashboard shows up', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/Click here ?/i);
+  const linkElement = getByText(/Welcome?/i);
   expect(linkElement).toBeInTheDocument();
 });
 

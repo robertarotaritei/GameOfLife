@@ -49,7 +49,7 @@ body, html, #root, .app {
 .loginFormPolly {
   position: relative;
   width: 434px;
-  height: 394px;
+  height: 444px;
   background-color: #009ece;
   box-sizing: border-box;
   clip-path: polygon(94% 0, 100% 15%, 100% 100%, 4% 100%, 0% 90%, 0 0);
@@ -58,7 +58,7 @@ body, html, #root, .app {
  .registrationFormPolly {
   position: relative;
   width: 434px;
-  height: 478px;
+  height: 528px;
   background-color: #009ece;
   box-sizing: border-box;
   clip-path: polygon(94% 0, 100% 15%, 100% 100%, 4% 100%, 0% 90%, 0 0);
@@ -209,19 +209,32 @@ p {
   background: transparent;
   font-family: 'Tomorrow', sans-serif;
   margin: auto;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;   
   animation: animated-text 0.9s steps(30,end);
 }
 
+.textAnimationSave {
+  align-items: start;
+  font-size: 1rem;
+  background: transparent;
+  font-family: 'Tomorrow', sans-serif;
+  white-space: nowrap;
+  margin: 7px 0;
+  overflow: hidden;
+  animation: animated-text 0.6s steps(30,end);
+}
+
 .textAnimationSmall {
   font-size: 1.5rem;
+  width: 100%;
   background: transparent;
   font-family: 'Tomorrow', sans-serif;
   margin: auto;
   white-space: nowrap;
   overflow: hidden;   
-  animation: animated-text 0.8s steps(30,end);
+  animation: animated-text 0.5s steps(30,end);
 }
 
 
@@ -246,13 +259,32 @@ p {
   cursor: pointer;
   font-family: 'Tomorrow', sans-serif;
   border: solid 2px transparent;
+  border-left: #17C5FA;
   border-radius: 3%;
   clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
 }
 
+
 .btnNav:hover {
   color: #9be8ff;
    background: #009ECE;
+}
+
+.btnNav__glitch {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 110%;
+  background-color: #009ECE;
+  filter: drop-shadow(-2px 3px #9BE8FF) drop-shadow(-1px -3px #17C5FA) drop-shadow(2px 1px #009ECE);
+}
+
+.btnNav:hover .btnNav__glitch,
+.btnNav:focus .btnNav__glitch {
+  display: block;
+  animation: glitch-animation 2s linear 0s infinite;
 }
 
 .btnNav:active {
@@ -266,10 +298,12 @@ p {
   width: 40px;
   margin-right: 4px;
   margin-bottom: 4px;
+  color: #17c5fa;
   background: transparent;
   cursor: pointer;
   border: solid 1px transparent;
   border-radius: 50%;
+  animation: fadeIcon 1.5s ease;
 }
  
 .btnIcon:hover {
@@ -277,9 +311,9 @@ p {
 }
 
 @keyframes fadeIcon{
-  0%{background: #063A4C;}
+  0%{background: #063a4c41;}
   50%{background: #036C8D;}
-  100%{background:  #063A4C;}
+  100%{background:  #063a4c41;}
 }
 
 .btnNav:focus, .btn:focus, .button:focus, .btnIcon:focus{
@@ -632,4 +666,10 @@ background-position: 0% 50%
     clip-path: polygon(0 0, 0 0, 0 0, 0 0);
     opacity: 1;
   }
+}
+
+.navbar {
+  background: #063A4C;
+  border-bottom: solid 2px #009ECE;
+  border-top: solid 2px #009ECE;
 }

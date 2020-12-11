@@ -60,7 +60,7 @@ class Welcome extends React.Component {
                     </p>
                 </div>
                 {this.props.loggedIn === true ? (
-                    null
+                    <div></div>
                 ) : (
                         <div>
                             {this.renderRedirect()}

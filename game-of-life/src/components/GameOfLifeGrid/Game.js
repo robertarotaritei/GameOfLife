@@ -16,6 +16,7 @@ class Game extends React.Component {
 			playState: 'play',
 			reactConnectionId: '',
 			runnerConnectionId: '',
+			saveText: ''
 		}
 	}
 
@@ -90,6 +91,7 @@ class Game extends React.Component {
 			gridFull: gridCopy,
 			nextGeneration: gridCopy
 		});
+		this.setState({saveText: '' });
 	}
 
 	playButton = () => {
@@ -99,17 +101,20 @@ class Game extends React.Component {
 		if (!this.props.game) {
 			sessionStorage.setItem('initialState', JSON.stringify(this.state.gridFull));
 		}
+		this.setState({saveText: '' });
 	}
 
 	resumeButton = () => {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
 		this.setState({ playState: "pause" });
+		this.setState({saveText: '' });
 	}
 
 	pauseButton = () => {
 		clearInterval(this.intervalId);
 		this.setState({ playState: "resume" });
+		this.setState({saveText: '' });
 	}
 
 	stopButton = () => {
@@ -127,6 +132,7 @@ class Game extends React.Component {
 			});
 		}
 		this.setState({ playState: "play" });
+		this.setState({saveText: '' });
 	}
 
 	slow = () => { this.speed = 750; this.resumeButton(); }
@@ -142,25 +148,31 @@ class Game extends React.Component {
 		});
 		clearInterval(this.intervalId);
 		this.setState({ playState: "play" });
+		this.setState({saveText: '' });
 	}
 
 	save = () => {
-		let game = {
-			author: UserStore.username,
-			initialState: sessionStorage.getItem('initialState'),
-			token: sessionStorage.getItem('key')
-		};
-		fetch('/history/gamehistory', {
-			method: 'POST',
-			mode: 'cors',
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(game)
-		}).catch(console.log)
+		if (this.props.loggedIn) {
+			let game = {
+				author: UserStore.username,
+				initialState: sessionStorage.getItem('initialState'),
+				token: sessionStorage.getItem('key')
+			};
+			fetch('/history/gamehistory', {
+				method: 'POST',
+				mode: 'cors',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(game)
+			}).catch(console.log)
 
-		alert('Your game has been saved.');
+			this.setState({saveText: 'Your game has been saved' });
+		}
+		else{
+			this.setState({saveText: 'Log in to save games' });
+		}
 	}
 
 	play = () => {
@@ -285,6 +297,8 @@ class Game extends React.Component {
 									seed={this.seed}
 									save={this.save}
 									history={this.props.history}
+									loggedIn={this.props.loggedIn}
+									saveText={this.state.saveText}
 								/>
 								{this.mapGrid()}
 							</div>
