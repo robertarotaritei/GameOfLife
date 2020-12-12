@@ -85,7 +85,9 @@ class GameMenu extends React.Component {
 							</button>
 						)
 					}
-				{this.props.saveText !== '' ? <div><p className='textAnimationSave' style={{paddingBottom: '10px', color: !this.props.loggedIn ? 'red' : null}}>{this.props.saveText}</p></div> : null}
+				{this.props.saveText !== '' ? <div><p className='textAnimationSave' style={{paddingBottom: '10px', color: !this.props.loggedIn ? 'red' : null}}>&nbsp;&nbsp;{this.props.saveText}</p></div> : null}
+
+				{this.props.gameInformation !== '' ? <div><p className='textAnimationSave' style={{paddingBottom: '10px'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.gameInformation}</p></div> : null}
 			</div>
 		)
 	}

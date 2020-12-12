@@ -13,10 +13,11 @@ namespace GameRunner
             var hubConnector = new HubConnector(baseUrl);
 
             hubConnector.OnClosed();
-            hubConnector.Connection.On<GameState>("GameInitiated", (currentState) => { hubConnector.CalculateNextState(currentState); });
+            hubConnector.Connection.On<GameState>("GameInitiated", (currentState) => { hubConnector.CalculateGameType(currentState); });
             try
             {
                 hubConnector.Connection.StartAsync();
+                Console.WriteLine("Attempting start-up");
             }
             catch (Exception ex)
             {

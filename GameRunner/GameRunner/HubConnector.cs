@@ -24,18 +24,21 @@ namespace GameRunner
         {
             Connection.Closed += async (error) =>
             {
+                Console.WriteLine("Connection lost");
                 await Task.Delay(new Random().Next(0, 5) * 1000);
                 await Connection.StartAsync();
             };
         }
 
-        public GameState CalculateNextState(GameState currentState)
+        public GameInfo CalculateGameType(GameState currentState)
         {
             Console.WriteLine("GameState Received");
-            var nextState = Calculator.CalculateNextState(currentState);
-            Client.UpdateGame(nextState);
+            var gameInfo = new GameInfo();
+            gameInfo.Info = Calculator.CalculateGameType(currentState.Generation);
+            gameInfo.ReactConnectionId = currentState.ReactConnectionId;
+            Client.UpdateGame(gameInfo);
             Console.WriteLine("GameState Sent");
-            return nextState;
+            return gameInfo;
         }
     }
 }

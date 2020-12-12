@@ -27,10 +27,10 @@ namespace GameRunner
             HttpClient.DefaultRequestHeaders.Accept.Add(media);
         }
 
-        public Task<HttpResponseMessage> UpdateGame(GameState gameState)
+        public Task<HttpResponseMessage> UpdateGame(GameInfo gameInfo)
         {
             var action = "games/activegames/update";
-            var content = new StringContent(JsonSerializer.Serialize(gameState), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonSerializer.Serialize(gameInfo), Encoding.UTF8, "application/json");
             return HttpClient.PostAsync(action, content);
         }
     }

@@ -25,10 +25,13 @@ namespace GameRunnerTests
             //Arrange
             var url = "http://localhost:3000";
             var client = new Client(url);
-            var gameState = new GameState();
+            var gameInfo = new GameInfo()
+            {
+                Info = "Empty game"
+            };
 
             //Act
-            var result = client.UpdateGame(gameState);
+            var result = client.UpdateGame(gameInfo);
 
             //Assert
             Assert.AreEqual(result.Status, System.Threading.Tasks.TaskStatus.WaitingForActivation);

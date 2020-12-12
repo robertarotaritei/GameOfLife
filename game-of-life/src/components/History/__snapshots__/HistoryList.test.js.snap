@@ -80,7 +80,9 @@ exports[`HistoryList renders correctly 1`] = `
                   "paddingBottom": "10px",
                 }
               }
-            />
+            >
+                
+            </p>
           </div>
         </div>
         <div

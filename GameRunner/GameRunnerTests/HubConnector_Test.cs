@@ -76,10 +76,10 @@ namespace GameRunnerTests
             expectedState.Generation[2] = new bool[] { false, false, false };
 
             //Act
-            var result = hubConnector.CalculateNextState(initialState);
+            var result = hubConnector.CalculateGameType(initialState);
 
             //Assert
-            Assert.AreEqual(result.ToString(), expectedState.ToString());
+            Assert.AreEqual("Game ended after 1 generations.", result.Info);
         }
     }
 }

@@ -103,7 +103,21 @@ exports[`GameMenu renders correctly 1`] = `
           "paddingBottom": "10px",
         }
       }
-    />
+    >
+        
+    </p>
+  </div>
+  <div>
+    <p
+      className="textAnimationSave"
+      style={
+        Object {
+          "paddingBottom": "10px",
+        }
+      }
+    >
+           
+    </p>
   </div>
 </div>
 `;

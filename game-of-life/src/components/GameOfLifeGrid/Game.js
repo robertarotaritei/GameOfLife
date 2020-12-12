@@ -6,17 +6,17 @@ import UserStore from '../../stores/UserStore';
 class Game extends React.Component {
 	constructor() {
 		super();
-		this.speed = 750;
+		this.speed = 1200;
 		this.cols = 80;
 		this.rows = 40;
 		this.state = {
 			gridFull: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
-			nextGeneration: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
 			click: false,
 			playState: 'play',
 			reactConnectionId: '',
 			runnerConnectionId: '',
-			saveText: ''
+			saveText: '',
+			gameInformation: ''
 		}
 	}
 
@@ -27,14 +27,15 @@ class Game extends React.Component {
 			this.ConnectToHub();
 
 			if (this.props.game) {
-				this.setState({
-					gridFull: JSON.parse(this.props.game.initialState),
-					nextGeneration: JSON.parse(this.props.game.initialState)
-				});
+				this.setState({gridFull: JSON.parse(this.props.game.initialState)});
 			}
 		}
 
 		return () => mounted = false;
+	}
+
+	arrayClone(arr) {
+		return JSON.parse(JSON.stringify(arr));
 	}
 
 	ConnectToHub() {
@@ -50,12 +51,9 @@ class Game extends React.Component {
 				.then(() => this.getConnectionId(hubConnection))
 				.catch(err => console.log('Error while establishing connection :('));
 
-			this.state.hubConnection.on('GameProgressed', (gameState) => {
+			this.state.hubConnection.on('GameInfoSent', (info) => {
 				if (this.intervalId) {
-					this.setState({
-						nextGeneration: gameState.generation,
-						runnerConnectionId: gameState.reactConnectionId
-					});
+					this.setState({	gameInformation: info});
 				}
 			});
 		});
@@ -87,20 +85,32 @@ class Game extends React.Component {
 				}
 			}
 		}
-		this.setState({
-			gridFull: gridCopy,
-			nextGeneration: gridCopy
-		});
+		this.setState({gridFull: gridCopy});
 		this.setState({saveText: '' });
 	}
 
 	playButton = () => {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
+		let gameState = {
+			runnerConnectionId: this.state.runnerConnectionId,
+			reactConnectionId: this.state.reactConnectionId,
+			generation: this.state.gridFull
+		};
+		fetch('/games/activegames', {
+			method: 'POST',
+			mode: 'cors',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(gameState)
+		}).catch(console.log)
 		this.setState({ playState: "pause" });
 		if (!this.props.game) {
 			sessionStorage.setItem('initialState', JSON.stringify(this.state.gridFull));
 		}
+
 		this.setState({saveText: '' });
 	}
 
@@ -120,32 +130,22 @@ class Game extends React.Component {
 	stopButton = () => {
 		clearInterval(this.intervalId);
 		if (this.props.game) {
-			this.setState({
-				gridFull: JSON.parse(this.props.game.initialState),
-				nextGeneration: JSON.parse(this.props.game.initialState)
-			});
+			this.setState({gridFull: JSON.parse(this.props.game.initialState)});
 		}
 		else {
-			this.setState({
-				gridFull: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
-				nextGeneration: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false))
-			});
+			this.setState({gridFull: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false))});
 		}
 		this.setState({ playState: "play" });
 		this.setState({saveText: '' });
 	}
 
-	slow = () => { this.speed = 750; this.resumeButton(); }
+	slow = () => { this.speed = 1200; this.resumeButton(); }
 
-	fast = () => { this.speed = 400; this.resumeButton(); }
+	fast = () => { this.speed = 700; this.resumeButton(); }
 
 	clear = () => {
 		var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
-		this.setState({
-			nextGeneration: grid,
-			gridFull: grid,
-			generation: 0
-		});
+		this.setState({gridFull: grid});
 		clearInterval(this.intervalId);
 		this.setState({ playState: "play" });
 		this.setState({saveText: '' });
@@ -168,51 +168,55 @@ class Game extends React.Component {
 				body: JSON.stringify(game)
 			}).catch(console.log)
 
-			this.setState({saveText: 'Your game has been saved' });
+			this.setState({saveText: 'Your game has been saved.' });
 		}
 		else{
-			this.setState({saveText: 'Log in to save games' });
+			this.setState({saveText: 'Log in to save games. ' });
 		}
 	}
 
 	play = () => {
-		let gameState = {
-			runnerConnectionId: this.state.runnerConnectionId,
-			reactConnectionId: this.state.reactConnectionId,
-			generation: this.state.gridFull
-		};
-		fetch('/games/activegames', {
-			method: 'POST',
-			mode: 'cors',
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(gameState)
-		}).catch(console.log)
-
-		if (this.state.gridFull !== this.state.nextGeneration) {
-			this.setState({ gridFull: this.state.nextGeneration });
-		}
+		this.calculateNextGen();
 	}
 
-	colorBasedOnNeighbors(i, k) {
+	calculateNextGen() {
+		let nextGeneration = this.arrayClone(this.state.gridFull);
+		for(let i = 0; i < this.rows; i++){
+			for(let j = 0; j < this.cols; j++){
+				let neighbors = this.calculateNeighbors(i, j);
+				nextGeneration[i][j] = neighbors === 3 || nextGeneration[i][j];
+				nextGeneration[i][j] = neighbors >= 2 && neighbors <= 3 && nextGeneration[i][j];
+			}
+		}
+
+		this.setState({ gridFull: nextGeneration });
+	}
+
+	calculateNeighbors(i, k) {
 		let neighbors = 0;
+		let grid = this.state.gridFull;
+
 		if (i > 0) {
-			neighbors += this.state.gridFull[i - 1][k];
-			neighbors += k > 0 ? this.state.gridFull[i - 1][k - 1] : 0;
-			neighbors += k < this.cols - 1 ? this.state.gridFull[i - 1][k + 1] : 0;
+			neighbors += grid[i - 1][k];
+			neighbors += k > 0 ? grid[i - 1][k - 1] : 0;
+			neighbors += k < this.cols - 1 ? grid[i - 1][k + 1] : 0;
 		}
 
 		if (i < this.rows - 1) {
-			neighbors += this.state.gridFull[i + 1][k];
-			neighbors += k > 0 ? this.state.gridFull[i + 1][k - 1] : 0;
-			neighbors += k < this.cols - 1 ? this.state.gridFull[i + 1][k + 1] : 0;
+			neighbors += grid[i + 1][k];
+			neighbors += k > 0 ? grid[i + 1][k - 1] : 0;
+			neighbors += k < this.cols - 1 ? grid[i + 1][k + 1] : 0;
 		}
 
-		neighbors += k > 0 ? this.state.gridFull[i][k - 1] : 0;
-		neighbors += k < this.cols - 1 ? this.state.gridFull[i][k + 1] : 0;
+		neighbors += k > 0 ? grid[i][k - 1] : 0;
+		neighbors += k < this.cols - 1 ? grid[i][k + 1] : 0;
 
+		return neighbors;
+	}
+
+	colorBasedOnNeighbors(i, k) {
+		let neighbors = this.calculateNeighbors(i, k);
+		
 		if (neighbors < 2) {
 			return '#009ECE';
 		}
@@ -220,6 +224,7 @@ class Game extends React.Component {
 			return '#17C5FA';
 		}
 		return '#9BE8FF';
+
 	}
 
 	mapGrid() {
@@ -235,20 +240,14 @@ class Game extends React.Component {
 								if (!this.props.history) {
 									let g = this.state.gridFull;
 									g[i][k] = !g[i][k];
-									this.setState({
-										gridFull: g,
-										nextGeneration: g
-									})
+									this.setState({gridFull: g})
 								}
 							}}
 							onMouseEnter={() => {
 								if (this.state.click === true) {
 									let g = this.state.gridFull;
 									g[i][k] = !g[i][k];
-									this.setState({
-										gridFull: g,
-										nextGeneration: g
-									})
+									this.setState({gridFull: g})
 								}
 							}}
 							style={{
@@ -277,6 +276,7 @@ class Game extends React.Component {
 									slow={this.slow}
 									fast={this.fast}
 									history={this.props.history}
+									gameInformation={this.state.gameInformation}
 								/>
 								{this.mapGrid()}
 							</div>
@@ -299,6 +299,7 @@ class Game extends React.Component {
 									history={this.props.history}
 									loggedIn={this.props.loggedIn}
 									saveText={this.state.saveText}
+									gameInformation={this.state.gameInformation}
 								/>
 								{this.mapGrid()}
 							</div>
