@@ -50,7 +50,7 @@ exports[`NavigationBar renders correctly 1`] = `
             }
           }
         >
-          Dashboard
+          Playboard
           <span
             className="btnNav__glitch"
           />
@@ -63,7 +63,7 @@ exports[`NavigationBar renders correctly 1`] = `
             }
           }
         >
-          Game History
+          Saved Games
           <span
             className="btnNav__glitch"
           />
