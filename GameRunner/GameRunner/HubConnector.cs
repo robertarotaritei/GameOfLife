@@ -33,9 +33,11 @@ namespace GameRunner
         public GameInfo CalculateGameType(GameState currentState)
         {
             Console.WriteLine("GameState Received");
-            var gameInfo = new GameInfo();
-            gameInfo.Info = Calculator.CalculateGameType(currentState.Generation);
-            gameInfo.ReactConnectionId = currentState.ReactConnectionId;
+            var gameInfo = new GameInfo
+            {
+                Info = Calculator.CalculateGameType(currentState.Generation),
+                ReactConnectionId = currentState.ReactConnectionId
+            };
             Client.UpdateGame(gameInfo);
             Console.WriteLine("GameState Sent");
             return gameInfo;

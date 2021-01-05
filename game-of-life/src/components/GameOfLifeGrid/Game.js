@@ -27,7 +27,7 @@ class Game extends React.Component {
 			this.ConnectToHub();
 
 			if (this.props.game) {
-				this.setState({gridFull: JSON.parse(this.props.game.initialState)});
+				this.setState({ gridFull: JSON.parse(this.props.game.initialState) });
 			}
 		}
 
@@ -52,9 +52,7 @@ class Game extends React.Component {
 				.catch(err => console.log('Error while establishing connection :('));
 
 			this.state.hubConnection.on('GameInfoSent', (info) => {
-				if (this.intervalId) {
-					this.setState({	gameInformation: info});
-				}
+				this.setState({ gameInformation: info });
 			});
 		});
 	}
@@ -85,8 +83,8 @@ class Game extends React.Component {
 				}
 			}
 		}
-		this.setState({gridFull: gridCopy});
-		this.setState({saveText: '' });
+		this.setState({ gridFull: gridCopy });
+		this.setState({ saveText: '' });
 	}
 
 	playButton = () => {
@@ -97,6 +95,7 @@ class Game extends React.Component {
 			reactConnectionId: this.state.reactConnectionId,
 			generation: this.state.gridFull
 		};
+		this.setState({ gameInformation: '' });
 		fetch('/games/activegames', {
 			method: 'POST',
 			mode: 'cors',
@@ -111,32 +110,32 @@ class Game extends React.Component {
 			sessionStorage.setItem('initialState', JSON.stringify(this.state.gridFull));
 		}
 
-		this.setState({saveText: '' });
+		this.setState({ saveText: '' });
 	}
 
 	resumeButton = () => {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(this.play, this.speed);
 		this.setState({ playState: "pause" });
-		this.setState({saveText: '' });
+		this.setState({ saveText: '' });
 	}
 
 	pauseButton = () => {
 		clearInterval(this.intervalId);
 		this.setState({ playState: "resume" });
-		this.setState({saveText: '' });
+		this.setState({ saveText: '' });
 	}
 
 	stopButton = () => {
 		clearInterval(this.intervalId);
 		if (this.props.game) {
-			this.setState({gridFull: JSON.parse(this.props.game.initialState)});
+			this.setState({ gridFull: JSON.parse(this.props.game.initialState) });
 		}
 		else {
-			this.setState({gridFull: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false))});
+			this.setState({ gridFull: sessionStorage.getItem('initialState') !== null ? JSON.parse(sessionStorage.getItem('initialState')) : Array(this.rows).fill().map(() => Array(this.cols).fill(false)) });
 		}
 		this.setState({ playState: "play" });
-		this.setState({saveText: '' });
+		this.setState({ saveText: '' });
 	}
 
 	slow = () => { this.speed = 1200; this.resumeButton(); }
@@ -145,10 +144,10 @@ class Game extends React.Component {
 
 	clear = () => {
 		var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
-		this.setState({gridFull: grid});
+		this.setState({ gridFull: grid });
 		clearInterval(this.intervalId);
 		this.setState({ playState: "play" });
-		this.setState({saveText: '' });
+		this.setState({ saveText: '' });
 	}
 
 	save = () => {
@@ -168,10 +167,10 @@ class Game extends React.Component {
 				body: JSON.stringify(game)
 			}).catch(console.log)
 
-			this.setState({saveText: 'Your game has been saved.' });
+			this.setState({ saveText: 'Your game has been saved.' });
 		}
-		else{
-			this.setState({saveText: 'Log in to save games. ' });
+		else {
+			this.setState({ saveText: 'Log in to save games. ' });
 		}
 	}
 
@@ -181,8 +180,8 @@ class Game extends React.Component {
 
 	calculateNextGen() {
 		let nextGeneration = this.arrayClone(this.state.gridFull);
-		for(let i = 0; i < this.rows; i++){
-			for(let j = 0; j < this.cols; j++){
+		for (let i = 0; i < this.rows; i++) {
+			for (let j = 0; j < this.cols; j++) {
 				let neighbors = this.calculateNeighbors(i, j);
 				nextGeneration[i][j] = neighbors === 3 || nextGeneration[i][j];
 				nextGeneration[i][j] = neighbors >= 2 && neighbors <= 3 && nextGeneration[i][j];
@@ -216,7 +215,7 @@ class Game extends React.Component {
 
 	colorBasedOnNeighbors(i, k) {
 		let neighbors = this.calculateNeighbors(i, k);
-		
+
 		if (neighbors < 2) {
 			return '#009ECE';
 		}
@@ -240,14 +239,14 @@ class Game extends React.Component {
 								if (!this.props.history) {
 									let g = this.state.gridFull;
 									g[i][k] = !g[i][k];
-									this.setState({gridFull: g})
+									this.setState({ gridFull: g })
 								}
 							}}
 							onMouseEnter={() => {
 								if (this.state.click === true) {
 									let g = this.state.gridFull;
 									g[i][k] = !g[i][k];
-									this.setState({gridFull: g})
+									this.setState({ gridFull: g })
 								}
 							}}
 							style={{

@@ -53,11 +53,11 @@ class NavigationBar extends React.Component {
                         <div style={{ float: 'right' }}>
                             {this.renderRedirect()}
                             <button className='btnNav' onClick={this.props.renderDashboard} style={{ backgroundColor: this.props.selectedPage === 'dashboard' ? '#009ECE' : null }}>
-                                Dashboard
+                                Playboard
                             <span className="btnNav__glitch"></span>
                             </button>
                             <button className='btnNav' onClick={this.props.renderGameHistory} style={{ backgroundColor: this.props.selectedPage === 'history' ? '#009ECE' : null }} >
-                                Game History
+                                Saved Games
                             <span className="btnNav__glitch"></span>
                             </button>
                             <button className='btnNav' onClick={this.props.renderWelcome} style={{ backgroundColor: this.props.selectedPage === 'about' ? '#009ECE' : null }} >

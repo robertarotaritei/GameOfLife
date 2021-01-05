@@ -3,7 +3,26 @@ import Game from '../GameOfLifeGrid/Game'
 
 class HistoryList extends React.Component {
 
-    render() {
+    constructor(){
+        super();
+
+        this.state={
+            authors: []
+        }
+    }
+    
+    componentDidMount() {
+        let names = [];
+        this.props.games.map(currentGame => {
+            if(!names.includes(currentGame.author)){
+                names.push(currentGame.author);
+            }
+
+            return true;
+        })
+        this.setState({authors: names});
+    }
+    render() {  
         return (
             <div>
                 {this.props.games.map(currentGame => (
