@@ -40,7 +40,7 @@ class Game extends React.Component {
 
 	ConnectToHub() {
 		const hubConnection = new HubConnectionBuilder()
-			.withUrl('https://activegamesapi.azurewebsites.net/Progress')
+			.withUrl('http://localhost:3002/Progress')
 			.configureLogging(LogLevel.Information)
 			.build();
 
