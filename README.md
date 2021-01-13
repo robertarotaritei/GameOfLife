@@ -31,10 +31,6 @@ Run the command
 
 in the root folder of the project and visit [localhost:80](localhost:80) to see the project.
 
-## Live version (temporary)
-
-Using a CI/CD pipeline, the 4 applications are tested, deployed to Docker, pulled to Microsoft Azure, and hosted on two websites. The React application, User API and Game History API are connected with Docker-compose at [https://gameoflifeapp.azurewebsites.net](https://gameoflifeapp.azurewebsites.net). The Active Games API which uses SignalrR is hosted at [https://activegamesapi.azurewebsites.net](https://activegamesapi.azurewebsites.net).
-
 ## Live version (simplified)
 
 A simplified version of the project is live at [https://robertarotaritei.github.io/game-of-life](https://robertarotaritei.github.io/game-of-life).
